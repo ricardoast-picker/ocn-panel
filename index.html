@@ -29,17 +29,17 @@
     #indicators { display: flex; gap: 5px; align-items: center; }
     .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--border); transition: all .25s; cursor: pointer; }
     .dot.on { background: var(--ocn); width: 20px; border-radius: 3px; }
-    #slide-num { position: fixed; top: 18px; right: 26px; font-size: 11px; color: var(--muted); letter-spacing: .05em; font-weight: 600; z-index: 100; }
+    #slide-num { position: fixed; top: 18px; right: 26px; font-size: 12.5px; color: var(--muted); letter-spacing: .05em; font-weight: 600; z-index: 100; }
     #brand { position: fixed; top: 16px; left: 26px; display: flex; align-items: center; gap: 10px; z-index: 100; }
     #brand img { height: 20px; }
-    #brand span { font-size: 10.5px; font-weight: 600; color: var(--muted); letter-spacing: .04em; }
-    .tag { display: inline-block; font-size: 10px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--ocn); border: 1px solid var(--ocn-mid); background: var(--ocn-dim); padding: 4px 12px; border-radius: 4px; margin-bottom: 12px; }
+    #brand span { font-size: 12px; font-weight: 600; color: var(--muted); letter-spacing: .04em; }
+    .tag { display: inline-block; font-size: 11.5px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--ocn); border: 1px solid var(--ocn-mid); background: var(--ocn-dim); padding: 4px 12px; border-radius: 4px; margin-bottom: 12px; }
     .tag.green { color: var(--green-text); border-color: var(--green-mid); background: var(--green-dim); }
     .tag.amber { color: var(--amber); border-color: hsl(43 100% 45% / .3); background: var(--amber-bg); }
     .tag.red { color: var(--red); border-color: hsl(346 100% 45% / .25); background: var(--red-bg); }
     h1 { font-size: clamp(26px, 3.4vw, 44px); font-weight: 800; line-height: 1.1; }
-    h2 { font-size: clamp(17px, 2.2vw, 28px); font-weight: 800; line-height: 1.15; }
-    .sub { font-size: clamp(11px, 1vw, 13px); color: var(--sub); font-weight: 400; line-height: 1.6; }
+    h2 { font-size: clamp(19px, 2.4vw, 30px); font-weight: 800; line-height: 1.15; }
+    .sub { font-size: clamp(13px, 1.05vw, 15px); color: var(--sub); font-weight: 400; line-height: 1.6; }
     .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 13px 16px; box-shadow: 0 1px 6px hsl(258 35% 16% / .05); }
     .card-ocn { background: var(--ocn-dim); border: 1px solid var(--ocn-mid); border-radius: 12px; padding: 13px 16px; }
     .card-green { background: var(--green-dim); border: 1px solid var(--green-mid); border-radius: 12px; padding: 13px 16px; }
@@ -49,21 +49,21 @@
     .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; width: 100%; }
     .grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 9px; width: 100%; }
     .stat { background: var(--card); border: 1px solid var(--border); border-radius: 11px; padding: 11px 13px; display: flex; flex-direction: column; gap: 2px; }
-    .stat .val { font-size: clamp(15px, 2vw, 25px); font-weight: 800; }
+    .stat .val { font-size: clamp(17px, 2.2vw, 28px); font-weight: 800; }
     .stat .val.g { color: var(--green-text); } .stat .val.v { color: var(--ocn); } .stat .val.a { color: var(--amber); } .stat .val.r { color: var(--red); }
-    .stat .lbl { font-size: 9.5px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .07em; }
-    .stat .desc { font-size: 10px; color: var(--sub); margin-top: 1px; line-height: 1.4; }
-    .pill { display: inline-flex; align-items: center; gap: 6px; font-size: 10.5px; font-weight: 700; padding: 3px 10px; border-radius: 20px; background: var(--ocn-dim); color: var(--ocn); border: 1px solid var(--ocn-mid); }
+    .stat .lbl { font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .07em; }
+    .stat .desc { font-size: 11.5px; color: var(--sub); margin-top: 1px; line-height: 1.4; }
+    .pill { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 20px; background: var(--ocn-dim); color: var(--ocn); border: 1px solid var(--ocn-mid); }
     .pill.g { background: var(--green-dim); color: var(--green-text); border-color: var(--green-mid); }
     .pill.a { background: var(--amber-bg); color: var(--amber); border-color: hsl(43 100% 45% / .3); }
     .pill.r { background: var(--red-bg); color: var(--red); border-color: hsl(346 100% 45% / .25); }
     .content { position: relative; z-index: 1; width: 100%; max-width: 1120px; }
     .row-list { display: flex; flex-direction: column; gap: 6px; }
-    .row-item { display: flex; align-items: flex-start; gap: 8px; font-size: 11.5px; font-weight: 500; color: var(--sub); line-height: 1.45; }
+    .row-item { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; font-weight: 500; color: var(--sub); line-height: 1.45; }
     .row-dot { min-width: 6px; height: 6px; border-radius: 50%; background: var(--ocn); margin-top: 5px; flex-shrink: 0; }
     .row-dot.g { background: var(--green); } .row-dot.a { background: var(--amber); } .row-dot.r { background: var(--red); }
-    .tbl { width: 100%; border-collapse: collapse; font-size: 11px; }
-    .tbl th { padding: 5px 8px; text-align: left; font-size: 9px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; border-bottom: 2px solid var(--border); }
+    .tbl { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+    .tbl th { padding: 5px 8px; text-align: left; font-size: 10.5px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; border-bottom: 2px solid var(--border); }
     .tbl td { padding: 4.5px 8px; border-bottom: 1px solid var(--border); vertical-align: middle; }
     .tbl tr:last-child td { border-bottom: none; }
     .r { text-align: right; }
@@ -72,17 +72,17 @@
     .rd { color: var(--red); font-weight: 700; }
     .v { color: var(--ocn); font-weight: 700; }
     .dim { color: var(--muted); }
-    .fuente { position: absolute; bottom: 14px; left: 60px; right: 290px; font-size: 9px; color: var(--muted); line-height: 1.4; }
+    .fuente { position: absolute; bottom: 14px; left: 60px; right: 290px; font-size: 10.5px; color: var(--muted); line-height: 1.4; }
     .fuente strong { color: var(--sub); }
-    .src { display: inline-block; font-size: 8.5px; font-weight: 700; padding: 1px 6px; border-radius: 3px; margin-right: 4px; text-transform: uppercase; letter-spacing: .05em; vertical-align: 1px; }
+    .src { display: inline-block; font-size: 10px; font-weight: 700; padding: 1px 6px; border-radius: 3px; margin-right: 4px; text-transform: uppercase; letter-spacing: .05em; vertical-align: 1px; }
     .src.data { background: var(--green-dim); color: var(--green-text); }
     .src.sup { background: var(--amber-bg); color: var(--amber); }
     .src.ext { background: var(--ocn-dim); color: var(--ocn); }
-    .bar-row { display: flex; align-items: center; gap: 8px; font-size: 10.5px; }
+    .bar-row { display: flex; align-items: center; gap: 8px; font-size: 12px; }
     .bar-lbl { min-width: 148px; font-weight: 600; color: var(--sub); text-align: right; }
     .bar-track { flex: 1; height: 15px; background: hsl(258 30% 94%); border-radius: 4px; overflow: hidden; }
-    .bar-fill { height: 100%; border-radius: 4px; display: flex; align-items: center; justify-content: flex-end; padding-right: 6px; font-size: 9px; font-weight: 800; color: #fff; min-width: 30px; }
-    .bar-val { min-width: 108px; font-weight: 700; font-size: 10.5px; }
+    .bar-fill { height: 100%; border-radius: 4px; display: flex; align-items: center; justify-content: flex-end; padding-right: 6px; font-size: 10.5px; font-weight: 800; color: #fff; min-width: 30px; }
+    .bar-val { min-width: 108px; font-weight: 700; font-size: 12px; }
   </style>
 </head>
 <body>
@@ -93,32 +93,32 @@
 <div class="slide active">
   <div class="content" style="max-width:1060px;">
     <img src="ocn-logo.svg" alt="OCN" style="height:34px;margin-bottom:34px;" />
-    <p style="font-size:12px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--ocn);margin-bottom:10px;">Objetivo 2026: de 10,000 a 15,000 vehículos · de 500 a 1,000+ entregas/mes</p>
+    <p style="font-size:13.5px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--ocn);margin-bottom:10px;">Objetivo 2026: de 10,000 a 15,000 vehículos · de 500 a 1,000+ entregas/mes</p>
     <h1 style="font-size:clamp(52px,7vw,92px);letter-spacing:-.02em;margin-bottom:14px;">Case Study</h1>
     <p class="sub" style="font-size:14px;max-width:580px;margin-bottom:34px;">Qué dice la data de 117,401 solicitudes (ene–jul 2026), dónde se pierde el funnel y el plan comercial para llegar a 15,000.</p>
     <div style="position:relative;background:linear-gradient(115deg,#3d00ad 0%,#5800F7 62%,#7a35ff 100%);border-radius:20px;padding:30px 36px;display:flex;gap:0;align-items:center;box-shadow:0 14px 40px hsl(261 100% 48% / .25);">
       <div style="display:grid;grid-template-columns:repeat(3,auto);gap:52px;flex:1;">
         <div>
-          <p style="font-size:34px;font-weight:800;color:#fff;line-height:1;">117,401</p>
-          <p style="font-size:10px;font-weight:700;color:hsl(261 100% 88%);text-transform:uppercase;letter-spacing:.09em;margin-top:7px;">Solicitudes recibidas</p>
-          <p style="font-size:10.5px;color:hsl(261 100% 92% / .85);margin-top:3px;">ene – jul 2026 · 17 etapas de funnel</p>
+          <p style="font-size:38px;font-weight:800;color:#fff;line-height:1;">117,401</p>
+          <p style="font-size:11.5px;font-weight:700;color:hsl(261 100% 88%);text-transform:uppercase;letter-spacing:.09em;margin-top:7px;">Solicitudes recibidas</p>
+          <p style="font-size:12px;color:hsl(261 100% 92% / .85);margin-top:3px;">ene – jul 2026 · 17 etapas de funnel</p>
         </div>
         <div>
-          <p style="font-size:34px;font-weight:800;color:#fff;line-height:1;">68%</p>
-          <p style="font-size:10px;font-weight:700;color:hsl(261 100% 88%);text-transform:uppercase;letter-spacing:.09em;margin-top:7px;">Sin primer contacto</p>
-          <p style="font-size:10.5px;color:hsl(261 100% 92% / .85);margin-top:3px;">79,469 solicitudes en pending (validación KYC)</p>
+          <p style="font-size:38px;font-weight:800;color:#fff;line-height:1;">68%</p>
+          <p style="font-size:11.5px;font-weight:700;color:hsl(261 100% 88%);text-transform:uppercase;letter-spacing:.09em;margin-top:7px;">Sin primer contacto</p>
+          <p style="font-size:12px;color:hsl(261 100% 92% / .85);margin-top:3px;">79,469 solicitudes en pending (validación KYC)</p>
         </div>
         <div>
-          <p style="font-size:34px;font-weight:800;color:#fff;line-height:1;">1.77%</p>
-          <p style="font-size:10px;font-weight:700;color:hsl(261 100% 88%);text-transform:uppercase;letter-spacing:.09em;margin-top:7px;">Conversión a entrega</p>
-          <p style="font-size:10.5px;color:hsl(261 100% 92% / .85);margin-top:3px;">2,081 autos entregados</p>
+          <p style="font-size:38px;font-weight:800;color:#fff;line-height:1;">1.77%</p>
+          <p style="font-size:11.5px;font-weight:700;color:hsl(261 100% 88%);text-transform:uppercase;letter-spacing:.09em;margin-top:7px;">Conversión a entrega</p>
+          <p style="font-size:12px;color:hsl(261 100% 92% / .85);margin-top:3px;">2,081 autos entregados</p>
         </div>
       </div>
       <img src="autos.png" alt="" style="width:310px;flex-shrink:0;margin:-58px -10px -34px 0;filter:drop-shadow(0 10px 22px rgb(0 0 0 / .28));" />
     </div>
     <div style="display:flex;justify-content:space-between;align-items:center;margin-top:26px;">
-      <p style="font-size:12.5px;font-weight:700;">Ricardo Astorga <span style="font-weight:500;color:var(--muted);">· Growth Director · Julio 2026</span></p>
-      <p style="font-size:10px;color:var(--muted);">Fuente: gth_applications.csv · 117,401 registros · cada cifra indica su fuente o supuesto</p>
+      <p style="font-size:14px;font-weight:700;">Ricardo Astorga <span style="font-weight:500;color:var(--muted);">· Growth Director · Julio 2026</span></p>
+      <p style="font-size:11.5px;color:var(--muted);">Fuente: gth_applications.csv · 117,401 registros · cada cifra indica su fuente o supuesto</p>
     </div>
   </div>
 </div>
@@ -137,16 +137,16 @@
     </div>
     <div class="grid3">
       <div class="card-red" style="padding:10px 13px;">
-        <p style="font-size:10px;font-weight:800;color:var(--red);margin-bottom:4px;">FUGA 1 — ANTES DE EMPEZAR</p>
-        <p style="font-size:11px;color:var(--sub);line-height:1.5;"><strong>79,469 en pending</strong> (KYC / documentación). Mediana <strong>85 días</strong> parados. Es el inventario de leads más caro de la empresa: ya se pagó por ellos.</p>
+        <p style="font-size:11.5px;font-weight:800;color:var(--red);margin-bottom:4px;">FUGA 1 — ANTES DE EMPEZAR</p>
+        <p style="font-size:12.5px;color:var(--sub);line-height:1.5;"><strong>79,469 en pending</strong> (KYC / documentación). Mediana <strong>85 días</strong> parados. Es el inventario de leads más caro de la empresa: ya se pagó por ellos.</p>
       </div>
       <div class="card-amber" style="padding:10px 13px;">
-        <p style="font-size:10px;font-weight:800;color:var(--amber);margin-bottom:4px;">FUGA 2 — EN LA VENTA</p>
-        <p style="font-size:11px;color:var(--sub);line-height:1.5;">El call center externo (80% de la venta según la operación) convierte <strong>0.32%</strong> de lo que trabaja. El canal interno: <strong>7.0%</strong>. Misma calidad de lead, 22× de diferencia.</p>
+        <p style="font-size:11.5px;font-weight:800;color:var(--amber);margin-bottom:4px;">FUGA 2 — EN LA VENTA</p>
+        <p style="font-size:12.5px;color:var(--sub);line-height:1.5;">El call center externo (80% de la venta según la operación) convierte <strong>0.32%</strong> de lo que trabaja. El canal interno: <strong>7.0%</strong>. Misma calidad de lead, 22× de diferencia.</p>
       </div>
       <div class="card-green" style="padding:10px 13px;">
-        <p style="font-size:10px;font-weight:800;color:var(--green-text);margin-bottom:4px;">LO QUE SÍ FUNCIONA</p>
-        <p style="font-size:11px;color:var(--sub);line-height:1.5;">Del filtro de ingresos a la entrega, el proceso corre: visita agendada en <strong>1 día</strong> (mediana), 29.3% de aprobados termina con auto. El motor del medio está sano.</p>
+        <p style="font-size:11.5px;font-weight:800;color:var(--green-text);margin-bottom:4px;">LO QUE SÍ FUNCIONA</p>
+        <p style="font-size:12.5px;color:var(--sub);line-height:1.5;">Del filtro de ingresos a la entrega, el proceso corre: visita agendada en <strong>1 día</strong> (mediana), 29.3% de aprobados termina con auto. El motor del medio está sano.</p>
       </div>
     </div>
   </div>
@@ -167,7 +167,7 @@
     </div>
     <div class="grid2" style="align-items:start;">
       <div class="card">
-        <p style="font-size:10px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px;">La lógica del ~435 (conservadora)</p>
+        <p style="font-size:11.5px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px;">La lógica del ~435 (conservadora)</p>
         <div class="row-list">
           <div class="row-item"><div class="row-dot"></div><span>10% del pending = <strong>7,947 leads</strong> reactivados con una célula de destrabe KYC.</span></div>
           <div class="row-item"><div class="row-dot"></div><span>Conversión de lead trabajado → entrega hoy: <strong>5.5%</strong> (2,081 / 37,932). El canal interno hace 7.0%.</span></div>
@@ -175,7 +175,7 @@
         </div>
       </div>
       <div class="card-ocn">
-        <p style="font-size:10px;font-weight:800;color:var(--ocn);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px;">Cómo lo destrabo (primeras 4 semanas)</p>
+        <p style="font-size:11.5px;font-weight:800;color:var(--ocn);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px;">Cómo lo destrabo (primeras 4 semanas)</p>
         <div class="row-list">
           <div class="row-item"><div class="row-dot"></div><span><strong>Célula de destrabe:</strong> 2–3 personas dedicadas solo a pending, empezando por los de &lt;30 días (más frescos, mayor contacto).</span></div>
           <div class="row-item"><div class="row-dot"></div><span><strong>Diagnóstico del atorón:</strong> ¿qué documento falta en cada caso? Hoy nadie lo mide. Checklist + recordatorio automatizado (WhatsApp).</span></div>
@@ -201,16 +201,16 @@
     </table>
     <div class="grid3">
       <div class="card-red" style="padding:10px 13px;">
-        <p style="font-size:10px;font-weight:800;color:var(--red);margin-bottom:4px;">NO ES EL LEAD, ES LA EJECUCIÓN</p>
-        <p style="font-size:11px;color:var(--sub);line-height:1.5;">El lead del externo gana casi lo mismo ($6,232 vs $6,540/sem). Mismo material, <strong>22× menos resultado</strong>. Y rechaza menos por ingresos (40% vs 58%): ni siquiera está aplicando bien el filtro.</p>
+        <p style="font-size:11.5px;font-weight:800;color:var(--red);margin-bottom:4px;">NO ES EL LEAD, ES LA EJECUCIÓN</p>
+        <p style="font-size:12.5px;color:var(--sub);line-height:1.5;">El lead del externo gana casi lo mismo ($6,232 vs $6,540/sem). Mismo material, <strong>22× menos resultado</strong>. Y rechaza menos por ingresos (40% vs 58%): ni siquiera está aplicando bien el filtro.</p>
       </div>
       <div class="card-amber" style="padding:10px 13px;">
-        <p style="font-size:10px;font-weight:800;color:var(--amber);margin-bottom:4px;">EL CONTEXTO QUE DIO LA OPERACIÓN</p>
-        <p style="font-size:11px;color:var(--sub);line-height:1.5;">"Desde que Aldo dejó la posición, andan más sueltos." No hay speech estandarizado, ni scorecard por agente, ni nadie encima del proceso. Es un problema de <strong>gestión, no de gente</strong>.</p>
+        <p style="font-size:11.5px;font-weight:800;color:var(--amber);margin-bottom:4px;">EL CONTEXTO QUE DIO LA OPERACIÓN</p>
+        <p style="font-size:12.5px;color:var(--sub);line-height:1.5;">"Desde que Aldo dejó la posición, andan más sueltos." No hay speech estandarizado, ni scorecard por agente, ni nadie encima del proceso. Es un problema de <strong>gestión, no de gente</strong>.</p>
       </div>
       <div class="card-green" style="padding:10px 13px;">
-        <p style="font-size:10px;font-weight:800;color:var(--green-text);margin-bottom:4px;">EL PREMIO</p>
-        <p style="font-size:11px;color:var(--sub);line-height:1.5;">Si el externo llega a solo <strong>la mitad</strong> del desempeño interno (3.5%), sus 12,281 trabajados serían <strong>~430 entregas</strong> en vez de 39. La palanca más grande después del pending.</p>
+        <p style="font-size:11.5px;font-weight:800;color:var(--green-text);margin-bottom:4px;">EL PREMIO</p>
+        <p style="font-size:12.5px;color:var(--sub);line-height:1.5;">Si el externo llega a solo <strong>la mitad</strong> del desempeño interno (3.5%), sus 12,281 trabajados serían <strong>~430 entregas</strong> en vez de 39. La palanca más grande después del pending.</p>
       </div>
     </div>
   </div>
@@ -225,25 +225,25 @@
     <p class="sub" style="margin-bottom:12px;">Ninguna palanca requiere comprar más leads. Las tres atacan ejecución sobre volumen que ya existe:</p>
     <div class="grid3" style="margin-bottom:12px;align-items:stretch;">
       <div class="card" style="border-top:3px solid var(--red);">
-        <p style="font-size:11px;font-weight:800;margin-bottom:2px;">1 · Destrabar el pending</p>
-        <p style="font-size:22px;font-weight:800;color:var(--red);margin-bottom:4px;">+435 <span style="font-size:11px;color:var(--muted);font-weight:600;">autos</span></p>
-        <p style="font-size:10.5px;color:var(--sub);line-height:1.5;">Célula KYC sobre el 10% del pending (7,947 leads × 5.5%). Leads ya pagados → CAC marginal ~$0. Arranca semana 1.</p>
+        <p style="font-size:12.5px;font-weight:800;margin-bottom:2px;">1 · Destrabar el pending</p>
+        <p style="font-size:26px;font-weight:800;color:var(--red);margin-bottom:4px;">+435 <span style="font-size:12.5px;color:var(--muted);font-weight:600;">autos</span></p>
+        <p style="font-size:12px;color:var(--sub);line-height:1.5;">Célula KYC sobre el 10% del pending (7,947 leads × 5.5%). Leads ya pagados → CAC marginal ~$0. Arranca semana 1.</p>
       </div>
       <div class="card" style="border-top:3px solid var(--amber);">
-        <p style="font-size:11px;font-weight:800;margin-bottom:2px;">2 · Disciplina en call center</p>
-        <p style="font-size:22px;font-weight:800;color:var(--amber);margin-bottom:4px;">+390 <span style="font-size:11px;color:var(--muted);font-weight:600;">autos</span></p>
-        <p style="font-size:10.5px;color:var(--sub);line-height:1.5;">Llevar al externo de 0.32% → 3.5% (mitad del interno): speech nuevo, scorecard por agente, supervisión diaria. De 39 a ~430 entregas sobre lo mismo que ya trabaja.</p>
+        <p style="font-size:12.5px;font-weight:800;margin-bottom:2px;">2 · Disciplina en call center</p>
+        <p style="font-size:26px;font-weight:800;color:var(--amber);margin-bottom:4px;">+390 <span style="font-size:12.5px;color:var(--muted);font-weight:600;">autos</span></p>
+        <p style="font-size:12px;color:var(--sub);line-height:1.5;">Llevar al externo de 0.32% → 3.5% (mitad del interno): speech nuevo, scorecard por agente, supervisión diaria. De 39 a ~430 entregas sobre lo mismo que ya trabaja.</p>
       </div>
       <div class="card" style="border-top:3px solid var(--green);">
-        <p style="font-size:11px;font-weight:800;margin-bottom:2px;">3 · Programa de referidos</p>
-        <p style="font-size:22px;font-weight:800;color:var(--green-text);margin-bottom:4px;">4.1× <span style="font-size:11px;color:var(--muted);font-weight:600;">conversión</span></p>
-        <p style="font-size:10.5px;color:var(--sub);line-height:1.5;">Referidos convierten 6.4% vs 1.6% del resto, pero son solo 4.3% del volumen. Programa formal con bono por entrega: duplicar su mix a ~10%.</p>
+        <p style="font-size:12.5px;font-weight:800;margin-bottom:2px;">3 · Programa de referidos</p>
+        <p style="font-size:26px;font-weight:800;color:var(--green-text);margin-bottom:4px;">4.1× <span style="font-size:12.5px;color:var(--muted);font-weight:600;">conversión</span></p>
+        <p style="font-size:12px;color:var(--sub);line-height:1.5;">Referidos convierten 6.4% vs 1.6% del resto, pero son solo 4.3% del volumen. Programa formal con bono por entrega: duplicar su mix a ~10%.</p>
       </div>
     </div>
     <div class="card-ocn" style="display:flex;gap:18px;align-items:center;">
       <div style="flex:1;">
-        <p style="font-size:10px;font-weight:800;color:var(--ocn);text-transform:uppercase;letter-spacing:.07em;margin-bottom:5px;">Y una cuarta palanca silenciosa: geografía</p>
-        <p style="font-size:11px;color:var(--sub);line-height:1.5;">MTY convierte <strong>8.4%</strong> y TIJ <strong>6.6%</strong>, mientras la campaña masiva CDMX/EDOMEX convierte <strong>0.16%</strong> (60,487 leads, 97 autos). Redistribuir presupuesto hacia las plazas que sí convierten es dinero inmediato.</p>
+        <p style="font-size:11.5px;font-weight:800;color:var(--ocn);text-transform:uppercase;letter-spacing:.07em;margin-bottom:5px;">Y una cuarta palanca silenciosa: geografía</p>
+        <p style="font-size:12.5px;color:var(--sub);line-height:1.5;">MTY convierte <strong>8.4%</strong> y TIJ <strong>6.6%</strong>, mientras la campaña masiva CDMX/EDOMEX convierte <strong>0.16%</strong> (60,487 leads, 97 autos). Redistribuir presupuesto hacia las plazas que sí convierten es dinero inmediato.</p>
       </div>
       <div style="display:flex;gap:7px;">
         <span class="pill g">MTY 8.4%</span><span class="pill g">TIJ 6.6%</span><span class="pill a">GDL 3.6%</span><span class="pill r">CDMX/EDOMEX masivo 0.16%</span>
@@ -261,7 +261,7 @@
     <p class="sub" style="margin-bottom:12px;">El speech de hoy vende financiamiento. El speech correcto vende el negocio del conductor — con sus números:</p>
     <div class="grid2" style="margin-bottom:12px;align-items:stretch;">
       <div class="card-red">
-        <p style="font-size:10px;font-weight:800;color:var(--red);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px;">Conductor rentando auto (hoy)</p>
+        <p style="font-size:11.5px;font-weight:800;color:var(--red);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px;">Conductor rentando auto (hoy)</p>
         <div class="row-list">
           <div class="row-item"><div class="row-dot r"></div><span>Neto ~<strong>$2,500/semana</strong> después de renta, gasolina y plataforma.</span></div>
           <div class="row-item"><div class="row-dot r"></div><span>La renta se paga <strong>para siempre</strong> — a los 36 meses no tiene nada.</span></div>
@@ -269,7 +269,7 @@
         </div>
       </div>
       <div class="card-green">
-        <p style="font-size:10px;font-weight:800;color:var(--green-text);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px;">Conductor con OCN</p>
+        <p style="font-size:11.5px;font-weight:800;color:var(--green-text);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px;">Conductor con OCN</p>
         <div class="row-list">
           <div class="row-item"><div class="row-dot g"></div><span>Neto <strong>$3,500–4,000/semana</strong> como dueño-operador (12h × 6 días).</span></div>
           <div class="row-item"><div class="row-dot g"></div><span>Semanalidad desde <strong>$3,450</strong> con seguro y mantenimiento incluidos — y a los 36 meses <strong>el auto es suyo</strong>.</span></div>
@@ -294,7 +294,7 @@
     <p class="sub" style="margin-bottom:12px;">El negocio de OCN no es entregar autos — es <strong>cobrar 156 semanalidades sin mora</strong>. La compensación del equipo debe apuntar a esa métrica norte:</p>
     <div class="grid2" style="margin-bottom:12px;align-items:stretch;">
       <div class="card">
-        <p style="font-size:10px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px;">Estructura hoy (confirmada con la operación)</p>
+        <p style="font-size:11.5px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px;">Estructura hoy (confirmada con la operación)</p>
         <div class="row-list">
           <div class="row-item"><div class="row-dot"></div><span>1 persona en marketing · 2 en referidos (MTY y CDMX).</span></div>
           <div class="row-item"><div class="row-dot"></div><span>Call center: 2 supervisores + agentes → 80% de la venta.</span></div>
@@ -302,7 +302,7 @@
         </div>
       </div>
       <div class="card-ocn">
-        <p style="font-size:10px;font-weight:800;color:var(--ocn);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px;">Propuesta: comisión por hitos 20 / 80</p>
+        <p style="font-size:11.5px;font-weight:800;color:var(--ocn);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px;">Propuesta: comisión por hitos 20 / 80</p>
         <div class="row-list">
           <div class="row-item"><div class="row-dot"></div><span><strong>Hito 1 — Activación (20%):</strong> contrato firmado + primer pago semanal cubierto + conductor rodando en plataforma.</span></div>
           <div class="row-item"><div class="row-dot g"></div><span><strong>Hito 2 — Métrica norte (80%):</strong> el conductor cumple <strong>12 semanas de pago sin mora</strong>. Ahí el contrato ya demostró que deja dinero.</span></div>
@@ -311,7 +311,7 @@
       </div>
     </div>
     <div class="card-green" style="padding:10px 14px;">
-      <p style="font-size:11px;color:var(--sub);line-height:1.55;"><strong style="color:var(--green-text);">Por qué funciona:</strong> este esquema lo opero hoy en Picker (20% a la activación, 80% cuando el cliente llega a su métrica norte de volumen). El efecto es inmediato: el vendedor deja de empujar cierres frágiles y empieza a elegir clientes que van a pagar — la calidad de cartera se vuelve interés propio del equipo, no una policía de riesgo.</p>
+      <p style="font-size:12.5px;color:var(--sub);line-height:1.55;"><strong style="color:var(--green-text);">Por qué funciona:</strong> este esquema lo opero hoy en Picker (20% a la activación, 80% cuando el cliente llega a su métrica norte de volumen). El efecto es inmediato: el vendedor deja de empujar cierres frágiles y empieza a elegir clientes que van a pagar — la calidad de cartera se vuelve interés propio del equipo, no una policía de riesgo.</p>
     </div>
   </div>
   <div class="fuente"><span class="src sup">Supuesto</span>Las 12 semanas del Hito 2 son punto de partida — se calibra con la curva real de mora por cohorte (data que pediría en semana 1). <span class="src data">Data</span>Estructura del equipo: llamada con Sergio Cattaneo, 17-jul-2026.</div>
@@ -325,7 +325,7 @@
     <p class="sub" style="margin-bottom:12px;">Febrero 2026 cerró con <strong>769 entregas</strong>. La caída posterior no fue de demanda (abril fue el mes récord de leads) — fue de ejecución. El modelo para llegar a 1,000:</p>
     <div class="grid2" style="margin-bottom:12px;align-items:stretch;">
       <div class="card">
-        <p style="font-size:10px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px;">La caída, mes a mes (cohortes 2026)</p>
+        <p style="font-size:11.5px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px;">La caída, mes a mes (cohortes 2026)</p>
         <table class="tbl">
           <tr><th>Cohorte</th><th class="r">Leads</th><th class="r">Entregas</th><th class="r">Conv.</th></tr>
           <tr><td>Enero</td><td class="r">15,004</td><td class="r">426</td><td class="r g">2.8%</td></tr>
@@ -333,10 +333,10 @@
           <tr><td>Abril</td><td class="r"><strong>29,202</strong></td><td class="r">282</td><td class="r rd">1.0%</td></tr>
           <tr><td>Junio</td><td class="r">14,514</td><td class="r">63</td><td class="r rd">0.4%</td></tr>
         </table>
-        <p style="font-size:9.5px;color:var(--muted);margin-top:6px;line-height:1.4;">Las cohortes recientes aún maduran, pero con mediana de 85 días en pending el problema no es tiempo — es que nadie las está trabajando.</p>
+        <p style="font-size:11px;color:var(--muted);margin-top:6px;line-height:1.4;">Las cohortes recientes aún maduran, pero con mediana de 85 días en pending el problema no es tiempo — es que nadie las está trabajando.</p>
       </div>
       <div class="card-ocn">
-        <p style="font-size:10px;font-weight:800;color:var(--ocn);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px;">El modelo de capacity (supuestos declarados)</p>
+        <p style="font-size:11.5px;font-weight:800;color:var(--ocn);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px;">El modelo de capacity (supuestos declarados)</p>
         <div class="row-list">
           <div class="row-item"><div class="row-dot"></div><span><span class="src sup">Sup</span>1 agente gestiona <strong>40 leads efectivos/día</strong> ≈ 800/mes (estándar call center outbound con marcador).</span></div>
           <div class="row-item"><div class="row-dot"></div><span><span class="src data">Data</span>Conversión trabajado→entrega: <strong>5.5%</strong> hoy (el interno ya hace 7.0%).</span></div>
@@ -346,7 +346,7 @@
       </div>
     </div>
     <div class="card-amber" style="padding:9px 14px;">
-      <p style="font-size:11px;color:var(--sub);line-height:1.5;"><strong style="color:var(--amber);">La restricción que no es mía pero me toca gestionar:</strong> inventario. La venta tarda 2 días; la entrega, 30, por disponibilidad de autos (ya hay 11 contratos en waiting_for_inventory). Vender 1,000 sin coordinar supply = 1,000 clientes enojados. La proyección comercial se amarra semanalmente al plan de inventario.</p>
+      <p style="font-size:12.5px;color:var(--sub);line-height:1.5;"><strong style="color:var(--amber);">La restricción que no es mía pero me toca gestionar:</strong> inventario. La venta tarda 2 días; la entrega, 30, por disponibilidad de autos (ya hay 11 contratos en waiting_for_inventory). Vender 1,000 sin coordinar supply = 1,000 clientes enojados. La proyección comercial se amarra semanalmente al plan de inventario.</p>
     </div>
   </div>
   <div class="fuente"><span class="src data">Data</span>Cohortes por created_at; pico feb = entregas con updated_at en febrero (769). Ciclo venta 2 días / entrega 30 días: operación (Sergio, 17-jul). <span class="src sup">Supuesto</span>Productividad 40 leads/día por agente — se calibra en el primer mes con el scorecard.</div>
@@ -360,7 +360,7 @@
     <p class="sub" style="margin-bottom:12px;">No tengo la data financiera interna — así que construyo el modelo con supuestos explícitos y lo calibro en semana 1. Lo importante es la lógica:</p>
     <div class="grid3" style="margin-bottom:12px;align-items:stretch;">
       <div class="card">
-        <p style="font-size:10px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px;">LTV por contrato</p>
+        <p style="font-size:11.5px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px;">LTV por contrato</p>
         <div class="row-list">
           <div class="row-item"><div class="row-dot"></div><span><span class="src data">Data</span>$3,450/sem × 156 semanas = <strong>$538K</strong> de ingreso por contrato (pricing público).</span></div>
           <div class="row-item"><div class="row-dot"></div><span><span class="src sup">Sup</span>Margen 25% (financiero + servicios) = <strong>$134.5K</strong>.</span></div>
@@ -368,7 +368,7 @@
         </div>
       </div>
       <div class="card">
-        <p style="font-size:10px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px;">CAC por entrega</p>
+        <p style="font-size:11.5px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px;">CAC por entrega</p>
         <div class="row-list">
           <div class="row-item"><div class="row-dot"></div><span><span class="src sup">Sup</span>Costo por lead ~$150 (rango típico ads automotriz MX: $80–250) + ~$22 de gestión por lead trabajado.</span></div>
           <div class="row-item"><div class="row-dot r"></div><span>A conversión actual (1.77%): CAC ≈ <strong>$8,500</strong> por auto.</span></div>
@@ -376,7 +376,7 @@
         </div>
       </div>
       <div class="card">
-        <p style="font-size:10px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px;">ROI por lead</p>
+        <p style="font-size:11.5px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px;">ROI por lead</p>
         <div class="row-list">
           <div class="row-item"><div class="row-dot"></div><span>Valor esperado por lead = conv. × LTV = 1.77% × $114K ≈ <strong>$2,020</strong> vs ~$170 de costo → ratio ~12×.</span></div>
           <div class="row-item"><div class="row-dot g"></div><span>Cada <strong>+1 punto</strong> de conversión = <strong>+$1,140</strong> de valor esperado por lead — por eso ejecutar vale más que comprar.</span></div>
@@ -385,7 +385,7 @@
       </div>
     </div>
     <div class="card-ocn" style="padding:9px 14px;">
-      <p style="font-size:11px;color:var(--sub);line-height:1.5;"><strong style="color:var(--ocn);">La regla de decisión:</strong> LTV:CAC hoy ≈ 13:1 incluso con supuestos conservadores — el negocio aguanta invertir mucho más en adquisición <em>bien ejecutada</em>. Pero cada peso nuevo en leads con la conversión rota se multiplica por 0.4%, y cada peso en destrabar ejecución se multiplica por el funnel completo. Primero ejecución, luego volumen.</p>
+      <p style="font-size:12.5px;color:var(--sub);line-height:1.5;"><strong style="color:var(--ocn);">La regla de decisión:</strong> LTV:CAC hoy ≈ 13:1 incluso con supuestos conservadores — el negocio aguanta invertir mucho más en adquisición <em>bien ejecutada</em>. Pero cada peso nuevo en leads con la conversión rota se multiplica por 0.4%, y cada peso en destrabar ejecución se multiplica por el funnel completo. Primero ejecución, luego volumen.</p>
     </div>
   </div>
   <div class="fuente"><span class="src sup">Supuestos a calibrar en semana 1</span>Margen por contrato, mora real por cohorte, costo real por lead por canal — pediría esa data el día 1. La estructura del modelo no cambia; solo se afinan los coeficientes.</div>
@@ -398,7 +398,7 @@
     <h2 style="margin-bottom:10px;">Primeros 90 días — y lo que NO haría</h2>
     <div class="grid3" style="margin-bottom:11px;align-items:stretch;">
       <div class="card" style="border-top:3px solid var(--ocn);">
-        <p style="font-size:11px;font-weight:800;margin-bottom:6px;">Días 1–30 · Entender vendiendo</p>
+        <p style="font-size:12.5px;font-weight:800;margin-bottom:6px;">Días 1–30 · Entender vendiendo</p>
         <div class="row-list">
           <div class="row-item"><div class="row-dot"></div><span><strong>Yo mismo vendo</strong> las primeras semanas: tomo leads, hago llamadas, vivo el proceso — así se ajusta el speech con realidad, no con teoría.</span></div>
           <div class="row-item"><div class="row-dot"></div><span><strong>Entrevistas a conductores</strong>: entregados (qué los movió) y perdidos (qué los frenó). El speech nuevo sale de ahí.</span></div>
@@ -407,7 +407,7 @@
         </div>
       </div>
       <div class="card" style="border-top:3px solid var(--amber);">
-        <p style="font-size:11px;font-weight:800;margin-bottom:6px;">Días 31–60 · Sistematizar</p>
+        <p style="font-size:12.5px;font-weight:800;margin-bottom:6px;">Días 31–60 · Sistematizar</p>
         <div class="row-list">
           <div class="row-item"><div class="row-dot a"></div><span>Speech nuevo desplegado: el business case del conductor (+$1,500/sem, bonos, patrimonio a 36 meses).</span></div>
           <div class="row-item"><div class="row-dot a"></div><span>Comp 20/80 por hitos firmada con el equipo y el call center externo — o plan de internalización parcial si no acepta SLA.</span></div>
@@ -416,7 +416,7 @@
         </div>
       </div>
       <div class="card" style="border-top:3px solid var(--green);">
-        <p style="font-size:11px;font-weight:800;margin-bottom:6px;">Días 61–90 · Escalar</p>
+        <p style="font-size:12.5px;font-weight:800;margin-bottom:6px;">Días 61–90 · Escalar</p>
         <div class="row-list">
           <div class="row-item"><div class="row-dot g"></div><span>Ritmo objetivo: volver al nivel de febrero (~700/mes) con el pending como combustible.</span></div>
           <div class="row-item"><div class="row-dot g"></div><span>Plan de contratación hacia 18–23 agentes según conversión real observada.</span></div>
@@ -427,12 +427,12 @@
     </div>
     <div class="grid2">
       <div class="card-red" style="padding:9px 13px;">
-        <p style="font-size:10px;font-weight:800;color:var(--red);margin-bottom:4px;">LO QUE NO HARÍA</p>
-        <p style="font-size:10.5px;color:var(--sub);line-height:1.5;">No compraría más leads antes de destrabar los 79 mil pagados · No pausaría el call center de golpe (es el 80% de la venta) · No mediría al equipo por entregas sin calidad de cartera — un auto entregado que cae en mora es peor que no venderlo.</p>
+        <p style="font-size:11.5px;font-weight:800;color:var(--red);margin-bottom:4px;">LO QUE NO HARÍA</p>
+        <p style="font-size:12px;color:var(--sub);line-height:1.5;">No compraría más leads antes de destrabar los 79 mil pagados · No pausaría el call center de golpe (es el 80% de la venta) · No mediría al equipo por entregas sin calidad de cartera — un auto entregado que cae en mora es peor que no venderlo.</p>
       </div>
       <div class="card-ocn" style="padding:9px 13px;">
-        <p style="font-size:10px;font-weight:800;color:var(--ocn);margin-bottom:4px;">DATA QUE PEDIRÍA EL DÍA 1</p>
-        <p style="font-size:10.5px;color:var(--sub);line-height:1.5;">Mora por cohorte y por canal · Costo real por lead por canal · Inventario disponible por ciudad (próximos 90 días) · Headcount y costo del call center · Motivo documental exacto del atorón en KYC.</p>
+        <p style="font-size:11.5px;font-weight:800;color:var(--ocn);margin-bottom:4px;">DATA QUE PEDIRÍA EL DÍA 1</p>
+        <p style="font-size:12px;color:var(--sub);line-height:1.5;">Mora por cohorte y por canal · Costo real por lead por canal · Inventario disponible por ciudad (próximos 90 días) · Headcount y costo del call center · Motivo documental exacto del atorón en KYC.</p>
       </div>
     </div>
   </div>
