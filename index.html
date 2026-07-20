@@ -123,34 +123,89 @@
   </div>
 </div>
 
-<!-- ═══ SLIDE 2 · FUNNEL REAL ═══ -->
-<div class="slide">
-  <div class="content">
-    <div class="tag">01 · Diagnóstico</div>
-    <h2 style="margin-bottom:4px;">El funnel real: 17 etapas, y se desangra en dos puntos</h2>
-    <p class="sub" style="margin-bottom:12px;">No son 16 etapas — la data tiene <strong>17</strong> (aparece <em>waiting_for_inventory</em>, que confirma el cuello de entrega). Así fluye el volumen:</p>
-    <div style="display:flex;flex-direction:column;gap:7px;margin-bottom:12px;">
-      <div class="bar-row"><span class="bar-lbl">Leads totales</span><div class="bar-track"><div class="bar-fill" style="width:100%;background:var(--ocn);">117,401</div></div><span class="bar-val dim">100%</span></div>
-      <div class="bar-row"><span class="bar-lbl">Trabajados (salieron de pending)</span><div class="bar-track"><div class="bar-fill" style="width:32.3%;background:var(--ocn);">37,932</div></div><span class="bar-val">32.3% <span class="dim">· 67.7% nunca se tocó</span></span></div>
-      <div class="bar-row"><span class="bar-lbl">Pasan filtro de ingresos</span><div class="bar-track"><div class="bar-fill" style="width:6.1%;background:var(--amber);">7,114</div></div><span class="bar-val a">18.8% de trabajados</span></div>
-      <div class="bar-row"><span class="bar-lbl">Auto entregado</span><div class="bar-track"><div class="bar-fill" style="width:1.8%;background:var(--green);">2,081</div></div><span class="bar-val g">29.3% de aprobados · 1.77% global</span></div>
-    </div>
-    <div class="grid3">
-      <div class="card-red" style="padding:10px 13px;">
-        <p style="font-size:11.5px;font-weight:800;color:var(--red);margin-bottom:4px;">FUGA 1 — ANTES DE EMPEZAR</p>
-        <p style="font-size:12.5px;color:var(--sub);line-height:1.5;"><strong>79,469 en pending</strong> (KYC / documentación). Mediana <strong>85 días</strong> parados. Es el inventario de leads más caro de la empresa: ya se pagó por ellos.</p>
+<!-- ═══ SLIDE 2 · OBJETIVO + DIAGNÓSTICO ═══ -->
+<div class="slide" style="justify-content:flex-start;padding:58px 60px 36px;">
+  <div class="content" style="max-width:1260px;height:100%;display:flex;flex-direction:column;">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:14px;">
+      <div>
+        <p style="font-size:12.5px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--ocn);margin-bottom:6px;">Objetivo · Diagnóstico del funnel</p>
+        <h2 style="font-size:clamp(22px,2.6vw,32px);">El objetivo pide <span style="color:var(--ocn);">1,000+ entregas/mes.</span> Así fluye el funnel hoy.</h2>
       </div>
-      <div class="card-amber" style="padding:10px 13px;">
-        <p style="font-size:11.5px;font-weight:800;color:var(--amber);margin-bottom:4px;">FUGA 2 — EN LA VENTA</p>
-        <p style="font-size:12.5px;color:var(--sub);line-height:1.5;">El call center externo (80% de la venta según la operación) convierte <strong>0.32%</strong> de lo que trabaja. El canal interno: <strong>7.0%</strong>. Misma calidad de lead, 22× de diferencia.</p>
-      </div>
-      <div class="card-green" style="padding:10px 13px;">
-        <p style="font-size:11.5px;font-weight:800;color:var(--green-text);margin-bottom:4px;">LO QUE SÍ FUNCIONA</p>
-        <p style="font-size:12.5px;color:var(--sub);line-height:1.5;">Del filtro de ingresos a la entrega, el proceso corre: visita agendada en <strong>1 día</strong> (mediana), 29.3% de aprobados termina con auto. El motor del medio está sano.</p>
+      <div style="display:flex;gap:24px;text-align:right;flex-shrink:0;padding-bottom:4px;">
+        <div><p style="font-size:26px;font-weight:800;line-height:1;">10,000</p><p style="font-size:10.5px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-top:4px;">Flota hoy</p></div>
+        <div style="font-size:22px;font-weight:300;color:var(--muted);align-self:center;">→</div>
+        <div><p style="font-size:26px;font-weight:800;line-height:1;color:var(--ocn);">15,000</p><p style="font-size:10.5px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-top:4px;">Meta EOY 2026</p></div>
+        <div><p style="font-size:26px;font-weight:800;line-height:1;color:var(--red);">+5,000</p><p style="font-size:10.5px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-top:4px;">6 meses · ~833/mes</p></div>
       </div>
     </div>
+    <div style="display:grid;grid-template-columns:1.25fr 1fr;gap:20px;flex:1;min-height:0;">
+      <!-- IZQUIERDA: FUNNEL -->
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px 22px;display:flex;flex-direction:column;box-shadow:0 1px 8px hsl(258 35% 16% / .05);">
+        <p style="font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);margin-bottom:10px;">El funnel completo · 117,401 solicitudes · 17 etapas · ene–jul 2026</p>
+        <div style="display:flex;flex-direction:column;gap:5px;flex:1;justify-content:center;">
+          <div style="width:100%;height:44px;background:linear-gradient(90deg,#3d00ad,#5800F7);border-radius:8px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;">
+            <span style="font-size:13.5px;font-weight:700;color:#fff;">Solicitudes recibidas</span><span style="font-size:17px;font-weight:800;color:#fff;">117,401</span>
+          </div>
+          <p style="font-size:12px;font-weight:700;color:var(--red);padding-left:8px;">▼ −79,469 · el 68% se queda atorado en validación KYC sin avanzar · mediana 85 días detenido · 47% lleva +90 días</p>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="width:46%;height:40px;background:linear-gradient(90deg,#4c00d6,#6d1fff);border-radius:8px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;">
+              <span style="font-size:13px;font-weight:700;color:#fff;">Con gestión</span><span style="font-size:16px;font-weight:800;color:#fff;">37,932</span>
+            </div>
+            <span style="font-size:13px;font-weight:700;color:var(--sub);">32.3% del total</span>
+          </div>
+          <p style="font-size:12px;font-weight:700;color:var(--red);padding-left:8px;">▼ −20,324 rechazados por ingresos (53.6% de lo gestionado) · −10,494 en contacto o perdidos</p>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="width:24%;min-width:210px;height:38px;background:linear-gradient(90deg,#6d1fff,#8a4bff);border-radius:8px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;">
+              <span style="font-size:13px;font-weight:700;color:#fff;">Aprobados ingresos</span><span style="font-size:16px;font-weight:800;color:#fff;">7,114</span>
+            </div>
+            <span style="font-size:13px;font-weight:700;color:var(--sub);">18.8% de gestionados</span>
+          </div>
+          <p style="font-size:12px;font-weight:700;color:var(--amber);padding-left:8px;">▼ −5,033 en proceso o caídos (docs · visita · background · contrato · inventario)</p>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="width:16%;min-width:185px;height:42px;background:linear-gradient(90deg,hsl(162 100% 28%),hsl(162 85% 38%));border-radius:8px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;">
+              <span style="font-size:13px;font-weight:700;color:#fff;">Entregados</span><span style="font-size:17px;font-weight:800;color:#fff;">2,081</span>
+            </div>
+            <span style="font-size:13px;font-weight:800;color:var(--green-text);">1.77% global · 29.3% de aprobados</span>
+          </div>
+        </div>
+        <div style="display:flex;gap:10px;margin-top:10px;">
+          <div style="flex:1;background:var(--red-bg);border:1px solid hsl(346 100% 45% / .2);border-radius:9px;padding:8px 12px;">
+            <p style="font-size:12px;color:var(--sub);line-height:1.45;"><strong style="color:var(--red);">Fuga 1 · antes de vender:</strong> 79,469 leads pagados detenidos en KYC</p>
+          </div>
+          <div style="flex:1;background:var(--amber-bg);border:1px solid hsl(43 100% 45% / .25);border-radius:9px;padding:8px 12px;">
+            <p style="font-size:12px;color:var(--sub);line-height:1.45;"><strong style="color:var(--amber);">Fuga 2 · en la venta:</strong> el canal del ~80% de la venta convierte 0.32%</p>
+          </div>
+        </div>
+      </div>
+      <!-- DERECHA: RITMO VS META -->
+      <div style="display:flex;flex-direction:column;gap:12px;min-height:0;">
+        <div style="background:linear-gradient(115deg,#3d00ad 0%,#5800F7 70%,#7a35ff 100%);border-radius:16px;padding:16px 20px;flex:1;display:flex;flex-direction:column;box-shadow:0 10px 30px hsl(261 100% 48% / .2);">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px;">
+            <p style="font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.09em;color:hsl(261 100% 88%);">Entregas por mes vs ritmo requerido</p>
+            <p style="font-size:11.5px;font-weight:700;color:hsl(261 100% 88%);">— — 833/mes</p>
+          </div>
+          <div style="flex:1;display:flex;align-items:flex-end;gap:8px;position:relative;padding-top:14px;min-height:150px;">
+            <div style="position:absolute;left:0;right:0;top:14px;bottom:20px;">
+              <div style="position:absolute;left:0;right:0;bottom:92.3%;border-top:2px dashed hsl(0 0% 100% / .55);"></div>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:3px;height:100%;"><span style="font-size:11.5px;font-weight:700;color:#fff;">68</span><div style="width:100%;height:8.2%;min-height:5px;background:hsl(0 0% 100% / .45);border-radius:5px 5px 0 0;"></div><span style="font-size:11px;font-weight:700;color:hsl(261 100% 88%);height:14px;">ene</span></div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:3px;height:100%;"><span style="font-size:11.5px;font-weight:800;color:#fff;">769</span><div style="width:100%;height:71%;background:#fff;border-radius:5px 5px 0 0;"></div><span style="font-size:11px;font-weight:700;color:hsl(261 100% 88%);height:14px;">feb ★</span></div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:3px;height:100%;"><span style="font-size:11.5px;font-weight:700;color:#fff;">249</span><div style="width:100%;height:23%;background:hsl(0 0% 100% / .45);border-radius:5px 5px 0 0;"></div><span style="font-size:11px;font-weight:700;color:hsl(261 100% 88%);height:14px;">mar</span></div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:3px;height:100%;"><span style="font-size:11.5px;font-weight:700;color:#fff;">273</span><div style="width:100%;height:25.2%;background:hsl(0 0% 100% / .45);border-radius:5px 5px 0 0;"></div><span style="font-size:11px;font-weight:700;color:hsl(261 100% 88%);height:14px;">abr</span></div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:3px;height:100%;"><span style="font-size:11.5px;font-weight:700;color:#fff;">208</span><div style="width:100%;height:19.2%;background:hsl(0 0% 100% / .45);border-radius:5px 5px 0 0;"></div><span style="font-size:11px;font-weight:700;color:hsl(261 100% 88%);height:14px;">may</span></div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:3px;height:100%;"><span style="font-size:11.5px;font-weight:700;color:#fff;">435</span><div style="width:100%;height:40.2%;background:hsl(0 0% 100% / .45);border-radius:5px 5px 0 0;"></div><span style="font-size:11px;font-weight:700;color:hsl(261 100% 88%);height:14px;">jun</span></div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:3px;height:100%;"><span style="font-size:11.5px;font-weight:700;color:#fff;">79</span><div style="width:100%;height:7.3%;min-height:5px;background:hsl(346 100% 70%);border-radius:5px 5px 0 0;"></div><span style="font-size:11px;font-weight:700;color:hsl(261 100% 88%);height:14px;">jul*</span></div>
+          </div>
+          <p style="font-size:12px;color:hsl(261 100% 92% / .9);line-height:1.5;margin-top:8px;">Ningún mes alcanzó el ritmo. El pico de <strong style="color:#fff;">febrero (769)</strong> demuestra que la máquina puede — la caída después es de ejecución, no de demanda: <strong style="color:#fff;">abril fue récord de leads (29,202) y su cohorte convirtió 0.97%</strong> vs 3.65% la de febrero.</p>
+        </div>
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:13px 18px;box-shadow:0 1px 8px hsl(258 35% 16% / .05);">
+          <p style="font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);margin-bottom:6px;">La lectura ejecutiva</p>
+          <p style="font-size:13.5px;color:var(--sub);line-height:1.55;">El volumen alcanza: entran <strong>~17K solicitudes/mes</strong> y con la conversión de lead gestionado (<strong>5.5–7%</strong>) el ritmo de 1,000/mes es alcanzable con lo que ya entra. <strong style="color:var(--text);">El reto no es comprar más leads — es gestionar los que ya se pagaron.</strong></p>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:10.5px;color:var(--muted);margin-top:9px;">Fuente: gth_applications.csv · con gestión = solicitudes fuera de pending · aprobados ingresos = etapas posteriores al filtro de ingresos · entregas/mes por fecha de última actualización (feb incluye backlog) · jul corte al día 10 · flota y meta: case study OCN.</p>
   </div>
-  <div class="fuente"><span class="src data">Data</span><strong>Lógica:</strong> "trabajados" = 117,401 − 79,469 en pending. "Pasan filtro" = suma de las 13 etapas posteriores a rejected_for_earnings (stage_order 3+). Rechazo por ingresos: 20,324 = 53.6% de lo trabajado. Perdidos (lost): 4,259. SLA visita = mediana entre home_visit_schedule_link_send_date y visit_date (n=480).</div>
 </div>
 
 <!-- ═══ SLIDE 3 · CUELLO 1: KYC ═══ -->
