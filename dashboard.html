@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>OCN · Dashboard Comercial</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --bg:#f5f3ff;--card:#fff;--border:hsl(258 30% 91%);
+  --text:hsl(258 35% 14%);--sub:hsl(258 14% 38%);--muted:hsl(258 18% 60%);
+  --ocn:#5800F7;--ocn-dim:hsl(258 100% 95%);--ocn-mid:hsl(258 100% 85%);
+  --green:hsl(162 100% 36%);--green-dim:hsl(162 60% 95%);--green-mid:hsl(162 60% 78%);--green-text:hsl(162 100% 26%);
+  --amber:hsl(38 100% 42%);--amber-bg:hsl(38 100% 95%);
+  --red:hsl(346 100% 45%);--red-bg:hsl(346 100% 96%);
+  --teal:#0891b2;
+}
+body{font-family:'Montserrat',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding:0;}
+
+/* ─── HEADER ─────────────────────────────────────────────────── */
+.topbar{background:var(--card);border-bottom:1px solid var(--border);padding:14px 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px hsl(258 40% 14% / .05);}
+.topbar-left{display:flex;align-items:center;gap:16px;}
+.logo{height:32px;}
+.topbar-title{font-size:14px;font-weight:800;color:var(--text);}
+.topbar-sub{font-size:11px;color:var(--muted);font-weight:600;margin-top:1px;}
+.back-link{font-size:12px;font-weight:700;color:var(--ocn);text-decoration:none;border:1px solid var(--ocn-mid);padding:7px 14px;border-radius:8px;background:var(--ocn-dim);}
+.back-link:hover{background:var(--ocn-mid);}
+
+/* ─── FILTROS ─────────────────────────────────────────────────── */
+.filters{background:var(--card);border-bottom:1px solid var(--border);padding:11px 32px;display:flex;align-items:center;gap:12px;}
+.filters-label{font-size:11px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-right:4px;}
+.filter-chip{font-size:12px;font-weight:700;padding:6px 14px;border-radius:20px;border:1.5px solid var(--border);background:var(--card);color:var(--sub);cursor:pointer;display:flex;align-items:center;gap:5px;}
+.filter-chip.active{background:var(--ocn);border-color:var(--ocn);color:#fff;}
+.filter-sep{width:1px;height:20px;background:var(--border);margin:0 4px;}
+.filter-note{font-size:11px;color:var(--muted);font-weight:600;margin-left:auto;}
+.filter-dot{width:6px;height:6px;border-radius:50%;background:currentColor;}
+
+/* ─── KPI ROW ─────────────────────────────────────────────────── */
+.kpi-row{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;padding:20px 32px 0;}
+.kpi-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px 18px;box-shadow:0 1px 6px hsl(258 35% 14% / .04);}
+.kpi-label{font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:7px;}
+.kpi-val{font-size:26px;font-weight:800;line-height:1;}
+.kpi-sub{font-size:11px;color:var(--muted);margin-top:5px;font-weight:600;}
+.kpi-badge{display:inline-flex;align-items:center;gap:3px;font-size:10.5px;font-weight:800;padding:2px 7px;border-radius:20px;margin-top:5px;}
+.badge-g{background:var(--green-dim);color:var(--green-text);}
+.badge-r{background:var(--red-bg);color:var(--red);}
+.badge-a{background:var(--amber-bg);color:var(--amber);}
+.badge-v{background:var(--ocn-dim);color:var(--ocn);}
+.c-ocn{color:var(--ocn);}
+.c-green{color:var(--green-text);}
+.c-red{color:var(--red);}
+.c-amber{color:var(--amber);}
+.c-teal{color:var(--teal);}
+
+/* ─── GRIDS ─────────────────────────────────────────────────── */
+.main-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;padding:18px 32px 28px;}
+.panel{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px 22px;box-shadow:0 1px 8px hsl(258 35% 14% / .04);}
+.panel-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:16px;}
+.panel-title{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);}
+.panel-note{font-size:10.5px;color:var(--muted);font-weight:600;padding:3px 9px;background:hsl(258 40% 97%);border-radius:20px;}
+
+/* ─── BAR CHART ─────────────────────────────────────────────── */
+.bar-group{display:flex;flex-direction:column;gap:9px;}
+.bar-row{display:flex;align-items:center;gap:9px;}
+.bar-lbl{font-size:12px;font-weight:700;color:var(--sub);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.bar-track{flex:1;height:22px;background:hsl(258 40% 96%);border-radius:5px;position:relative;}
+.bar-fill{height:100%;border-radius:5px;display:flex;align-items:center;padding-left:8px;position:relative;}
+.bar-val{font-size:11.5px;font-weight:800;position:absolute;right:-55px;white-space:nowrap;}
+.bar-pct{position:absolute;right:8px;font-size:10.5px;font-weight:800;color:#fff;white-space:nowrap;}
+
+/* ─── EXEC TABLE ─────────────────────────────────────────────── */
+.exec-table{width:100%;border-collapse:collapse;font-size:12px;}
+.exec-table th{font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);padding:0 6px 8px;text-align:left;}
+.exec-table th.r{text-align:right;}
+.exec-table td{padding:7px 6px;border-top:1px solid hsl(258 30% 95%);vertical-align:middle;}
+.exec-table td.r{text-align:right;font-weight:700;}
+.mini-bar{height:10px;border-radius:3px;display:inline-block;vertical-align:middle;}
+.status-dot{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:5px;vertical-align:middle;}
+
+/* ─── DONUT (pure CSS) / METER ─────────────────────────────────── */
+.meters-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.meter-box{background:hsl(258 40% 97.5%);border:1px solid var(--border);border-radius:12px;padding:14px 16px;text-align:center;}
+.meter-val{font-size:28px;font-weight:800;line-height:1.1;}
+.meter-lbl{font-size:11px;font-weight:700;color:var(--muted);margin-top:5px;}
+.meter-bar{width:100%;height:8px;background:hsl(258 40% 92%);border-radius:4px;margin-top:10px;overflow:hidden;}
+.meter-fill{height:100%;border-radius:4px;}
+.meter-target{font-size:10px;color:var(--muted);font-weight:600;margin-top:4px;}
+
+/* ─── STOCK PANEL ─────────────────────────────────────────────── */
+.stock-cols{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.stock-bucket{border-radius:10px;padding:12px 14px;}
+.bk-g{background:var(--green-dim);border:1px solid var(--green-mid);}
+.bk-a{background:var(--amber-bg);border:1px solid hsl(38 90% 80%);}
+.bk-r{background:var(--red-bg);border:1px solid hsl(346 80% 82%);}
+.bucket-num{font-size:28px;font-weight:800;}
+.bucket-lbl{font-size:11.5px;font-weight:700;margin-top:4px;}
+.bucket-sub{font-size:11px;margin-top:3px;opacity:.75;}
+.weekly-bars{margin-top:16px;}
+.wk-row{display:flex;align-items:center;gap:8px;margin-bottom:7px;}
+.wk-lbl{font-size:11.5px;color:var(--sub);font-weight:700;min-width:44px;}
+.wk-track{flex:1;height:18px;background:hsl(258 40% 96%);border-radius:4px;overflow:hidden;}
+.wk-fill{height:100%;border-radius:4px;}
+.wk-val{font-size:11.5px;font-weight:800;min-width:36px;text-align:right;}
+
+/* ─── FOOTER ─────────────────────────────────────────────────── */
+.dash-footer{text-align:center;font-size:10.5px;color:var(--muted);padding:0 32px 26px;line-height:1.6;font-weight:600;}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-left">
+    <img src="ocn-logo.svg" class="logo" alt="OCN"/>
+    <div>
+      <div class="topbar-title">Dashboard Comercial · Growth</div>
+      <div class="topbar-sub">Corte: 10 julio 2026 · n=117,401 solicitudes</div>
+    </div>
+  </div>
+  <a href="index.html" class="back-link">← Volver al deck</a>
+</div>
+
+<!-- FILTROS -->
+<div class="filters">
+  <span class="filters-label">Vista</span>
+  <span class="filter-chip active"><span class="filter-dot" style="background:#fff;"></span>Global</span>
+  <span class="filter-chip">CDMX</span>
+  <span class="filter-chip">MTY</span>
+  <span class="filter-chip">GDL</span>
+  <div class="filter-sep"></div>
+  <span class="filters-label">Canal</span>
+  <span class="filter-chip active">Todos</span>
+  <span class="filter-chip">Interno OCN</span>
+  <span class="filter-chip">Call center</span>
+  <span class="filter-chip">Referidos</span>
+  <div class="filter-sep"></div>
+  <span class="filters-label">Semana</span>
+  <span class="filter-chip active">Últ. 4 sem.</span>
+  <span class="filter-chip">Jun</span>
+  <span class="filter-chip">May</span>
+  <span class="filter-note">⚠️ Los filtros son ilustrativos — mockup funcional</span>
+</div>
+
+<!-- KPIs -->
+<div class="kpi-row">
+  <div class="kpi-card">
+    <div class="kpi-label">Leads este mes</div>
+    <div class="kpi-val c-ocn">14,514</div>
+    <div class="kpi-sub">junio · proy. 21K/jul</div>
+    <div class="kpi-badge badge-a">▲ fuente: CSV</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-label">Entregas este mes</div>
+    <div class="kpi-val c-green">435</div>
+    <div class="kpi-sub">junio · meta: 833/mes</div>
+    <div class="kpi-badge badge-r">52% de meta</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-label">Pipeline activo</div>
+    <div class="kpi-val c-ocn">4,624</div>
+    <div class="kpi-sub">en underwriting</div>
+    <div class="kpi-badge badge-g">+1,355–1,853 proy.</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-label">Sin contactar</div>
+    <div class="kpi-val c-red">79,469</div>
+    <div class="kpi-sub">68% del total</div>
+    <div class="kpi-badge badge-r">9,854 en caliente</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-label">Conv. canal interno</div>
+    <div class="kpi-val c-green">7.01%</div>
+    <div class="kpi-sub">vs 0.32% ext. C8</div>
+    <div class="kpi-badge badge-v">22× vs call ctr.</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-label">Ciclo lead→entrega</div>
+    <div class="kpi-val" style="color:var(--amber);">19 días</div>
+    <div class="kpi-sub">mediana · 34% ≤7 días</div>
+    <div class="kpi-badge badge-g">↓ fuente: CSV</div>
+  </div>
+</div>
+
+<!-- MAIN GRID -->
+<div class="main-grid">
+
+  <!-- PANEL 1: Pipeline por ejecutivo -->
+  <div class="panel">
+    <div class="panel-header">
+      <div class="panel-title">Pipeline por ejecutivo · entregas mes</div>
+      <span class="panel-note">⚠️ Nombres ilustrativos</span>
+    </div>
+    <table class="exec-table">
+      <tr>
+        <th>Ejecutivo</th>
+        <th>Pipeline</th>
+        <th>Entregas</th>
+        <th>Conv.</th>
+        <th class="r">Contacto &lt;24h</th>
+      </tr>
+      <tr>
+        <td><span class="status-dot" style="background:var(--green-text);"></span>A. Ramírez</td>
+        <td><div class="mini-bar" style="width:90px;background:hsl(258 70% 90%);"></div> <span style="font-size:11px;color:var(--sub);">54</span></td>
+        <td style="font-weight:800;color:var(--green-text);">18</td>
+        <td class="r c-green">33%</td>
+        <td class="r"><span class="kpi-badge badge-g">96%</span></td>
+      </tr>
+      <tr>
+        <td><span class="status-dot" style="background:var(--green-text);"></span>M. Vega</td>
+        <td><div class="mini-bar" style="width:78px;background:hsl(258 70% 90%);"></div> <span style="font-size:11px;color:var(--sub);">47</span></td>
+        <td style="font-weight:800;color:var(--green-text);">16</td>
+        <td class="r c-green">34%</td>
+        <td class="r"><span class="kpi-badge badge-g">91%</span></td>
+      </tr>
+      <tr>
+        <td><span class="status-dot" style="background:var(--green-text);"></span>L. Torres</td>
+        <td><div class="mini-bar" style="width:68px;background:hsl(258 70% 90%);"></div> <span style="font-size:11px;color:var(--sub);">41</span></td>
+        <td style="font-weight:800;color:var(--green-text);">14</td>
+        <td class="r c-green">34%</td>
+        <td class="r"><span class="kpi-badge badge-g">88%</span></td>
+      </tr>
+      <tr>
+        <td><span class="status-dot" style="background:var(--amber);"></span>J. Moreno</td>
+        <td><div class="mini-bar" style="width:58px;background:hsl(258 70% 90%);"></div> <span style="font-size:11px;color:var(--sub);">35</span></td>
+        <td style="font-weight:800;color:var(--amber);">9</td>
+        <td class="r c-amber">26%</td>
+        <td class="r"><span class="kpi-badge badge-a">72%</span></td>
+      </tr>
+      <tr>
+        <td><span class="status-dot" style="background:var(--red);"></span>C. Flores</td>
+        <td><div class="mini-bar" style="width:46px;background:hsl(258 70% 90%);"></div> <span style="font-size:11px;color:var(--sub);">28</span></td>
+        <td style="font-weight:800;color:var(--red);">3</td>
+        <td class="r c-red">11%</td>
+        <td class="r"><span class="kpi-badge badge-r">41%</span></td>
+      </tr>
+      <tr style="background:hsl(258 70% 97.5%);">
+        <td style="font-weight:800;">Promedio equipo</td>
+        <td><div class="mini-bar" style="width:60px;background:hsl(258 55% 82%);"></div> <span style="font-size:11px;color:var(--sub);">~36</span></td>
+        <td style="font-weight:800;color:var(--ocn);">10</td>
+        <td class="r c-ocn" style="font-weight:800;">28%</td>
+        <td class="r"><span class="kpi-badge badge-v">79%</span></td>
+      </tr>
+      <tr style="background:hsl(258 70% 94%);">
+        <td style="font-weight:800;color:var(--green-text);">▶ Meta por ejecutivo</td>
+        <td></td>
+        <td style="font-weight:800;color:var(--green-text);">14</td>
+        <td class="r c-green" style="font-weight:800;">≥7%</td>
+        <td class="r"><span class="kpi-badge badge-g">≥90%</span></td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- PANEL 2: Conversión por canal -->
+  <div class="panel">
+    <div class="panel-header">
+      <div class="panel-title">Conversión por canal · leads gestionados</div>
+      <span class="panel-note">✓ Datos reales CSV</span>
+    </div>
+    <div class="bar-group">
+      <div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:5px;">
+          <span style="font-size:12px;font-weight:700;color:var(--sub);">Sin canal asignado · orgánico</span>
+          <span style="font-size:12px;font-weight:800;color:var(--green-text);">13.99% · 593 entregas</span>
+        </div>
+        <div style="width:100%;height:28px;background:hsl(258 40% 96%);border-radius:6px;overflow:hidden;">
+          <div style="width:100%;height:100%;background:linear-gradient(90deg,#0891b2,#22b8d4);display:flex;align-items:center;padding-left:10px;">
+            <span style="font-size:11.5px;font-weight:800;color:#fff;">4,240 gestionados</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:5px;">
+          <span style="font-size:12px;font-weight:700;color:var(--sub);">Canal interno OCN</span>
+          <span style="font-size:12px;font-weight:800;color:var(--ocn);">7.01% · 1,449 entregas</span>
+        </div>
+        <div style="width:100%;height:28px;background:hsl(258 40% 96%);border-radius:6px;overflow:hidden;">
+          <div style="width:50%;height:100%;background:linear-gradient(90deg,#5800F7,#7a35ff);display:flex;align-items:center;padding-left:10px;">
+            <span style="font-size:11.5px;font-weight:800;color:#fff;">20,672 gest.</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:5px;">
+          <span style="font-size:12px;font-weight:700;color:var(--sub);">Referidos</span>
+          <span style="font-size:12px;font-weight:800;color:#0891b2;">6.41% · 321 entregas</span>
+        </div>
+        <div style="width:100%;height:28px;background:hsl(258 40% 96%);border-radius:6px;overflow:hidden;">
+          <div style="width:46%;height:100%;background:linear-gradient(90deg,#0e7490,#0891b2);display:flex;align-items:center;padding-left:10px;">
+            <span style="font-size:11.5px;font-weight:800;color:#fff;">5,010 leads</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:5px;">
+          <span style="font-size:12px;font-weight:700;color:var(--sub);">Call center externo C8</span>
+          <span style="font-size:12px;font-weight:800;color:var(--red);">0.32% · 39 entregas</span>
+        </div>
+        <div style="width:100%;height:28px;background:hsl(258 40% 96%);border-radius:6px;overflow:hidden;">
+          <div style="width:3%;height:100%;background:linear-gradient(90deg,#e11d48,#f43f5e);min-width:3px;"></div>
+          <span style="font-size:11px;color:var(--red);font-weight:800;display:inline-block;padding-left:8px;margin-top:-26px;position:relative;top:-22px;">12,281 gestionados</span>
+        </div>
+        <div style="font-size:11px;color:var(--red);font-weight:700;margin-top:3px;">⚠️ 32% de toda la gestión — produce el 1.9% de las entregas</div>
+      </div>
+      <div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:5px;">
+          <span style="font-size:12px;font-weight:700;color:var(--sub);">Externo DD6</span>
+          <span style="font-size:12px;font-weight:800;color:var(--red);">0.00% · 0 entregas</span>
+        </div>
+        <div style="width:100%;height:28px;background:var(--red-bg);border:1px solid hsl(346 80% 85%);border-radius:6px;display:flex;align-items:center;padding-left:10px;">
+          <span style="font-size:11px;font-weight:800;color:var(--red);">730 gestionados · canal inactivo — pausar</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PANEL 3: Stock seminuevos vs ventas semanales -->
+  <div class="panel">
+    <div class="panel-header">
+      <div class="panel-title">Stock seminuevos · antigüedad vs ventas semanales</div>
+      <span class="panel-note">⚠️ Valores ilustrativos</span>
+    </div>
+    <div class="stock-cols" style="grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:16px;">
+      <div class="stock-bucket bk-g">
+        <div class="bucket-num c-green">47</div>
+        <div class="bucket-lbl">Menos de 30 días</div>
+        <div class="bucket-sub c-green">✓ En rotación normal</div>
+      </div>
+      <div class="stock-bucket bk-a">
+        <div class="bucket-num c-amber">23</div>
+        <div class="bucket-lbl">30–45 días</div>
+        <div class="bucket-sub c-amber">⚡ Asignar prioridad</div>
+      </div>
+      <div class="stock-bucket bk-r">
+        <div class="bucket-num c-red">12</div>
+        <div class="bucket-lbl">Más de 45 días</div>
+        <div class="bucket-sub c-red">🚨 Bono de mix activo</div>
+      </div>
+    </div>
+    <div class="panel-title" style="margin-bottom:10px;">Ventas semanales · últimas 6 semanas</div>
+    <div class="weekly-bars">
+      <div class="wk-row"><span class="wk-lbl">Sem 23</span><div class="wk-track"><div class="wk-fill" style="width:58%;background:var(--green);"></div></div><span class="wk-val c-green">87</span></div>
+      <div class="wk-row"><span class="wk-lbl">Sem 24</span><div class="wk-track"><div class="wk-fill" style="width:73%;background:var(--green);"></div></div><span class="wk-val c-green">109</span></div>
+      <div class="wk-row"><span class="wk-lbl">Sem 25</span><div class="wk-track"><div class="wk-fill" style="width:50%;background:var(--amber);"></div></div><span class="wk-val c-amber">74</span></div>
+      <div class="wk-row"><span class="wk-lbl">Sem 26</span><div class="wk-track"><div class="wk-fill" style="width:82%;background:var(--green);"></div></div><span class="wk-val c-green">123</span></div>
+      <div class="wk-row"><span class="wk-lbl">Sem 27</span><div class="wk-track"><div class="wk-fill" style="width:65%;background:var(--green);"></div></div><span class="wk-val c-green">97</span></div>
+      <div class="wk-row">
+        <span class="wk-lbl">Meta/sem</span>
+        <div class="wk-track" style="background:hsl(258 70% 94%);border:1.5px dashed hsl(258 55% 78%);">
+          <div class="wk-fill" style="width:100%;background:transparent;"></div>
+        </div>
+        <span class="wk-val c-ocn">208</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PANEL 4: Calidad — primer viaje, mora, retención -->
+  <div class="panel">
+    <div class="panel-header">
+      <div class="panel-title">Calidad de originación · métricas clave</div>
+      <span class="panel-note">⚠️ Valores propuesta</span>
+    </div>
+    <div class="meters-grid">
+      <div class="meter-box">
+        <div class="meter-val" style="color:var(--green-text);">91%</div>
+        <div class="meter-lbl">Primer viaje completado</div>
+        <div class="meter-bar"><div class="meter-fill" style="width:91%;background:var(--green);"></div></div>
+        <div class="meter-target">Meta: <strong>&gt;95%</strong></div>
+      </div>
+      <div class="meter-box">
+        <div class="meter-val" style="color:var(--amber);">7.2%</div>
+        <div class="meter-lbl">Mora temprana (0–8 sem.)</div>
+        <div class="meter-bar"><div class="meter-fill" style="width:7.2%;background:var(--amber);"></div></div>
+        <div class="meter-target">Meta: <strong>&lt;5%</strong></div>
+      </div>
+      <div class="meter-box">
+        <div class="meter-val" style="color:var(--green-text);">88%</div>
+        <div class="meter-lbl">Retención mes 3</div>
+        <div class="meter-bar"><div class="meter-fill" style="width:88%;background:var(--green);"></div></div>
+        <div class="meter-target">Meta: <strong>&gt;90%</strong></div>
+      </div>
+      <div class="meter-box">
+        <div class="meter-val" style="color:var(--green-text);">$6,730</div>
+        <div class="meter-lbl">Ingreso semanal mediana</div>
+        <div class="meter-bar"><div class="meter-fill" style="width:82%;background:var(--ocn);"></div></div>
+        <div class="meter-target">Conductores entregados (n=1,491)</div>
+      </div>
+    </div>
+    <div style="margin-top:14px;background:hsl(258 40% 97.5%);border:1px solid var(--border);border-radius:10px;padding:12px 14px;">
+      <div class="panel-title" style="margin-bottom:8px;">Señales de churn temprano · monitoreo semanal</div>
+      <div style="display:flex;flex-direction:column;gap:6px;">
+        <div style="display:flex;justify-content:space-between;font-size:12px;">
+          <span style="color:var(--sub);">🚨 Sin primer viaje en &gt;7 días</span>
+          <span style="font-weight:800;color:var(--red);">14 conductores</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-size:12px;">
+          <span style="color:var(--sub);">⚡ Caída de viajes semana a semana</span>
+          <span style="font-weight:800;color:var(--amber);">23 conductores</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-size:12px;">
+          <span style="color:var(--sub);">✓ Sin señales de alerta</span>
+          <span style="font-weight:800;color:var(--green-text);">2,044 conductores</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="dash-footer">
+  Datos reales: gth_applications.csv · n=117,401 solicitudes · corte 10-jul-2026 &nbsp;|&nbsp;
+  Valores ilustrativos donde se indica ⚠️ — insumo de integración con CRM, BI y Customer Success &nbsp;|&nbsp;
+  Ricardo Astorga · Case Study Growth Director · OCN · Julio 2026 &nbsp;·&nbsp;
+  <a href="index.html" style="color:var(--ocn);font-weight:700;">← Volver al deck</a>
+</div>
+
+</body>
+</html>
