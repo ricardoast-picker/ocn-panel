@@ -85,7 +85,7 @@ body{font-family:"Inter",system-ui,sans-serif;background:var(--bg);color:var(--t
 
   <!-- Stage 1 -->
   <div style="display:grid;grid-template-columns:1fr 180px;align-items:center;gap:16px;margin-bottom:4px;">
-    <div style="background:#F4F4F7;border-radius:8px;height:38px;display:flex;align-items:center;padding:0 16px;gap:12px;">
+    <div style="background:#F4F4F7;border-radius:8px;height:50px;display:flex;align-items:center;padding:0 16px;gap:12px;">
       <span class="n-mid" style="color:var(--text);">117,401</span>
       <span style="font-size:11px;color:var(--muted);font-weight:500;">Total solicitudes &middot; base completa</span>
     </div>
@@ -98,7 +98,7 @@ body{font-family:"Inter",system-ui,sans-serif;background:var(--bg);color:var(--t
 
   <!-- Stage 2 — problema -->
   <div style="display:grid;grid-template-columns:1fr 180px;align-items:center;gap:16px;margin-bottom:4px;">
-    <div style="width:82.3%;background:var(--red-l);border:1px solid #FFCCD7;border-left:4px solid var(--red);border-radius:8px;height:38px;display:flex;align-items:center;padding:0 16px;gap:12px;">
+    <div style="width:82.3%;background:var(--red-l);border:1px solid #FFCCD7;border-left:4px solid var(--red);border-radius:8px;height:50px;display:flex;align-items:center;padding:0 16px;gap:12px;">
       <span class="n-mid" style="color:var(--red);">79,469</span>
       <span style="font-size:11px;color:var(--red);font-weight:600;opacity:.8;">Sin gestionar &middot; nunca contactados</span>
     </div>
@@ -114,7 +114,7 @@ body{font-family:"Inter",system-ui,sans-serif;background:var(--bg);color:var(--t
 
   <!-- Stage 3 -->
   <div style="display:grid;grid-template-columns:1fr 180px;align-items:center;gap:16px;margin-bottom:4px;">
-    <div style="width:29%;background:var(--ocn-l);border:1px solid var(--ocn-m);border-left:4px solid var(--ocn);border-radius:8px;height:38px;display:flex;align-items:center;padding:0 16px;gap:12px;">
+    <div style="width:29%;background:var(--ocn-l);border:1px solid var(--ocn-m);border-left:4px solid var(--ocn);border-radius:8px;height:50px;display:flex;align-items:center;padding:0 16px;gap:12px;">
       <span class="n-mid" style="color:var(--ocn);">9,854</span>
       <span style="font-size:11px;color:var(--ocn);font-weight:600;opacity:.8;">Calientes &lt;30d</span>
     </div>
@@ -130,7 +130,7 @@ body{font-family:"Inter",system-ui,sans-serif;background:var(--bg);color:var(--t
 
   <!-- Stage 4 -->
   <div style="display:grid;grid-template-columns:1fr 180px;align-items:center;gap:16px;margin-bottom:4px;">
-    <div style="width:19.8%;background:#F4F4F7;border:1px solid var(--border);border-left:4px solid var(--muted);border-radius:8px;height:38px;display:flex;align-items:center;padding:0 16px;gap:12px;">
+    <div style="width:19.8%;background:#F4F4F7;border:1px solid var(--border);border-left:4px solid var(--muted);border-radius:8px;height:50px;display:flex;align-items:center;padding:0 16px;gap:12px;">
       <span class="n-mid" style="color:var(--sub);">4,621</span>
       <span style="font-size:11px;color:var(--muted);font-weight:500;">Underwriting &middot; pond. 1,853</span>
     </div>
@@ -146,7 +146,7 @@ body{font-family:"Inter",system-ui,sans-serif;background:var(--bg);color:var(--t
 
   <!-- Stage 5 -->
   <div style="display:grid;grid-template-columns:1fr 180px;align-items:center;gap:16px;">
-    <div style="width:6.1%;background:var(--green-l);border:1px solid #A8EDCC;border-left:4px solid var(--green);border-radius:8px;height:38px;display:flex;align-items:center;padding:0 14px;">
+    <div style="width:6.1%;background:var(--green-l);border:1px solid #A8EDCC;border-left:4px solid var(--green);border-radius:8px;height:50px;display:flex;align-items:center;padding:0 14px;">
       <span class="n-mid" style="color:var(--green);">435</span>
     </div>
     <div style="text-align:right;">
@@ -246,10 +246,10 @@ body{font-family:"Inter",system-ui,sans-serif;background:var(--bg);color:var(--t
     <rect x="790" y="83.5" width="92" height="86.5" rx="5" fill="#5800F7"/>
     <text x="836" y="103" font-size="10" fill="white" text-anchor="middle" font-family="Inter,sans-serif" font-weight="800">435</text>
     <text x="836" y="190" font-size="9.5" fill="#5800F7" text-anchor="middle" font-family="Inter,sans-serif" font-weight="700">Jun</text>
-    <!-- Jul=79 -->
-    <rect x="932" y="154.5" width="92" height="15.5" rx="5" fill="#E3E3EA"/>
-    <text x="978" y="150" font-size="9" fill="#9090A8" text-anchor="middle" font-family="Inter,sans-serif" font-weight="600">79</text>
-    <text x="978" y="190" font-size="9.5" fill="#9090A8" text-anchor="middle" font-family="Inter,sans-serif">Jul*</text>
+    <!-- Jul=79 parcial — mes activo -->
+    <rect x="932" y="154.5" width="92" height="15.5" rx="5" fill="#5800F7" opacity=".45"/>
+    <text x="978" y="150" font-size="9" fill="#5800F7" text-anchor="middle" font-family="Inter,sans-serif" font-weight="700">79</text>
+    <text x="978" y="190" font-size="9.5" fill="#5800F7" text-anchor="middle" font-family="Inter,sans-serif" font-weight="700">Jul*</text>
     <!-- conv line -->
     <path d="M 126 130 L 268 108 L 410 120 L 552 148 L 694 150 L 836 112" stroke="#9090A8" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
     <circle cx="126" cy="130" r="3" fill="#9090A8" stroke="#fff" stroke-width="1.5"/>
@@ -350,10 +350,10 @@ body{font-family:"Inter",system-ui,sans-serif;background:var(--bg);color:var(--t
           </div>
         </div>
 
-        <div style="background:var(--green-l);border:1px solid #A8EDCC;border-radius:10px;padding:14px;display:flex;align-items:center;gap:14px;">
-          <div><p class="n-huge" style="color:var(--green);">+362</p><p style="font-size:11px;color:var(--green);font-weight:600;">autos extra / mes</p></div>
-          <div style="width:1px;height:38px;background:#A8EDCC;"></div>
-          <p style="font-size:11px;color:var(--sub);line-height:1.5;">Llegando al 90% &lt;24h &middot; sin presupuesto adicional</p>
+        <div style="background:var(--green-l);border:1px solid #A8EDCC;border-radius:10px;padding:18px 20px;">
+          <p style="font-size:11px;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px;">Oportunidad inmediata</p>
+          <p style="font-size:32px;font-weight:900;color:var(--green);line-height:1;margin-bottom:4px;">+362 autos / mes</p>
+          <p style="font-size:12px;color:var(--sub);">sin lead nuevo &middot; solo subir contacto &lt;24h a &gt;90%</p>
         </div>
       </div>
     </div>
@@ -488,35 +488,28 @@ body{font-family:"Inter",system-ui,sans-serif;background:var(--bg);color:var(--t
   </div>
 </div>
 
-<!-- ══ CALIDAD — 4 tarjetas ══ -->
-<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;">
-  <div class="card" style="padding:20px 22px;">
-    <p class="lbl" style="margin-bottom:12px;">ECM &middot; m&eacute;trica norte</p>
-    <p class="n-huge" style="color:var(--border);margin-bottom:10px;">&mdash;</p>
-    <p style="font-size:11px;color:var(--muted);margin-bottom:10px;line-height:1.5;">1er viaje &lt;7d + sin mora d&iacute;a 30 &middot; calibrando con CRM</p>
-    <div class="bar-track"><div class="bar-fill" style="width:0%;background:var(--ocn);"></div></div>
-    <p style="font-size:10px;color:var(--muted);margin-top:5px;">meta &gt;85%</p>
+<!-- ══ CALIDAD — 3 tarjetas ══ -->
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
+  <div class="card" style="padding:24px 26px;border-top:3px solid var(--green);">
+    <p class="lbl" style="margin-bottom:14px;">Primer viaje &lt;7d</p>
+    <p style="font-size:56px;font-weight:900;color:var(--green);line-height:1;letter-spacing:-.02em;margin-bottom:12px;">91%</p>
+    <p style="font-size:12px;color:var(--muted);margin-bottom:12px;line-height:1.5;">Conductores que viajan la primera semana post-entrega</p>
+    <div class="bar-track" style="height:10px;"><div class="bar-fill" style="width:91%;background:var(--green);"></div></div>
+    <p style="font-size:11px;color:var(--muted);margin-top:7px;">meta &gt;95% &nbsp;&middot;&nbsp; <span style="color:var(--green);font-weight:700;">en ruta</span></p>
   </div>
-  <div class="card" style="padding:20px 22px;border-top:3px solid var(--green);">
-    <p class="lbl" style="margin-bottom:12px;">Primer viaje &lt;7d</p>
-    <p class="n-huge" style="color:var(--green);margin-bottom:10px;">91%</p>
-    <p style="font-size:11px;color:var(--muted);margin-bottom:10px;line-height:1.5;">Conductores que viajan la primera semana</p>
-    <div class="bar-track"><div class="bar-fill" style="width:91%;background:var(--green);"></div></div>
-    <p style="font-size:10px;color:var(--muted);margin-top:5px;">meta &gt;95% &middot; <span style="color:var(--green);">en ruta</span></p>
+  <div class="card" style="padding:24px 26px;border-top:3px solid var(--red);">
+    <p class="lbl" style="margin-bottom:14px;">Mora temprana</p>
+    <p style="font-size:56px;font-weight:900;color:var(--red);line-height:1;letter-spacing:-.02em;margin-bottom:12px;">7.2%</p>
+    <p style="font-size:12px;color:var(--muted);margin-bottom:12px;line-height:1.5;">Conductores con pago d&iacute;a 30 incompleto</p>
+    <div class="bar-track" style="height:10px;"><div class="bar-fill" style="width:72%;background:var(--red);"></div></div>
+    <p style="font-size:11px;color:var(--muted);margin-top:7px;">meta &lt;5% &nbsp;&middot;&nbsp; <span style="color:var(--red);font-weight:700;">sobre meta</span></p>
   </div>
-  <div class="card" style="padding:20px 22px;border-top:3px solid var(--red);">
-    <p class="lbl" style="margin-bottom:12px;">Mora temprana</p>
-    <p class="n-huge" style="color:var(--red);margin-bottom:10px;">7.2%</p>
-    <p style="font-size:11px;color:var(--muted);margin-bottom:10px;line-height:1.5;">Pago d&iacute;a 30 incompleto</p>
-    <div class="bar-track"><div class="bar-fill" style="width:72%;background:var(--red);"></div></div>
-    <p style="font-size:10px;color:var(--muted);margin-top:5px;">meta &lt;5% &middot; <span style="color:var(--red);">sobre meta</span></p>
-  </div>
-  <div class="card" style="padding:20px 22px;border-top:3px solid var(--ocn-m);">
-    <p class="lbl" style="margin-bottom:12px;">Retenci&oacute;n mes 3</p>
-    <p class="n-huge" style="color:var(--text);margin-bottom:10px;">88%</p>
-    <p style="font-size:11px;color:var(--muted);margin-bottom:10px;line-height:1.5;">Activos 90 d&iacute;as post-entrega</p>
-    <div class="bar-track"><div class="bar-fill" style="width:88%;background:var(--ocn-m);"></div></div>
-    <p style="font-size:10px;color:var(--muted);margin-top:5px;">meta &gt;90% &middot; <span style="color:var(--sub);">cerca</span></p>
+  <div class="card" style="padding:24px 26px;border-top:3px solid var(--ocn-m);">
+    <p class="lbl" style="margin-bottom:14px;">Retenci&oacute;n mes 3</p>
+    <p style="font-size:56px;font-weight:900;color:var(--ocn);line-height:1;letter-spacing:-.02em;margin-bottom:12px;">88%</p>
+    <p style="font-size:12px;color:var(--muted);margin-bottom:12px;line-height:1.5;">Conductores activos 90 d&iacute;as despu&eacute;s de la entrega</p>
+    <div class="bar-track" style="height:10px;"><div class="bar-fill" style="width:88%;background:var(--ocn-m);"></div></div>
+    <p style="font-size:11px;color:var(--muted);margin-top:7px;">meta &gt;90% &nbsp;&middot;&nbsp; <span style="color:var(--sub);font-weight:700;">cerca</span></p>
   </div>
 </div>
 
