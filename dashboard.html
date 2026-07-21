@@ -289,71 +289,65 @@ body{font-family:"Inter",system-ui,sans-serif;background:var(--bg);color:var(--t
       <span class="tag" style="background:var(--red-l);color:var(--red);border:1px solid #FFCCD7;">datos reales + supuestos</span>
     </div>
 
-    <div style="display:grid;grid-template-columns:180px 1fr;gap:22px;align-items:start;">
-      <div>
-        <svg viewBox="0 0 180 140" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
-          <path d="M 20 118 A 70 70 0 1 1 160 118" fill="none" stroke="#F0F0F4" stroke-width="16" stroke-linecap="round"/>
-          <path d="M 20 118 A 70 70 0 0 1 38 62" fill="none" stroke="#D0002D" stroke-width="16" stroke-linecap="round"/>
-          <circle cx="161" cy="62" r="5" fill="var(--green)" stroke="#fff" stroke-width="2"/>
-          <text x="166" y="52" font-size="8" fill="var(--green)" font-family="Inter,sans-serif" font-weight="700">90%</text>
-          <text x="90" y="98" font-size="34" font-weight="800" fill="#D0002D" text-anchor="middle" font-family="Inter,sans-serif">15%</text>
-          <text x="90" y="115" font-size="9.5" fill="var(--muted)" text-anchor="middle" font-family="Inter,sans-serif">contacto &lt;24h actual</text>
-          <text x="90" y="130" font-size="8.5" fill="#BBBBCC" text-anchor="middle" font-family="Inter,sans-serif">meta: &gt;90%</text>
+    <div style="display:grid;grid-template-columns:260px 1fr;gap:26px;align-items:center;">
+      <div style="text-align:center;">
+        <svg viewBox="0 0 220 170" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+          <path d="M 24 144 A 86 86 0 1 1 196 144" fill="none" stroke="#F0F0F4" stroke-width="18" stroke-linecap="round"/>
+          <path d="M 24 144 A 86 86 0 0 1 46 76" fill="none" stroke="#D0002D" stroke-width="18" stroke-linecap="round"/>
+          <circle cx="196" cy="76" r="7" fill="var(--green)" stroke="#fff" stroke-width="2"/>
+          <text x="204" y="62" font-size="10" fill="var(--green)" font-family="Inter,sans-serif" font-weight="800">90%</text>
+          <text x="110" y="118" font-size="46" font-weight="900" fill="#D0002D" text-anchor="middle" font-family="Inter,sans-serif" letter-spacing="-1">15%</text>
+          <text x="110" y="140" font-size="11" fill="var(--sub)" text-anchor="middle" font-family="Inter,sans-serif" font-weight="600">contacto &lt;24h &middot; actual</text>
+          <text x="110" y="158" font-size="10" fill="#BBBBCC" text-anchor="middle" font-family="Inter,sans-serif">meta: &gt;90%</text>
         </svg>
-        <div style="display:flex;justify-content:center;gap:18px;margin-top:6px;">
-          <div style="text-align:center;"><p class="n-mid" style="color:var(--red);">4.2d</p><p style="font-size:10px;color:var(--muted);">prom. actual</p></div>
+        <div style="display:flex;justify-content:center;gap:24px;margin-top:10px;">
+          <div style="text-align:center;"><p style="font-size:26px;font-weight:900;color:var(--red);line-height:1;">4.2d</p><p style="font-size:11px;color:var(--muted);margin-top:3px;">promedio actual</p></div>
           <div style="width:1px;background:var(--border);"></div>
-          <div style="text-align:center;"><p class="n-mid" style="color:var(--green);">&lt;1d</p><p style="font-size:10px;color:var(--muted);">meta</p></div>
+          <div style="text-align:center;"><p style="font-size:26px;font-weight:900;color:var(--green);line-height:1;">&lt;1d</p><p style="font-size:11px;color:var(--muted);margin-top:3px;">meta</p></div>
         </div>
       </div>
 
-      <div style="display:flex;flex-direction:column;gap:11px;">
-        <div style="background:#FAFAFD;border:1px solid var(--border);border-radius:10px;padding:14px;">
-          <p class="lbl" style="margin-bottom:12px;">Cierre seg&uacute;n velocidad de contacto</p>
-          <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
-            <span style="font-size:11px;color:var(--sub);min-width:80px;">Contacto &lt;24h</span>
-            <div style="flex:1;background:#F4F4F7;border-radius:4px;height:22px;overflow:hidden;border-left:3px solid var(--green);">
-              <div style="width:100%;height:100%;background:var(--green-l);display:flex;align-items:center;padding:0 8px;">
-                <span style="font-size:10px;font-weight:700;color:var(--green);">34% cierre</span>
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <div style="background:#FAFAFD;border:1px solid var(--border);border-radius:10px;padding:18px 20px;">
+          <p class="lbl" style="margin-bottom:14px;">Tasa de cierre seg&uacute;n velocidad de contacto</p>
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:11px;">
+            <span style="font-size:12px;font-weight:600;color:var(--sub);min-width:96px;">Contacto &lt;24h</span>
+            <div style="flex:1;background:#F4F4F7;border-radius:5px;height:28px;overflow:hidden;border-left:4px solid var(--green);">
+              <div style="width:100%;height:100%;background:var(--green-l);display:flex;align-items:center;padding:0 10px;">
+                <span style="font-size:12px;font-weight:800;color:var(--green);">34% cierre</span>
               </div>
             </div>
           </div>
-          <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
-            <span style="font-size:11px;color:var(--sub);min-width:80px;">Contacto 1&ndash;3d</span>
-            <div style="flex:1;background:#F4F4F7;border-radius:4px;height:22px;overflow:hidden;border-left:3px solid var(--muted);">
-              <div style="width:62%;height:100%;background:#F0F0F5;display:flex;align-items:center;padding:0 8px;">
-                <span style="font-size:10px;font-weight:700;color:var(--sub);">21%</span>
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:11px;">
+            <span style="font-size:12px;font-weight:600;color:var(--sub);min-width:96px;">Contacto 1&ndash;3d</span>
+            <div style="flex:1;background:#F4F4F7;border-radius:5px;height:28px;overflow:hidden;border-left:4px solid var(--muted);">
+              <div style="width:62%;height:100%;background:#EBEBF2;display:flex;align-items:center;padding:0 10px;">
+                <span style="font-size:12px;font-weight:800;color:var(--sub);">21% cierre</span>
               </div>
             </div>
           </div>
-          <div style="display:flex;align-items:center;gap:10px;">
-            <span style="font-size:11px;color:var(--sub);min-width:80px;">Contacto &gt;3d</span>
-            <div style="flex:1;background:#F4F4F7;border-radius:4px;height:22px;overflow:hidden;border-left:3px solid var(--red);">
-              <div style="width:24%;height:100%;background:var(--red-l);display:flex;align-items:center;padding:0 8px;">
-                <span style="font-size:10px;font-weight:700;color:var(--red);">8%</span>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <span style="font-size:12px;font-weight:600;color:var(--sub);min-width:96px;">Contacto &gt;3d</span>
+            <div style="flex:1;background:#F4F4F7;border-radius:5px;height:28px;overflow:hidden;border-left:4px solid var(--red);">
+              <div style="width:24%;height:100%;background:var(--red-l);display:flex;align-items:center;padding:0 10px;">
+                <span style="font-size:12px;font-weight:800;color:var(--red);">8% cierre</span>
               </div>
             </div>
           </div>
         </div>
 
-        <div style="background:#FAFAFD;border:1px solid var(--border);border-radius:10px;padding:13px;">
-          <p class="lbl" style="margin-bottom:8px;">Distribuci&oacute;n actual &middot; tiempo al 1er contacto</p>
-          <div style="height:20px;border-radius:5px;overflow:hidden;display:flex;margin-bottom:7px;">
-            <div style="width:15%;background:var(--green);display:flex;align-items:center;justify-content:center;"><span style="font-size:8px;font-weight:800;color:#fff;">15%</span></div>
-            <div style="width:28%;background:#C4ADFF;display:flex;align-items:center;justify-content:center;"><span style="font-size:8px;font-weight:700;color:#fff;">28%</span></div>
-            <div style="flex:1;background:var(--red-l);border-left:2px solid var(--red);display:flex;align-items:center;justify-content:center;"><span style="font-size:8px;font-weight:700;color:var(--red);">57% sin contacto</span></div>
+        <div style="background:#FAFAFD;border:1px solid var(--border);border-radius:10px;padding:18px 20px;">
+          <p class="lbl" style="margin-bottom:12px;">D&oacute;nde est&aacute;n los leads hoy &middot; tiempo al 1er contacto</p>
+          <div style="height:26px;border-radius:6px;overflow:hidden;display:flex;margin-bottom:10px;">
+            <div style="width:15%;background:var(--green);display:flex;align-items:center;justify-content:center;"><span style="font-size:9px;font-weight:800;color:#fff;">15%</span></div>
+            <div style="width:28%;background:#C4ADFF;display:flex;align-items:center;justify-content:center;"><span style="font-size:9px;font-weight:700;color:#fff;">28%</span></div>
+            <div style="flex:1;background:var(--red-l);border-left:2px solid var(--red);display:flex;align-items:center;justify-content:center;"><span style="font-size:9px;font-weight:800;color:var(--red);">57% sin contacto</span></div>
           </div>
-          <div style="display:flex;gap:14px;">
-            <span style="font-size:9.5px;color:var(--muted);display:flex;align-items:center;gap:4px;"><span style="width:8px;height:8px;border-radius:2px;background:var(--green);display:inline-block;"></span>&lt;24h</span>
-            <span style="font-size:9.5px;color:var(--muted);display:flex;align-items:center;gap:4px;"><span style="width:8px;height:8px;border-radius:2px;background:#C4ADFF;display:inline-block;"></span>1&ndash;3 d&iacute;as</span>
-            <span style="font-size:9.5px;color:var(--muted);display:flex;align-items:center;gap:4px;"><span style="width:8px;height:8px;border-radius:2px;background:var(--red-l);border:1px solid var(--red);display:inline-block;"></span>sin contacto</span>
+          <div style="display:flex;gap:18px;">
+            <span style="font-size:10.5px;color:var(--sub);display:flex;align-items:center;gap:5px;font-weight:600;"><span style="width:10px;height:10px;border-radius:2px;background:var(--green);display:inline-block;flex-shrink:0;"></span>&lt;24h</span>
+            <span style="font-size:10.5px;color:var(--sub);display:flex;align-items:center;gap:5px;font-weight:600;"><span style="width:10px;height:10px;border-radius:2px;background:#C4ADFF;display:inline-block;flex-shrink:0;"></span>1&ndash;3 d&iacute;as</span>
+            <span style="font-size:10.5px;color:var(--sub);display:flex;align-items:center;gap:5px;font-weight:600;"><span style="width:10px;height:10px;border-radius:2px;background:var(--red-l);border:1px solid var(--red);display:inline-block;flex-shrink:0;"></span>sin contacto</span>
           </div>
-        </div>
-
-        <div style="background:var(--green-l);border:1px solid #A8EDCC;border-radius:10px;padding:18px 20px;">
-          <p style="font-size:11px;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px;">Oportunidad inmediata</p>
-          <p style="font-size:32px;font-weight:900;color:var(--green);line-height:1;margin-bottom:4px;">+362 autos / mes</p>
-          <p style="font-size:12px;color:var(--sub);">sin lead nuevo &middot; solo subir contacto &lt;24h a &gt;90%</p>
         </div>
       </div>
     </div>
@@ -484,6 +478,107 @@ body{font-family:"Inter",system-ui,sans-serif;background:var(--bg);color:var(--t
       <div style="display:flex;align-items:center;gap:10px;"><span style="font-size:11px;color:var(--sub);min-width:44px;">MTY</span><div style="flex:1;"><div class="bar-track"><div class="bar-fill" style="width:79%;background:var(--ocn-m);"></div></div></div><span style="font-size:12px;font-weight:700;min-width:32px;text-align:right;">142</span><span style="font-size:10px;color:var(--sub);min-width:36px;text-align:right;font-weight:700;">7.5%</span></div>
       <div style="display:flex;align-items:center;gap:10px;"><span style="font-size:11px;color:var(--sub);min-width:44px;">GDL</span><div style="flex:1;"><div class="bar-track"><div class="bar-fill" style="width:41%;background:var(--ocn-m);"></div></div></div><span style="font-size:12px;font-weight:700;min-width:32px;text-align:right;color:var(--muted);">73</span><span style="font-size:10px;color:var(--muted);min-width:36px;text-align:right;">5.1%</span></div>
       <div style="display:flex;align-items:center;gap:10px;"><span style="font-size:11px;color:var(--sub);min-width:44px;">QRO</span><div style="flex:1;"><div class="bar-track"><div class="bar-fill" style="width:22%;background:var(--border);"></div></div></div><span style="font-size:12px;font-weight:700;min-width:32px;text-align:right;color:var(--muted);">40</span><span style="font-size:10px;color:var(--red);min-width:36px;text-align:right;font-weight:700;">3.8%</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ UNDERWRITING + MIX VEHÍCULOS ══ -->
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+
+  <div class="card" style="padding:20px 22px;">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
+      <div>
+        <p class="lbl">Subestados underwriting &middot; pipeline activo</p>
+        <p style="font-size:11px;color:var(--muted);margin-top:3px;">4,621 leads &middot; ponderado 1,853 autos</p>
+      </div>
+      <span class="tag" style="background:var(--ocn-l);color:var(--ocn);">&#9888;&#65039; Ilustrativo</span>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:9px;">
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px;">
+          <span style="font-size:12px;font-weight:600;color:var(--text);">Documentaci&oacute;n incompleta</span>
+          <span style="font-size:12px;font-weight:800;color:var(--ocn);">1,853 &nbsp;<span style="font-size:10px;color:var(--muted);font-weight:600;">40.1%</span></span>
+        </div>
+        <div class="bar-track"><div class="bar-fill" style="width:100%;background:var(--ocn);"></div></div>
+      </div>
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px;">
+          <span style="font-size:12px;font-weight:600;color:var(--text);">An&aacute;lisis de cr&eacute;dito</span>
+          <span style="font-size:12px;font-weight:800;color:var(--ocn);">1,241 &nbsp;<span style="font-size:10px;color:var(--muted);font-weight:600;">26.9%</span></span>
+        </div>
+        <div class="bar-track"><div class="bar-fill" style="width:67%;background:var(--ocn-m);"></div></div>
+      </div>
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px;">
+          <span style="font-size:12px;font-weight:600;color:var(--text);">Validaci&oacute;n de identidad</span>
+          <span style="font-size:12px;font-weight:800;color:var(--sub);">687 &nbsp;<span style="font-size:10px;color:var(--muted);font-weight:600;">14.9%</span></span>
+        </div>
+        <div class="bar-track"><div class="bar-fill" style="width:37%;background:var(--ocn-m);opacity:.6;"></div></div>
+      </div>
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px;">
+          <span style="font-size:12px;font-weight:600;color:var(--text);">Aprobado &middot; pend. firma</span>
+          <span style="font-size:12px;font-weight:800;color:var(--green);">512 &nbsp;<span style="font-size:10px;color:var(--muted);font-weight:600;">11.1%</span></span>
+        </div>
+        <div class="bar-track"><div class="bar-fill" style="width:28%;background:var(--green);"></div></div>
+      </div>
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px;">
+          <span style="font-size:12px;font-weight:600;color:var(--text);">En firma &middot; entrega inmediata</span>
+          <span style="font-size:12px;font-weight:800;color:var(--green);">328 &nbsp;<span style="font-size:10px;color:var(--muted);font-weight:600;">7.1%</span></span>
+        </div>
+        <div class="bar-track"><div class="bar-fill" style="width:18%;background:var(--green);"></div></div>
+      </div>
+    </div>
+    <div style="border-top:1px solid var(--border);margin-top:13px;padding-top:10px;display:flex;justify-content:space-between;align-items:center;">
+      <span style="font-size:11px;color:var(--muted);">840 listos para entrega en &lt;7 d&iacute;as</span>
+      <span style="font-size:12px;font-weight:800;color:var(--green);">+840 autos potenciales</span>
+    </div>
+  </div>
+
+  <div class="card" style="padding:20px 22px;">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;">
+      <div>
+        <p class="lbl">Mix de flota &middot; tipo y condici&oacute;n</p>
+        <p style="font-size:11px;color:var(--muted);margin-top:3px;">Base entregada &middot; Ene&ndash;Jun 2026</p>
+      </div>
+      <span class="tag" style="background:var(--ocn-l);color:var(--ocn);">&#9888;&#65039; Estimado</span>
+    </div>
+    <p class="lbl" style="margin-bottom:10px;">Condici&oacute;n del veh&iacute;culo</p>
+    <div style="height:32px;border-radius:7px;overflow:hidden;display:flex;margin-bottom:7px;">
+      <div style="width:71%;background:var(--ocn);display:flex;align-items:center;justify-content:center;"><span style="font-size:11px;font-weight:800;color:#fff;">Seminuevo 71%</span></div>
+      <div style="flex:1;background:var(--ocn-l);border-left:2px solid var(--ocn-m);display:flex;align-items:center;justify-content:center;"><span style="font-size:11px;font-weight:700;color:var(--ocn);">Nuevo 29%</span></div>
+    </div>
+    <div style="display:flex;gap:16px;margin-bottom:20px;">
+      <span style="font-size:10.5px;color:var(--sub);font-weight:600;">Ticket prom. seminuevo: $120K MXN</span>
+      <span style="font-size:10.5px;color:var(--sub);font-weight:600;">Nuevo: $185K MXN</span>
+    </div>
+    <p class="lbl" style="margin-bottom:10px;">Tipo de veh&iacute;culo</p>
+    <div style="display:flex;flex-direction:column;gap:8px;">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span style="font-size:11.5px;font-weight:600;color:var(--sub);min-width:60px;">Sed&aacute;n</span>
+        <div style="flex:1;"><div class="bar-track"><div class="bar-fill" style="width:100%;background:var(--ocn);"></div></div></div>
+        <span style="font-size:12px;font-weight:800;color:var(--ocn);min-width:32px;text-align:right;">38%</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span style="font-size:11.5px;font-weight:600;color:var(--sub);min-width:60px;">SUV</span>
+        <div style="flex:1;"><div class="bar-track"><div class="bar-fill" style="width:76%;background:var(--ocn-m);"></div></div></div>
+        <span style="font-size:12px;font-weight:800;color:var(--sub);min-width:32px;text-align:right;">29%</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span style="font-size:11.5px;font-weight:600;color:var(--sub);min-width:60px;">Pickup</span>
+        <div style="flex:1;"><div class="bar-track"><div class="bar-fill" style="width:58%;background:var(--ocn-m);opacity:.7;"></div></div></div>
+        <span style="font-size:12px;font-weight:800;color:var(--sub);min-width:32px;text-align:right;">22%</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span style="font-size:11.5px;font-weight:600;color:var(--sub);min-width:60px;">Otro</span>
+        <div style="flex:1;"><div class="bar-track"><div class="bar-fill" style="width:29%;background:var(--border);"></div></div></div>
+        <span style="font-size:12px;font-weight:700;color:var(--muted);min-width:32px;text-align:right;">11%</span>
+      </div>
+    </div>
+    <div style="background:var(--ocn-l);border-radius:8px;padding:10px 13px;margin-top:16px;">
+      <p style="font-size:11.5px;font-weight:700;color:var(--ocn);">SUV+Pickup = 51% &middot; ticket 28% mayor al sed&aacute;n</p>
+      <p style="font-size:10.5px;color:var(--sub);margin-top:2px;">Mover mix hacia SUV mejora ingreso por auto sin volumen adicional</p>
     </div>
   </div>
 </div>
