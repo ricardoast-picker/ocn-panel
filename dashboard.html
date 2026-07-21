@@ -158,7 +158,7 @@ body{font-family:"Inter",system-ui,sans-serif;background:var(--bg);color:var(--t
 
 <!-- ══ KPI ROW ══ -->
 <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:12px;">
-  <div class="card" style="padding:16px 18px;">
+  <div class="card" style="padding:16px 18px;border-top:3px solid var(--ocn);">
     <p class="lbl" style="margin-bottom:10px;">Entregas jun</p>
     <p class="n-huge" style="color:var(--ocn);margin-bottom:8px;">435</p>
     <div class="bar-track" style="margin-bottom:6px;"><div class="bar-fill" style="width:52%;background:var(--ocn);"></div></div>
@@ -170,27 +170,27 @@ body{font-family:"Inter",system-ui,sans-serif;background:var(--bg);color:var(--t
     <div class="bar-track" style="margin-bottom:6px;"><div class="bar-fill" style="width:15%;background:var(--red);"></div></div>
     <p style="font-size:11px;color:var(--muted);">meta &gt;90%</p>
   </div>
-  <div class="card" style="padding:16px 18px;">
+  <div class="card" style="padding:16px 18px;border-top:3px solid var(--green);">
     <p class="lbl" style="margin-bottom:10px;">Conv. canal interno</p>
     <p class="n-huge" style="color:var(--green);margin-bottom:8px;">7.0%</p>
     <div class="bar-track" style="margin-bottom:6px;"><div class="bar-fill" style="width:50%;background:var(--green);"></div></div>
     <p style="font-size:11px;color:var(--muted);">22&times; mejor que C8</p>
   </div>
-  <div class="card" style="padding:16px 18px;">
+  <div class="card" style="padding:16px 18px;border-top:3px solid var(--ocn-m);">
     <p class="lbl" style="margin-bottom:10px;">Pipeline activo</p>
-    <p class="n-huge" style="color:var(--text);margin-bottom:8px;">4,621</p>
+    <p class="n-huge" style="color:var(--ocn);margin-bottom:8px;">4,621</p>
     <div class="bar-track" style="margin-bottom:6px;"><div class="bar-fill" style="width:60%;background:var(--ocn-m);"></div></div>
     <p style="font-size:11px;color:var(--muted);">ponderado 1,853</p>
   </div>
-  <div class="card" style="padding:16px 18px;">
+  <div class="card" style="padding:16px 18px;border-top:3px solid var(--ocn-m);">
     <p class="lbl" style="margin-bottom:10px;">Leads calientes</p>
-    <p class="n-huge" style="color:var(--text);margin-bottom:8px;">9,854</p>
+    <p class="n-huge" style="color:var(--ocn);margin-bottom:8px;">9,854</p>
     <div class="bar-track" style="margin-bottom:6px;"><div class="bar-fill" style="width:12%;background:var(--ocn-m);"></div></div>
     <p style="font-size:11px;color:var(--muted);">&lt;30d &middot; sin contactar</p>
   </div>
-  <div class="card" style="padding:16px 18px;">
+  <div class="card" style="padding:16px 18px;border-top:3px solid var(--green);">
     <p class="lbl" style="margin-bottom:10px;">Ciclo lead&rarr;auto</p>
-    <p class="n-huge" style="color:var(--text);margin-bottom:8px;">19d</p>
+    <p class="n-huge" style="color:var(--green);margin-bottom:8px;">19d</p>
     <div class="bar-track" style="margin-bottom:6px;"><div class="bar-fill" style="width:78%;background:var(--green);"></div></div>
     <p style="font-size:11px;color:var(--muted);">mediana &middot; 34% cierra &le;7d</p>
   </div>
@@ -223,26 +223,26 @@ body{font-family:"Inter",system-ui,sans-serif;background:var(--bg);color:var(--t
     <line x1="56" y1="24" x2="1060" y2="24" stroke="#D0002D" stroke-width="1.5" stroke-dasharray="6,4" opacity=".6"/>
     <text x="1056" y="19" font-size="8.5" fill="#D0002D" text-anchor="end" font-family="Inter,sans-serif" font-weight="700">meta 833</text>
     <!-- Ene=68 -->
-    <rect x="80" y="156.5" width="92" height="13.5" rx="5" fill="#EDE8FF"/>
-    <text x="126" y="152" font-size="9" fill="var(--muted)" text-anchor="middle" font-family="Inter,sans-serif" font-weight="600">68</text>
+    <rect x="80" y="156.5" width="92" height="13.5" rx="5" fill="#DCDCE8"/>
+    <text x="126" y="152" font-size="9" fill="#9090A8" text-anchor="middle" font-family="Inter,sans-serif" font-weight="600">68</text>
     <text x="126" y="190" font-size="9.5" fill="#9090A8" text-anchor="middle" font-family="Inter,sans-serif">Ene</text>
-    <!-- Feb=769 -->
-    <rect x="222" y="17.5" width="92" height="152.5" rx="5" fill="#EDE8FF"/>
-    <text x="268" y="35" font-size="9" fill="#5800F7" text-anchor="middle" font-family="Inter,sans-serif" font-weight="700">769</text>
+    <!-- Feb=769 pico histórico pero pasado -->
+    <rect x="222" y="17.5" width="92" height="152.5" rx="5" fill="#DCDCE8"/>
+    <text x="268" y="35" font-size="9" fill="#9090A8" text-anchor="middle" font-family="Inter,sans-serif" font-weight="600">769</text>
     <text x="268" y="190" font-size="9.5" fill="#9090A8" text-anchor="middle" font-family="Inter,sans-serif">Feb</text>
     <!-- Mar=269 -->
-    <rect x="364" y="116.5" width="92" height="53.5" rx="5" fill="#EDE8FF"/>
-    <text x="410" y="112" font-size="9" fill="#5800F7" text-anchor="middle" font-family="Inter,sans-serif" font-weight="700">269</text>
+    <rect x="364" y="116.5" width="92" height="53.5" rx="5" fill="#DCDCE8"/>
+    <text x="410" y="112" font-size="9" fill="#9090A8" text-anchor="middle" font-family="Inter,sans-serif" font-weight="600">269</text>
     <text x="410" y="190" font-size="9.5" fill="#9090A8" text-anchor="middle" font-family="Inter,sans-serif">Mar</text>
     <!-- Abr=272 -->
-    <rect x="506" y="116" width="92" height="54" rx="5" fill="#EDE8FF"/>
-    <text x="552" y="112" font-size="9" fill="#5800F7" text-anchor="middle" font-family="Inter,sans-serif" font-weight="700">272</text>
+    <rect x="506" y="116" width="92" height="54" rx="5" fill="#DCDCE8"/>
+    <text x="552" y="112" font-size="9" fill="#9090A8" text-anchor="middle" font-family="Inter,sans-serif" font-weight="600">272</text>
     <text x="552" y="190" font-size="9.5" fill="#9090A8" text-anchor="middle" font-family="Inter,sans-serif">Abr</text>
     <!-- May=208 -->
-    <rect x="648" y="128.5" width="92" height="41.5" rx="5" fill="#EDE8FF"/>
-    <text x="694" y="124" font-size="9" fill="#5800F7" text-anchor="middle" font-family="Inter,sans-serif" font-weight="700">208</text>
+    <rect x="648" y="128.5" width="92" height="41.5" rx="5" fill="#DCDCE8"/>
+    <text x="694" y="124" font-size="9" fill="#9090A8" text-anchor="middle" font-family="Inter,sans-serif" font-weight="600">208</text>
     <text x="694" y="190" font-size="9.5" fill="#9090A8" text-anchor="middle" font-family="Inter,sans-serif">May</text>
-    <!-- Jun=435 HERO -->
+    <!-- Jun=435 HERO — único en color -->
     <rect x="790" y="83.5" width="92" height="86.5" rx="5" fill="#5800F7"/>
     <text x="836" y="103" font-size="10" fill="white" text-anchor="middle" font-family="Inter,sans-serif" font-weight="800">435</text>
     <text x="836" y="190" font-size="9.5" fill="#5800F7" text-anchor="middle" font-family="Inter,sans-serif" font-weight="700">Jun</text>
@@ -550,7 +550,7 @@ body{font-family:"Inter",system-ui,sans-serif;background:var(--bg);color:var(--t
 </div>
 
 <!-- ══ 3 PALANCAS ══ -->
-<div class="card" style="padding:20px 28px;border:2px solid var(--ocn-l);">
+<div class="card" style="padding:20px 28px;border-top:4px solid var(--ocn);">
   <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:0;align-items:center;">
     <div style="padding-right:28px;border-right:1px solid var(--border);">
       <p class="lbl" style="margin-bottom:8px;">Palanca 1 &middot; leads calientes</p>
