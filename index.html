@@ -926,3 +926,44 @@ Acelerar underwriting</p></div><div style="display:flex;align-items:center;gap:8
     <p style="font-size:10.5px;color:var(--muted);margin-top:7px;">Ricardo Astorga · Case Study Growth Director · OCN · Julio 2026 · deck: ocn-panel.vercel.app · dashboard: ocn-panel.vercel.app/dashboard.html</p>
   </div>
 </div>
+
+<div id="slide-num">1 / 11</div>
+
+<div id="nav">
+  <button class="nav-btn" id="prev" onclick="go(-1)" disabled>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg>
+  </button>
+  <button class="nav-btn" id="next" onclick="go(1)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>
+  </button>
+</div>
+
+<script>
+const slides = document.querySelectorAll('#deck .slide');
+let cur = 0;
+const num  = document.getElementById('slide-num');
+const prev = document.getElementById('prev');
+const next = document.getElementById('next');
+const brand = document.getElementById('brand');
+
+function go(dir) {
+  if (cur + dir < 0 || cur + dir >= slides.length) return;
+  slides[cur].classList.remove('active');
+  slides[cur].classList.add('exit');
+  setTimeout(() => slides[cur - dir] && slides[cur].classList.remove('exit'), 420);
+  cur += dir;
+  slides[cur].classList.add('active');
+  num.textContent  = (cur + 1) + ' / ' + slides.length;
+  prev.disabled    = cur === 0;
+  next.disabled    = cur === slides.length - 1;
+  brand.style.opacity = cur === 0 ? '0' : '1';
+  window.scrollTo(0, 0);
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown'  || e.key === ' ') go(1);
+  if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp') go(-1);
+});
+</script>
+</body>
+</html>
