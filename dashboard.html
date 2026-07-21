@@ -7,68 +7,669 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-:root{--bg:#07051a;--card:#110d28;--border:rgba(255,255,255,.07);--text:#fff;--sub:rgba(255,255,255,.65);--muted:rgba(255,255,255,.38);--ocn:#5800F7;--green:hsl(162 80% 48%);--amber:hsl(38 100% 55%);--red:hsl(346 90% 58%);}
+:root{
+  --bg:#080808;--card:#111;--card2:#161616;--border:rgba(255,255,255,.08);
+  --text:#fff;--sub:rgba(255,255,255,.62);--muted:rgba(255,255,255,.35);
+  --ocn:#5800F7;--green:hsl(162 80% 48%);--amber:hsl(38 100% 55%);--red:hsl(346 90% 58%);
+  --green-bg:rgba(0,200,130,.08);--red-bg:rgba(255,40,70,.08);--amber-bg:rgba(255,160,0,.08);
+}
 body{font-family:"Montserrat",sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
-.topbar{background:#0e0b26;border-bottom:1px solid rgba(88,0,247,.2);padding:14px 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 20px rgba(0,0,0,.5);}
-.topbar-logo{display:flex;align-items:center;gap:12px;}
-.live-dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green);animation:pulse 2s infinite;}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
-.back-btn{font-size:12px;font-weight:700;color:rgba(255,255,255,.6);text-decoration:none;border:1px solid rgba(255,255,255,.12);padding:7px 14px;border-radius:8px;background:rgba(255,255,255,.04);transition:all .2s;}
-.back-btn:hover{background:rgba(88,0,247,.2);border-color:rgba(88,0,247,.4);color:#fff;}
-.filters{background:#0a0820;border-bottom:1px solid rgba(255,255,255,.06);padding:10px 32px;display:flex;align-items:center;gap:10px;}
-.fl{font-size:10px;font-weight:800;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.1em;margin-right:2px;}
-.chip{font-size:11.5px;font-weight:700;padding:5px 13px;border-radius:20px;border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.5);cursor:pointer;}
+.topbar{background:#0a0a0a;border-bottom:1px solid rgba(88,0,247,.18);padding:13px 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 24px rgba(0,0,0,.8);}
+.live-dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green);animation:pulse 2s infinite;flex-shrink:0;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.back-btn{font-size:11.5px;font-weight:700;color:rgba(255,255,255,.55);text-decoration:none;border:1px solid rgba(255,255,255,.1);padding:7px 14px;border-radius:8px;background:rgba(255,255,255,.03);}
+.filters{background:#0c0c0c;border-bottom:1px solid rgba(255,255,255,.05);padding:9px 32px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.fl{font-size:10px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-right:2px;}
+.chip{font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;border:1px solid rgba(255,255,255,.08);color:var(--muted);}
 .chip.on{background:var(--ocn);border-color:var(--ocn);color:#fff;}
-.fsep{width:1px;height:16px;background:rgba(255,255,255,.08);margin:0 4px;}
-.fn{font-size:10.5px;color:rgba(255,255,255,.3);font-weight:600;margin-left:auto;}
+.fsep{width:1px;height:14px;background:rgba(255,255,255,.07);margin:0 4px;}
+.fn{font-size:10px;color:rgba(255,255,255,.25);font-weight:600;margin-left:auto;}
+.section{padding:16px 32px 0;}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;}
+.label{font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);}
+.badge{display:inline-flex;align-items:center;font-size:9.5px;font-weight:800;padding:2px 8px;border-radius:20px;}
+.tbl{width:100%;border-collapse:collapse;}
+.tbl th{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);padding:0 8px 7px;text-align:left;}
+.tbl td{padding:5px 8px;font-size:11px;border-top:1px solid rgba(255,255,255,.04);}
 </style>
 </head>
 <body>
+
+<!-- TOPBAR -->
 <div class="topbar">
-<div class="topbar-logo">
-<div class="live-dot"></div>
-<div><p style="font-size:14px;font-weight:900;color:#fff;letter-spacing:.02em;">OCN &middot; Dashboard Comercial</p><p style="font-size:10.5px;color:rgba(255,255,255,.38);font-weight:600;">Corte: 10 julio 2026 &nbsp;&middot;&nbsp; n=117,401 solicitudes &nbsp;&middot;&nbsp; Case Study Growth Director</p></div>
+  <div style="display:flex;align-items:center;gap:12px;">
+    <div class="live-dot"></div>
+    <div>
+      <p style="font-size:14px;font-weight:900;letter-spacing:.02em;">OCN &middot; Dashboard Comercial</p>
+      <p style="font-size:10px;color:var(--muted);font-weight:600;margin-top:1px;">Corte: 10 jul 2026 &nbsp;&middot;&nbsp; n=117,401 solicitudes &nbsp;&middot;&nbsp; Case Study Growth Director &nbsp;&middot;&nbsp; Ricardo Astorga</p>
+    </div>
+  </div>
+  <a href="index.html" class="back-btn">&larr; Volver al deck</a>
 </div>
-<a href="index.html" class="back-btn">&larr; Volver al deck</a>
-</div>
+
+<!-- FILTERS -->
 <div class="filters">
-<span class="fl">Vista</span><span class="chip on">Global</span><span class="chip">CDMX</span><span class="chip">MTY</span><span class="chip">GDL</span><div class="fsep"></div><span class="fl">Canal</span><span class="chip on">Todos</span><span class="chip">Interno OCN</span><span class="chip">Referidos</span><div class="fsep"></div><span class="fl">Periodo</span><span class="chip on">&Uacute;lt. 4 sem.</span><span class="chip">Jun</span><span class="chip">May</span><span class="fn">&#9888;&#65039; Filtros ilustrativos &middot; mockup funcional</span>
+  <span class="fl">Vista</span>
+  <span class="chip on">Global</span><span class="chip">CDMX</span><span class="chip">MTY</span><span class="chip">GDL</span><span class="chip">QRO</span>
+  <div class="fsep"></div>
+  <span class="fl">Canal</span>
+  <span class="chip on">Todos</span><span class="chip">Interno OCN</span><span class="chip">Referidos</span><span class="chip">C8</span>
+  <div class="fsep"></div>
+  <span class="fl">Periodo</span>
+  <span class="chip on">Ene&ndash;Jun 2026</span><span class="chip">Jun</span><span class="chip">May</span>
+  <span class="fn">&#9888;&#65039; Filtros ilustrativos &middot; mockup funcional</span>
 </div>
-<div style="display:grid;grid-template-columns:repeat(8,1fr);gap:10px;padding:18px 32px 0;">
-<div style="background:#110d28;border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:14px 16px;"><p style="font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.38);margin-bottom:6px;">Entregas jun</p><p style="font-size:26px;font-weight:900;color:hsl(346 90% 58%);line-height:1;margin-bottom:4px;">435</p><p style="font-size:10.5px;color:rgba(255,255,255,.42);margin-bottom:5px;font-weight:600;">meta: 833/mes</p><span style="display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:800;padding:2px 8px;border-radius:20px;background:rgba(255,50,80,.12);color:hsl(346 90% 60%);">52% de meta</span></div>
-<div style="background:#110d28;border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:14px 16px;"><p style="font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.38);margin-bottom:6px;">ECM &middot; m&eacute;trica norte</p><p style="font-size:26px;font-weight:900;color:rgba(255,255,255,.5);line-height:1;margin-bottom:4px;">-- %</p><p style="font-size:10.5px;color:rgba(255,255,255,.42);margin-bottom:5px;font-weight:600;">primer viaje+sin mora</p><span style="display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:800;padding:2px 8px;border-radius:20px;background:rgba(88,0,247,.15);color:hsl(258 80% 70%);">calibrando</span></div>
-<div style="background:#110d28;border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:14px 16px;"><p style="font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.38);margin-bottom:6px;">Conv. canal interno</p><p style="font-size:26px;font-weight:900;color:hsl(162 80% 48%);line-height:1;margin-bottom:4px;">7.01%</p><p style="font-size:10.5px;color:rgba(255,255,255,.42);margin-bottom:5px;font-weight:600;">vs 0.32% ext. C8</p><span style="display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:800;padding:2px 8px;border-radius:20px;background:rgba(0,200,150,.12);color:hsl(162 80% 52%);">22&times; vs C8</span></div>
-<div style="background:#110d28;border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:14px 16px;"><p style="font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.38);margin-bottom:6px;">Contacto &lt;24h</p><p style="font-size:26px;font-weight:900;color:hsl(346 90% 58%);line-height:1;margin-bottom:4px;">15%</p><p style="font-size:10.5px;color:rgba(255,255,255,.42);margin-bottom:5px;font-weight:600;">meta: &gt;90%</p><span style="display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:800;padding:2px 8px;border-radius:20px;background:rgba(255,50,80,.12);color:hsl(346 90% 60%);">fuga cr&iacute;tica</span></div>
-<div style="background:#110d28;border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:14px 16px;"><p style="font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.38);margin-bottom:6px;">Pipeline activo</p><p style="font-size:26px;font-weight:900;color:hsl(258 75% 68%);line-height:1;margin-bottom:4px;">4,621</p><p style="font-size:10.5px;color:rgba(255,255,255,.42);margin-bottom:5px;font-weight:600;">en underwriting</p><span style="display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:800;padding:2px 8px;border-radius:20px;background:rgba(0,200,150,.12);color:hsl(162 80% 52%);">+1,853 proy.</span></div>
-<div style="background:#110d28;border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:14px 16px;"><p style="font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.38);margin-bottom:6px;">Leads calientes</p><p style="font-size:26px;font-weight:900;color:hsl(38 100% 58%);line-height:1;margin-bottom:4px;">9,854</p><p style="font-size:10.5px;color:rgba(255,255,255,.42);margin-bottom:5px;font-weight:600;">&lt;30 d&iacute;as &middot; prioridad 1</p><span style="display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:800;padding:2px 8px;border-radius:20px;background:rgba(255,165,0,.12);color:hsl(38 100% 58%);">de 79,469 sin gest.</span></div>
-<div style="background:#110d28;border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:14px 16px;"><p style="font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.38);margin-bottom:6px;">Ciclo lead&rarr;entrega</p><p style="font-size:26px;font-weight:900;color:hsl(162 65% 52%);line-height:1;margin-bottom:4px;">19 d&iacute;as</p><p style="font-size:10.5px;color:rgba(255,255,255,.42);margin-bottom:5px;font-weight:600;">mediana &middot; 34% &le;7d</p><span style="display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:800;padding:2px 8px;border-radius:20px;background:rgba(0,200,150,.12);color:hsl(162 80% 52%);">19d sin pausas</span></div>
-<div style="background:#110d28;border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:14px 16px;"><p style="font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.38);margin-bottom:6px;">C8 riesgo</p><p style="font-size:26px;font-weight:900;color:hsl(346 90% 58%);line-height:1;margin-bottom:4px;">0.32%</p><p style="font-size:10.5px;color:rgba(255,255,255,.42);margin-bottom:5px;font-weight:600;">32% del volumen &middot; 39 ejs</p><span style="display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:800;padding:2px 8px;border-radius:20px;background:rgba(255,50,80,.12);color:hsl(346 90% 60%);">pausar canal</span></div>
+
+<!-- FUNNEL HORIZONTAL -->
+<div class="section">
+<div class="card" style="padding:18px 24px;">
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
+    <p class="label">Funnel completo &middot; solicitudes &rarr; entregas &middot; fuente: gth_applications.csv n=117,401</p>
+    <span style="font-size:10px;color:var(--muted);font-weight:600;">Ene&ndash;Jun 2026</span>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 28px 1fr 28px 1fr 28px 1fr 28px 1fr;align-items:center;gap:0;">
+    <!-- Stage 1 -->
+    <div style="background:#1a1a1a;border-radius:12px;padding:14px 16px;text-align:center;border:1px solid rgba(255,255,255,.06);">
+      <p style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:6px;">Total solicitudes</p>
+      <p style="font-size:28px;font-weight:900;color:#fff;line-height:1;">117,401</p>
+      <p style="font-size:10px;color:var(--muted);margin-top:4px;font-weight:600;">base total</p>
+      <div style="margin-top:8px;height:4px;background:rgba(88,0,247,.3);border-radius:2px;"></div>
+    </div>
+    <p style="text-align:center;font-size:18px;color:rgba(255,255,255,.2);font-weight:300;">&rsaquo;</p>
+    <!-- Stage 2 -->
+    <div style="background:#1a1a1a;border-radius:12px;padding:14px 16px;text-align:center;border:1px solid rgba(255,80,80,.12);">
+      <p style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--red);margin-bottom:6px;">Sin gestionar</p>
+      <p style="font-size:28px;font-weight:900;color:var(--red);line-height:1;">79,469</p>
+      <p style="font-size:10px;color:var(--muted);margin-top:4px;font-weight:600;">67.7% del total</p>
+      <div style="margin-top:8px;height:4px;background:var(--red-bg);border-radius:2px;overflow:hidden;"><div style="width:67.7%;height:100%;background:var(--red);border-radius:2px;"></div></div>
+    </div>
+    <p style="text-align:center;font-size:18px;color:rgba(255,255,255,.2);font-weight:300;">&rsaquo;</p>
+    <!-- Stage 3 -->
+    <div style="background:#1a1a1a;border-radius:12px;padding:14px 16px;text-align:center;border:1px solid rgba(255,160,0,.15);">
+      <p style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--amber);margin-bottom:6px;">Leads calientes &lt;30d</p>
+      <p style="font-size:28px;font-weight:900;color:var(--amber);line-height:1;">9,854</p>
+      <p style="font-size:10px;color:var(--muted);margin-top:4px;font-weight:600;">12.4% del sin gestionar</p>
+      <div style="margin-top:8px;height:4px;background:var(--amber-bg);border-radius:2px;overflow:hidden;"><div style="width:12.4%;height:100%;background:var(--amber);border-radius:2px;"></div></div>
+    </div>
+    <p style="text-align:center;font-size:18px;color:rgba(255,255,255,.2);font-weight:300;">&rsaquo;</p>
+    <!-- Stage 4 -->
+    <div style="background:#1a1a1a;border-radius:12px;padding:14px 16px;text-align:center;border:1px solid rgba(88,0,247,.2);">
+      <p style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:hsl(258 70% 68%);margin-bottom:6px;">Underwriting activo</p>
+      <p style="font-size:28px;font-weight:900;color:hsl(258 70% 68%);line-height:1;">4,621</p>
+      <p style="font-size:10px;color:var(--muted);margin-top:4px;font-weight:600;">ponderado: 1,853 autos</p>
+      <div style="margin-top:8px;height:4px;background:rgba(88,0,247,.15);border-radius:2px;overflow:hidden;"><div style="width:40.1%;height:100%;background:hsl(258 70% 65%);border-radius:2px;"></div></div>
+    </div>
+    <p style="text-align:center;font-size:18px;color:rgba(255,255,255,.2);font-weight:300;">&rsaquo;</p>
+    <!-- Stage 5 -->
+    <div style="background:#1a1a1a;border-radius:12px;padding:14px 16px;text-align:center;border:1px solid rgba(0,200,130,.2);">
+      <p style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--green);margin-bottom:6px;">Entregas jun</p>
+      <p style="font-size:28px;font-weight:900;color:var(--green);line-height:1;">435</p>
+      <p style="font-size:10px;color:var(--red);margin-top:4px;font-weight:700;">52% de meta 833</p>
+      <div style="margin-top:8px;height:4px;background:var(--green-bg);border-radius:2px;overflow:hidden;"><div style="width:52.2%;height:100%;background:var(--green);border-radius:2px;"></div></div>
+    </div>
+  </div>
+  <!-- Conversion rates between stages -->
+  <div style="display:grid;grid-template-columns:1fr 28px 1fr 28px 1fr 28px 1fr 28px 1fr;margin-top:6px;">
+    <div></div><div></div>
+    <p style="font-size:9px;font-weight:700;color:var(--red);text-align:center;">68% sin tocar</p>
+    <div></div>
+    <p style="font-size:9px;font-weight:700;color:var(--amber);text-align:center;">12.4% calientes</p>
+    <div></div>
+    <p style="font-size:9px;font-weight:700;color:hsl(258 70% 65%);text-align:center;">40% ponderaci&oacute;n</p>
+    <div></div>
+    <p style="font-size:9px;font-weight:700;color:var(--green);text-align:center;">conv. 7.01% interno</p>
+  </div>
 </div>
-<div style="padding:18px 32px 0;">
-<div style="background:#110d28;border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:20px 22px;box-shadow:0 0 0 0.5px rgba(88,0,247,.1);">
-<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
-<div><p style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.38);">Entregas por mes vs meta 833 &middot; fuente: CSV gth_applications.csv</p><p style="font-size:11px;color:rgba(255,255,255,.35);font-weight:600;margin-top:3px;">Barras = entregas entregadas &middot; L&iacute;nea naranja = % conversi&oacute;n por cohorte (eje dcho) &middot; * jul = proyectado</p></div><div style="display:flex;align-items:center;gap:16px;"><div style="display:flex;align-items:center;gap:5px;"><div style="width:12px;height:12px;border-radius:3px;background:hsl(162 80% 48%);"></div><span style="font-size:10.5px;color:rgba(255,255,255,.45);font-weight:600;">Jun (mejor mes)</span></div><div style="display:flex;align-items:center;gap:5px;"><div style="width:28px;height:2px;background:hsl(346 90% 60%);"></div><span style="font-size:10.5px;color:rgba(255,255,255,.45);font-weight:600;">Meta 833</span></div><div style="display:flex;align-items:center;gap:5px;"><div style="width:20px;height:2.5px;background:hsl(38 100% 60%);"></div><span style="font-size:10.5px;color:rgba(255,255,255,.45);font-weight:600;">Conv. cohorte %</span></div></div></div>
-<svg viewBox="0 0 860 175" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;"><line x1="48" y1="117.0" x2="838" y2="117.0" stroke="rgba(255,255,255,.05)" stroke-width="1"/><text x="43" y="120.0" font-size="8" fill="rgba(255,255,255,.28)" text-anchor="end" font-family="Montserrat,sans-serif">200</text><line x1="48" y1="87.0" x2="838" y2="87.0" stroke="rgba(255,255,255,.05)" stroke-width="1"/><text x="43" y="90.0" font-size="8" fill="rgba(255,255,255,.28)" text-anchor="end" font-family="Montserrat,sans-serif">400</text><line x1="48" y1="57.0" x2="838" y2="57.0" stroke="rgba(255,255,255,.05)" stroke-width="1"/><text x="43" y="60.0" font-size="8" fill="rgba(255,255,255,.28)" text-anchor="end" font-family="Montserrat,sans-serif">600</text><line x1="48" y1="27.0" x2="838" y2="27.0" stroke="rgba(255,255,255,.05)" stroke-width="1"/><text x="43" y="30.0" font-size="8" fill="rgba(255,255,255,.28)" text-anchor="end" font-family="Montserrat,sans-serif">800</text><line x1="48" y1="22.0" x2="838" y2="22.0" stroke="hsl(346 90% 60%)" stroke-width="1.5" stroke-dasharray="6,3" opacity=".8"/><text x="835" y="18.0" font-size="8.5" fill="hsl(346 90% 60%)" text-anchor="end" font-family="Montserrat,sans-serif" font-weight="800">meta 833</text><rect x="71.7" y="136.8" width="65.5" height="10.2" rx="5" fill="hsl(258 45% 40%)"/><text x="104.4" y="132.8" font-size="8" fill="rgba(255,255,255,.6)" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="700">68</text><text x="104.4" y="170" font-size="9.5" fill="rgba(255,255,255,.45)" text-anchor="middle" font-family="Montserrat,sans-serif">Ene</text><rect x="184.6" y="31.7" width="65.5" height="115.3" rx="5" fill="hsl(258 65% 58%)"/><text x="217.3" y="41.7" font-size="8" fill="rgba(255,255,255,.9)" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="800">769</text><text x="217.3" y="170" font-size="9.5" fill="rgba(255,255,255,.45)" text-anchor="middle" font-family="Montserrat,sans-serif">Feb</text><rect x="297.4" y="106.7" width="65.5" height="40.3" rx="5" fill="hsl(258 45% 40%)"/><text x="330.1" y="116.7" font-size="8" fill="rgba(255,255,255,.9)" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="800">269</text><text x="330.1" y="170" font-size="9.5" fill="rgba(255,255,255,.45)" text-anchor="middle" font-family="Montserrat,sans-serif">Mar</text><rect x="410.3" y="106.2" width="65.5" height="40.8" rx="5" fill="hsl(258 45% 40%)"/><text x="443.0" y="116.2" font-size="8" fill="rgba(255,255,255,.9)" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="800">272</text><text x="443.0" y="170" font-size="9.5" fill="rgba(255,255,255,.45)" text-anchor="middle" font-family="Montserrat,sans-serif">Abr</text><rect x="523.1" y="115.8" width="65.5" height="31.2" rx="5" fill="hsl(258 45% 40%)"/><text x="555.9" y="125.8" font-size="8" fill="rgba(255,255,255,.9)" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="800">208</text><text x="555.9" y="170" font-size="9.5" fill="rgba(255,255,255,.45)" text-anchor="middle" font-family="Montserrat,sans-serif">May</text><rect x="636.0" y="81.8" width="65.5" height="65.2" rx="5" fill="hsl(162 80% 48%)"/><text x="668.7" y="91.8" font-size="8" fill="rgba(255,255,255,.9)" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="800">435</text><text x="668.7" y="170" font-size="9.5" fill="rgba(255,255,255,.45)" text-anchor="middle" font-family="Montserrat,sans-serif">Jun</text><rect x="748.8" y="135.2" width="65.5" height="11.8" rx="5" fill="rgba(88,0,247,.3)"/><text x="781.6" y="131.2" font-size="8" fill="rgba(255,255,255,.6)" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="700">79</text><text x="781.6" y="170" font-size="9.5" fill="rgba(255,255,255,.45)" text-anchor="middle" font-family="Montserrat,sans-serif">Jul*</text><path d="M 104.4 69.8 L 217.3 48.5 L 330.1 73.6 L 443.0 120.8 L 555.9 125.1 L 668.7 135.4" stroke="hsl(38 100% 60%)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/><circle cx="104.4" cy="69.8" r="3.5" fill="hsl(38 100% 60%)" stroke="#07051a" stroke-width="1.5"/><circle cx="217.3" cy="48.5" r="3.5" fill="hsl(38 100% 60%)" stroke="#07051a" stroke-width="1.5"/><circle cx="330.1" cy="73.6" r="3.5" fill="hsl(38 100% 60%)" stroke="#07051a" stroke-width="1.5"/><circle cx="443.0" cy="120.8" r="3.5" fill="hsl(38 100% 60%)" stroke="#07051a" stroke-width="1.5"/><circle cx="555.9" cy="125.1" r="3.5" fill="hsl(38 100% 60%)" stroke="#07051a" stroke-width="1.5"/><circle cx="668.7" cy="135.4" r="3.5" fill="hsl(38 100% 60%)" stroke="#07051a" stroke-width="1.5"/></svg></div>
 </div>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:16px 32px 0;">
-<div style="background:#110d28;border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:20px 22px;box-shadow:0 0 0 0.5px rgba(88,0,247,.12);"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;"><p style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.38);">Pipeline por ejecutivo &middot; entregas mes</p><span style="font-size:10px;color:rgba(255,255,255,.35);font-weight:600;background:rgba(255,255,255,.05);padding:3px 10px;border-radius:20px;">&#9888;&#65039; Nombres ilustrativos</span></div><table style="width:100%;border-collapse:collapse;"><thead><tr><th style="font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:rgba(255,255,255,.3);padding:0 8px 8px;text-align:left;">#</th><th style="font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:rgba(255,255,255,.3);padding:0 8px 8px;text-align:left;">Ejecutivo</th><th style="font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:rgba(255,255,255,.3);padding:0 8px 8px;">Pipeline</th><th style="font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:rgba(255,255,255,.3);padding:0 8px 8px;text-align:center;">Ejs.</th><th style="font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:rgba(255,255,255,.3);padding:0 8px 8px;text-align:center;">Conv.</th><th style="font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:rgba(255,255,255,.3);padding:0 8px 8px;text-align:center;">&lt;24h</th></tr></thead><tbody><tr style="border-top:1px solid rgba(255,255,255,.05);"><td style="padding:6px 8px;font-size:11px;font-weight:700;color:rgba(255,255,255,.5);">1</td><td style="padding:6px 8px;font-size:11.5px;color:rgba(255,255,255,.75);">A. Ramírez</td><td style="padding:6px 8px;"><div style="height:8px;width:120px;background:rgba(88,0,247,.5);border-radius:3px;display:inline-block;"></div> <span style="font-size:10px;color:rgba(255,255,255,.4);">54</span></td><td style="padding:6px 8px;font-size:12px;font-weight:800;color:hsl(162 80% 48%);">18</td><td style="padding:6px 8px;font-size:11px;font-weight:700;color:hsl(162 80% 48%);">33%</td><td style="padding:6px 8px;"><span style="font-size:10px;font-weight:800;padding:2px 7px;border-radius:20px;background:rgba(255,255,255,.06);color:rgba(255,255,255,.6);">96%</span></td></tr>
-<tr style="border-top:1px solid rgba(255,255,255,.05);"><td style="padding:6px 8px;font-size:11px;font-weight:700;color:rgba(255,255,255,.5);">2</td><td style="padding:6px 8px;font-size:11.5px;color:rgba(255,255,255,.75);">M. Vega</td><td style="padding:6px 8px;"><div style="height:8px;width:104px;background:rgba(88,0,247,.5);border-radius:3px;display:inline-block;"></div> <span style="font-size:10px;color:rgba(255,255,255,.4);">47</span></td><td style="padding:6px 8px;font-size:12px;font-weight:800;color:hsl(162 80% 48%);">16</td><td style="padding:6px 8px;font-size:11px;font-weight:700;color:hsl(162 80% 48%);">34%</td><td style="padding:6px 8px;"><span style="font-size:10px;font-weight:800;padding:2px 7px;border-radius:20px;background:rgba(255,255,255,.06);color:rgba(255,255,255,.6);">91%</span></td></tr>
-<tr style="border-top:1px solid rgba(255,255,255,.05);"><td style="padding:6px 8px;font-size:11px;font-weight:700;color:rgba(255,255,255,.5);">3</td><td style="padding:6px 8px;font-size:11.5px;color:rgba(255,255,255,.75);">L. Torres</td><td style="padding:6px 8px;"><div style="height:8px;width:91px;background:rgba(88,0,247,.5);border-radius:3px;display:inline-block;"></div> <span style="font-size:10px;color:rgba(255,255,255,.4);">41</span></td><td style="padding:6px 8px;font-size:12px;font-weight:800;color:hsl(162 65% 52%);">14</td><td style="padding:6px 8px;font-size:11px;font-weight:700;color:hsl(162 65% 52%);">34%</td><td style="padding:6px 8px;"><span style="font-size:10px;font-weight:800;padding:2px 7px;border-radius:20px;background:rgba(255,255,255,.06);color:rgba(255,255,255,.6);">88%</span></td></tr>
-<tr style="border-top:1px solid rgba(255,255,255,.05);"><td style="padding:6px 8px;font-size:11px;font-weight:700;color:rgba(255,255,255,.5);">4</td><td style="padding:6px 8px;font-size:11.5px;color:rgba(255,255,255,.75);">J. Moreno</td><td style="padding:6px 8px;"><div style="height:8px;width:77px;background:rgba(88,0,247,.5);border-radius:3px;display:inline-block;"></div> <span style="font-size:10px;color:rgba(255,255,255,.4);">35</span></td><td style="padding:6px 8px;font-size:12px;font-weight:800;color:hsl(38 100% 58%);">9</td><td style="padding:6px 8px;font-size:11px;font-weight:700;color:hsl(38 100% 58%);">26%</td><td style="padding:6px 8px;"><span style="font-size:10px;font-weight:800;padding:2px 7px;border-radius:20px;background:rgba(255,255,255,.06);color:rgba(255,255,255,.6);">72%</span></td></tr>
-<tr style="border-top:1px solid rgba(255,255,255,.05);"><td style="padding:6px 8px;font-size:11px;font-weight:700;color:rgba(255,255,255,.5);">5</td><td style="padding:6px 8px;font-size:11.5px;color:rgba(255,255,255,.75);">C. Flores</td><td style="padding:6px 8px;"><div style="height:8px;width:62px;background:rgba(88,0,247,.5);border-radius:3px;display:inline-block;"></div> <span style="font-size:10px;color:rgba(255,255,255,.4);">28</span></td><td style="padding:6px 8px;font-size:12px;font-weight:800;color:hsl(346 90% 60%);">3</td><td style="padding:6px 8px;font-size:11px;font-weight:700;color:hsl(346 90% 60%);">11%</td><td style="padding:6px 8px;"><span style="font-size:10px;font-weight:800;padding:2px 7px;border-radius:20px;background:rgba(255,255,255,.06);color:rgba(255,255,255,.6);">41%</span></td></tr>
-<tr style="background:rgba(88,0,247,.08);border-top:1px solid rgba(88,0,247,.2);"><td style="padding:6px 8px;font-size:10px;font-weight:800;color:rgba(255,255,255,.4);">∅</td><td style="padding:6px 8px;font-size:11px;font-weight:800;color:rgba(255,255,255,.7);">Promedio equipo</td><td style="padding:6px 8px;"><span style="font-size:10.5px;color:rgba(255,255,255,.5);font-weight:700;">~36</span></td><td style="padding:6px 8px;font-size:12px;font-weight:900;color:hsl(258 70% 65%);text-align:center;">10</td><td style="padding:6px 8px;font-size:11px;font-weight:700;color:hsl(258 70% 65%);text-align:center;">28%</td><td style="padding:6px 8px;text-align:center;"><span style="font-size:10px;font-weight:800;padding:2px 7px;border-radius:20px;background:rgba(88,0,247,.2);color:hsl(258 70% 70%);">79%</span></td></tr><tr style="background:rgba(0,200,150,.06);border-top:1px solid rgba(0,200,150,.15);"><td style="padding:6px 8px;"></td><td style="padding:6px 8px;font-size:11px;font-weight:800;color:hsl(162 80% 48%);">▶ Meta</td><td style="padding:6px 8px;"><span style="font-size:10.5px;color:hsl(162 80% 48%);font-weight:700;">≥40</span></td><td style="padding:6px 8px;font-size:12px;font-weight:900;color:hsl(162 80% 48%);text-align:center;">14</td><td style="padding:6px 8px;font-size:11px;font-weight:700;color:hsl(162 80% 48%);text-align:center;">≥7%</td><td style="padding:6px 8px;text-align:center;"><span style="font-size:10px;font-weight:800;padding:2px 7px;border-radius:20px;background:rgba(0,200,150,.12);color:hsl(162 80% 48%);">≥90%</span></td></tr></tbody></table></div>
-<div style="background:#110d28;border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:20px 22px;box-shadow:0 0 0 0.5px rgba(88,0,247,.12);"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;"><p style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.38);">Conversión por canal &middot; leads gestionados</p><span style="font-size:10px;color:rgba(255,255,255,.35);font-weight:600;background:rgba(255,255,255,.05);padding:3px 10px;border-radius:20px;">&#10003; Datos reales CSV</span></div><div style="margin-bottom:12px;"><div style="display:flex;justify-content:space-between;margin-bottom:5px;"><span style="font-size:11.5px;font-weight:700;color:rgba(255,255,255,.65);">Sin canal · orgánico</span><span style="font-size:12px;font-weight:800;color:hsl(162 70% 45%);">13.99% · 593 entregas</span></div><div style="height:26px;background:rgba(255,255,255,.06);border-radius:5px;overflow:hidden;"><div style="width:100%;height:100%;border-radius:5px;background:hsl(162 70% 45%);display:flex;align-items:center;padding:0 8px;min-width:4px;"></div></div></div>
-<div style="margin-bottom:12px;"><div style="display:flex;justify-content:space-between;margin-bottom:5px;"><span style="font-size:11.5px;font-weight:700;color:rgba(255,255,255,.65);">Canal interno OCN</span><span style="font-size:12px;font-weight:800;color:hsl(258 65% 55%);">7.01% · 1,449 entregas</span></div><div style="height:26px;background:rgba(255,255,255,.06);border-radius:5px;overflow:hidden;"><div style="width:50%;height:100%;border-radius:5px;background:hsl(258 65% 55%);display:flex;align-items:center;padding:0 8px;min-width:4px;"></div></div></div>
-<div style="margin-bottom:12px;"><div style="display:flex;justify-content:space-between;margin-bottom:5px;"><span style="font-size:11.5px;font-weight:700;color:rgba(255,255,255,.65);">Referidos</span><span style="font-size:12px;font-weight:800;color:hsl(162 55% 40%);">6.41% · 321 entregas</span></div><div style="height:26px;background:rgba(255,255,255,.06);border-radius:5px;overflow:hidden;"><div style="width:46%;height:100%;border-radius:5px;background:hsl(162 55% 40%);display:flex;align-items:center;padding:0 8px;min-width:4px;"></div></div></div>
-<div style="margin-bottom:12px;"><div style="display:flex;justify-content:space-between;margin-bottom:5px;"><span style="font-size:11.5px;font-weight:700;color:rgba(255,255,255,.65);">Call center externo C8</span><span style="font-size:12px;font-weight:800;color:hsl(346 90% 58%);">0.32% · 39 entregas</span></div><div style="height:26px;background:rgba(255,255,255,.06);border-radius:5px;overflow:hidden;"><div style="width:2%;height:100%;border-radius:5px;background:hsl(346 90% 58%);display:flex;align-items:center;padding:0 8px;min-width:4px;"></div></div></div>
-<div style="background:rgba(255,50,80,.08);border:1px solid rgba(255,50,80,.15);border-radius:9px;padding:10px 14px;margin-top:4px;"><p style="font-size:11px;font-weight:700;color:hsl(346 90% 60%);margin-bottom:3px;">&#9888;&#65039; C8: 32% del volumen · 1.9% de las entregas</p><p style="font-size:11px;color:rgba(255,255,255,.5);line-height:1.4;">Reasignar 12,281 leads al canal interno = <strong style="color:hsl(162 80% 48%);">+822 autos</strong> estimados sin un lead nuevo</p></div><div style="margin-bottom:12px;"><div style="display:flex;justify-content:space-between;margin-bottom:5px;"><span style="font-size:11.5px;font-weight:700;color:rgba(255,255,255,.65);">Externo DD6</span><span style="font-size:12px;font-weight:800;color:hsl(346 90% 58%);">0.00% · 0 entregas</span></div><div style="height:26px;background:rgba(255,255,255,.06);border-radius:5px;overflow:hidden;"><div style="width:0%;height:100%;border-radius:5px;background:hsl(346 90% 58%);display:flex;align-items:center;padding:0 8px;min-width:4px;"></div></div></div>
-<p style="font-size:11px;font-weight:700;color:hsl(346 90% 60%);margin-top:3px;">730 gestionados · 0 entregas · pausar inmediatamente</p></div>
+
+<!-- NORTH STARS + KPIs -->
+<div class="section" style="margin-top:14px;">
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr;gap:10px;">
+
+  <!-- North Star 1 — big -->
+  <div class="card" style="padding:16px 18px;border-left:3px solid var(--green);grid-column:span 1;">
+    <p class="label" style="color:var(--green);margin-bottom:8px;">M. Norte #1</p>
+    <p style="font-size:11px;font-weight:800;color:#fff;margin-bottom:10px;"># Viajes / semana<br><span style="font-size:9.5px;font-weight:600;color:var(--muted);">0 viajes 7d post-entrega = alerta churn</span></p>
+    <p style="font-size:32px;font-weight:900;color:rgba(255,255,255,.3);line-height:1;">&#8212;</p>
+    <span class="badge" style="background:rgba(88,0,247,.15);color:hsl(258 70% 70%);margin-top:8px;font-size:9px;">calibrando CRM</span>
+  </div>
+
+  <!-- North Star 2 — big -->
+  <div class="card" style="padding:16px 18px;border-left:3px solid hsl(258 70% 65%);grid-column:span 1;">
+    <p class="label" style="color:hsl(258 70% 65%);margin-bottom:8px;">M. Norte #2</p>
+    <p style="font-size:11px;font-weight:800;color:#fff;margin-bottom:10px;">% Activos generando<br><span style="font-size:9.5px;font-weight:600;color:var(--muted);">de 100 entregados, cu&aacute;ntos generan ingreso</span></p>
+    <p style="font-size:32px;font-weight:900;color:rgba(255,255,255,.3);line-height:1;">&#8212;</p>
+    <span class="badge" style="background:rgba(88,0,247,.15);color:hsl(258 70% 70%);margin-top:8px;font-size:9px;">calibrando CRM</span>
+  </div>
+
+  <!-- KPI: Entregas jun -->
+  <div class="card" style="padding:14px 16px;">
+    <p class="label" style="margin-bottom:6px;">Entregas jun</p>
+    <p style="font-size:26px;font-weight:900;color:var(--red);line-height:1;margin-bottom:3px;">435</p>
+    <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;">
+      <div style="flex:1;height:5px;background:rgba(255,255,255,.08);border-radius:3px;overflow:hidden;"><div style="width:52.2%;height:100%;background:var(--red);border-radius:3px;"></div></div>
+      <span style="font-size:9px;font-weight:800;color:var(--red);">52%</span>
+    </div>
+    <p style="font-size:10px;color:var(--muted);font-weight:600;">meta 833/mes</p>
+    <span class="badge" style="background:var(--red-bg);color:var(--red);margin-top:6px;font-size:9px;">-398 para meta</span>
+  </div>
+
+  <!-- KPI: Contacto <24h -->
+  <div class="card" style="padding:14px 16px;">
+    <p class="label" style="margin-bottom:6px;">Contacto &lt;24h</p>
+    <p style="font-size:26px;font-weight:900;color:var(--red);line-height:1;margin-bottom:3px;">15%</p>
+    <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;">
+      <div style="flex:1;height:5px;background:rgba(255,255,255,.08);border-radius:3px;overflow:hidden;"><div style="width:15%;height:100%;background:var(--red);border-radius:3px;"></div></div>
+      <span style="font-size:9px;font-weight:800;color:var(--red);">15%</span>
+    </div>
+    <p style="font-size:10px;color:var(--muted);font-weight:600;">meta &gt;90%</p>
+    <span class="badge" style="background:var(--red-bg);color:var(--red);margin-top:6px;font-size:9px;">fuga cr&iacute;tica</span>
+  </div>
+
+  <!-- KPI: Ciclo lead→entrega -->
+  <div class="card" style="padding:14px 16px;">
+    <p class="label" style="margin-bottom:6px;">Ciclo lead&rarr;auto</p>
+    <p style="font-size:26px;font-weight:900;color:var(--green);line-height:1;margin-bottom:3px;">19 d&iacute;as</p>
+    <p style="font-size:10px;color:var(--muted);font-weight:600;margin-bottom:6px;">mediana &middot; 34% cierra &le;7d</p>
+    <span class="badge" style="background:var(--green-bg);color:var(--green);margin-top:6px;font-size:9px;">cuando se gestiona</span>
+  </div>
+
+  <!-- KPI: Conv interno -->
+  <div class="card" style="padding:14px 16px;">
+    <p class="label" style="margin-bottom:6px;">Conv. canal interno</p>
+    <p style="font-size:26px;font-weight:900;color:var(--green);line-height:1;margin-bottom:3px;">7.01%</p>
+    <p style="font-size:10px;color:var(--muted);font-weight:600;margin-bottom:6px;">vs C8: 0.32%</p>
+    <span class="badge" style="background:var(--green-bg);color:var(--green);margin-top:6px;font-size:9px;">22&times; mejor que C8</span>
+  </div>
+
 </div>
-<div style="display:grid;grid-template-columns:42% 28% 30%;gap:16px;padding:16px 32px 28px;">
-<div style="background:#110d28;border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:20px 22px;box-shadow:0 0 0 0.5px rgba(88,0,247,.12);"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;"><p style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.38);">Calidad de originación &middot; métricas clave</p><span style="font-size:10px;color:rgba(255,255,255,.35);font-weight:600;background:rgba(255,255,255,.05);padding:3px 10px;border-radius:20px;">&#9888;&#65039; Valores propuesta</span></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;"><div style="text-align:center;"><svg viewBox="0 0 180 115" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;"><path d="M 22 100 A 68 68 0 1 1 158 100" fill="none" stroke="rgba(255,255,255,.07)" stroke-width="13" stroke-linecap="round"/><text x="90" y="88" font-size="24" font-weight="900" fill="hsl(162 80% 48%)" text-anchor="middle" font-family="Montserrat,sans-serif">--</text><text x="90" y="108" font-size="9.5" fill="rgba(255,255,255,.5)" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="700">ECM (métrica norte)</text><text x="90" y="122" font-size="8" fill="rgba(255,255,255,.28)" text-anchor="middle" font-family="Montserrat,sans-serif">meta: >85%</text></svg></div><div style="text-align:center;"><svg viewBox="0 0 180 115" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;"><path d="M 22 100 A 68 68 0 1 1 158 100" fill="none" stroke="rgba(255,255,255,.07)" stroke-width="13" stroke-linecap="round"/><path d="M 22 100 A 68 68 0 1 1 155.3 81.03" fill="none" stroke="hsl(162 65% 52%)" stroke-width="13" stroke-linecap="round"/><text x="90" y="88" font-size="24" font-weight="900" fill="hsl(162 65% 52%)" text-anchor="middle" font-family="Montserrat,sans-serif">91%</text><text x="90" y="108" font-size="9.5" fill="rgba(255,255,255,.5)" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="700">Primer viaje &lt;7d</text><text x="90" y="122" font-size="8" fill="rgba(255,255,255,.28)" text-anchor="middle" font-family="Montserrat,sans-serif">meta: >95%</text></svg></div><div style="text-align:center;"><svg viewBox="0 0 180 115" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;"><path d="M 22 100 A 68 68 0 1 1 158 100" fill="none" stroke="rgba(255,255,255,.07)" stroke-width="13" stroke-linecap="round"/><path d="M 22 100 A 68 68 0 1 1 133.34 47.61" fill="none" stroke="hsl(38 100% 55%)" stroke-width="13" stroke-linecap="round"/><text x="90" y="88" font-size="24" font-weight="900" fill="hsl(38 100% 55%)" text-anchor="middle" font-family="Montserrat,sans-serif">7.2%</text><text x="90" y="108" font-size="9.5" fill="rgba(255,255,255,.5)" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="700">Mora temprana</text><text x="90" y="122" font-size="8" fill="rgba(255,255,255,.28)" text-anchor="middle" font-family="Montserrat,sans-serif">meta: &lt;5%</text></svg></div><div style="text-align:center;"><svg viewBox="0 0 180 115" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;"><path d="M 22 100 A 68 68 0 1 1 158 100" fill="none" stroke="rgba(255,255,255,.07)" stroke-width="13" stroke-linecap="round"/><path d="M 22 100 A 68 68 0 1 1 153.22 74.97" fill="none" stroke="hsl(258 70% 65%)" stroke-width="13" stroke-linecap="round"/><text x="90" y="88" font-size="24" font-weight="900" fill="hsl(258 70% 65%)" text-anchor="middle" font-family="Montserrat,sans-serif">88%</text><text x="90" y="108" font-size="9.5" fill="rgba(255,255,255,.5)" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="700">Retención mes 3</text><text x="90" y="122" font-size="8" fill="rgba(255,255,255,.28)" text-anchor="middle" font-family="Montserrat,sans-serif">meta: >90%</text></svg></div></div><div style="background:rgba(255,255,255,.04);border-radius:10px;padding:12px 14px;"><p style="font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.35);margin-bottom:8px;">Señales de churn temprano</p><div style="display:flex;justify-content:space-between;font-size:11.5px;margin-bottom:5px;"><span style="color:rgba(255,255,255,.55);">&#128680; Sin primer viaje &gt;7 días</span><span style="font-weight:800;color:hsl(346 90% 60%);">14 conductores</span></div><div style="display:flex;justify-content:space-between;font-size:11.5px;margin-bottom:5px;"><span style="color:rgba(255,255,255,.55);">&#9889; Caída de viajes sem a sem</span><span style="font-weight:800;color:hsl(38 100% 58%);">23 conductores</span></div><div style="display:flex;justify-content:space-between;font-size:11.5px;"><span style="color:rgba(255,255,255,.55);">&#10003; Sin señales de alerta</span><span style="font-weight:800;color:hsl(162 80% 48%);">2,044 conductores</span></div></div></div>
-<div style="background:#110d28;border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:20px 22px;box-shadow:0 0 0 0.5px rgba(88,0,247,.12);"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;"><p style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.38);">Leads sin gestionar &middot; antigüedad</p><span style="font-size:10px;color:rgba(255,255,255,.35);font-weight:600;background:rgba(255,255,255,.05);padding:3px 10px;border-radius:20px;">79,469 total</span></div><div style="max-width:160px;margin:0 auto 12px;"><svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;"><path d="M 80.0 15.0 A 65 65 0 0 1 125.67 33.75 L 108.11 51.54 A 40 40 0 0 0 80.0 40.0 Z" fill="hsl(162 80% 48%)" stroke="#07051a" stroke-width="2.5"/><path d="M 125.67 33.75 A 65 65 0 0 1 68.63 144.0 L 73.0 119.38 A 40 40 0 0 0 108.11 51.54 Z" fill="hsl(38 100% 55%)" stroke="#07051a" stroke-width="2.5"/><path d="M 68.63 144.0 A 65 65 0 0 1 80.0 15.0 L 80.0 40.0 A 40 40 0 0 0 73.0 119.38 Z" fill="hsl(346 90% 58%)" stroke="#07051a" stroke-width="2.5"/><text x="80" y="74" font-size="20" font-weight="900" fill="#fff" text-anchor="middle" font-family="Montserrat,sans-serif">79,469</text><text x="80" y="90" font-size="8" fill="rgba(255,255,255,.45)" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="700">sin gestionar</text></svg></div><div style="display:flex;flex-direction:column;gap:7px;"><div style="display:flex;justify-content:space-between;align-items:center;"><div style="display:flex;align-items:center;gap:6px;"><div style="width:10px;height:10px;border-radius:2px;background:hsl(162 80% 48%);flex-shrink:0;"></div><span style="font-size:11px;color:rgba(255,255,255,.6);">&lt;30 días &middot; calientes</span></div><div style="text-align:right;"><p style="font-size:13px;font-weight:800;color:hsl(162 80% 48%);">9,854</p><p style="font-size:9.5px;color:rgba(255,255,255,.35);">prioridad 1 &middot; hoy</p></div></div><div style="display:flex;justify-content:space-between;align-items:center;"><div style="display:flex;align-items:center;gap:6px;"><div style="width:10px;height:10px;border-radius:2px;background:hsl(38 100% 55%);flex-shrink:0;"></div><span style="font-size:11px;color:rgba(255,255,255,.6);">30&ndash;90 días</span></div><div style="text-align:right;"><p style="font-size:13px;font-weight:800;color:hsl(38 100% 58%);">32,105</p><p style="font-size:9.5px;color:rgba(255,255,255,.35);">reactivación autom.</p></div></div><div style="display:flex;justify-content:space-between;align-items:center;"><div style="display:flex;align-items:center;gap:6px;"><div style="width:10px;height:10px;border-radius:2px;background:hsl(346 90% 58%);flex-shrink:0;"></div><span style="font-size:11px;color:rgba(255,255,255,.6);">&gt;90 días</span></div><div style="text-align:right;"><p style="font-size:13px;font-weight:800;color:hsl(346 90% 60%);">37,510</p><p style="font-size:9.5px;color:rgba(255,255,255,.35);">recuperación difícil</p></div></div></div><div style="margin-top:12px;background:rgba(162,0,247,.08);border:1px solid rgba(88,0,247,.15);border-radius:9px;padding:10px 12px;"><p style="font-size:11px;font-weight:700;color:hsl(258 70% 68%);">+435 autos &middot; activar 10% del pending</p><p style="font-size:10.5px;color:rgba(255,255,255,.4);margin-top:2px;">a la tasa del canal interno (5.5%)</p></div></div>
-<div style="background:#110d28;border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:20px 22px;box-shadow:0 0 0 0.5px rgba(88,0,247,.12);"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;"><p style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.38);">Alertas &middot; acción esta semana</p><span style="font-size:10px;color:rgba(255,255,255,.35);font-weight:600;background:rgba(255,255,255,.05);padding:3px 10px;border-radius:20px;">Sem. 28 &middot; 14-18 jul</span></div><div style="display:flex;flex-direction:column;gap:8px;"><div style="background:rgba(255,50,80,.1);border:1px solid rgba(255,50,80,.2);border-left:3px solid hsl(346 90% 58%);border-radius:9px;padding:10px 13px;"><p style="font-size:10px;font-weight:800;color:hsl(346 90% 60%);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px;">&#128680; CRÍTICO</p><p style="font-size:12px;font-weight:700;color:rgba(255,255,255,.8);">9,854 leads calientes sin contactar</p><p style="font-size:11px;color:rgba(255,255,255,.45);margin-top:3px;">Célula de contacto &middot; SLA &lt;24h &middot; día 1</p></div><div style="background:rgba(255,50,80,.08);border:1px solid rgba(255,50,80,.15);border-left:3px solid hsl(346 90% 58%);border-radius:9px;padding:10px 13px;"><p style="font-size:10px;font-weight:800;color:hsl(346 90% 60%);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px;">&#128680; CRÍTICO</p><p style="font-size:12px;font-weight:700;color:rgba(255,255,255,.8);">C8 activo: 12,281 leads · 0.32% conversión</p><p style="font-size:11px;color:rgba(255,255,255,.45);margin-top:3px;">Pausar DD6 · renegociar C8 a pago por entrega</p></div><div style="background:rgba(255,165,0,.08);border:1px solid rgba(255,165,0,.15);border-left:3px solid hsl(38 100% 55%);border-radius:9px;padding:10px 13px;"><p style="font-size:10px;font-weight:800;color:hsl(38 100% 58%);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px;">&#9889; URGENTE</p><p style="font-size:12px;font-weight:700;color:rgba(255,255,255,.8);">23 conductores con caída de viajes</p><p style="font-size:11px;color:rgba(255,255,255,.45);margin-top:3px;">Check-in activo del asesor que originó</p></div><div style="background:rgba(255,165,0,.06);border:1px solid rgba(255,165,0,.12);border-left:3px solid hsl(38 100% 55%);border-radius:9px;padding:10px 13px;"><p style="font-size:10px;font-weight:800;color:hsl(38 100% 58%);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px;">&#9889; URGENTE</p><p style="font-size:12px;font-weight:700;color:rgba(255,255,255,.8);">12 seminuevos &gt;45 días sin plan de salida</p><p style="font-size:11px;color:rgba(255,255,255,.45);margin-top:3px;">Bono de mix activo · cartera prioritaria fleet</p></div><div style="background:rgba(0,200,150,.06);border:1px solid rgba(0,200,150,.15);border-left:3px solid hsl(162 80% 48%);border-radius:9px;padding:10px 13px;"><p style="font-size:10px;font-weight:800;color:hsl(162 80% 48%);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px;">&#10003; EN RUTA</p><p style="font-size:12px;font-weight:700;color:rgba(255,255,255,.8);">Pipeline: 1,853 autos ponderados</p><p style="font-size:11px;color:rgba(255,255,255,.45);margin-top:3px;">Acelerar underwriting · firma digital &middot; Sem 1</p></div></div></div>
 </div>
-<div style="text-align:center;font-size:10.5px;color:rgba(255,255,255,.28);padding:0 32px 26px;line-height:1.7;font-weight:600;">Datos reales: gth_applications.csv &middot; n=117,401 solicitudes &middot; corte 10-jul-2026 &nbsp;|&nbsp; Valores &#9888;&#65039; = ilustrativos &middot; insumo de integración CRM + BI + Customer Success &nbsp;|&nbsp; ECM = métrica norte propuesta (primer viaje &lt;7d + sin mora día 30) &nbsp;&middot;&nbsp; Ricardo Astorga &middot; Case Study Growth Director &middot; OCN &middot; Julio 2026 &nbsp;&middot;&nbsp; <a href="index.html" style="color:hsl(258 70% 70%);font-weight:700;">&larr; Volver al deck</a></div>
+
+<!-- BAR CHART + RAZONES LOST -->
+<div class="section" style="margin-top:14px;">
+<div style="display:grid;grid-template-columns:1fr 340px;gap:14px;">
+
+  <!-- Bar chart -->
+  <div class="card" style="padding:20px 22px;">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px;">
+      <div>
+        <p class="label">Entregas por mes vs meta 833 &middot; canal interno vs externo</p>
+        <p style="font-size:10.5px;color:var(--muted);font-weight:600;margin-top:3px;">Feb pico hist&oacute;rico 769 &middot; Jun recuperaci&oacute;n 435 &middot; * Jul proyectado</p>
+      </div>
+      <div style="display:flex;align-items:center;gap:14px;flex-shrink:0;">
+        <div style="display:flex;align-items:center;gap:5px;"><div style="width:10px;height:10px;border-radius:2px;background:var(--green);"></div><span style="font-size:9.5px;color:var(--muted);font-weight:600;">Jun (mejor reciente)</span></div>
+        <div style="display:flex;align-items:center;gap:5px;"><div style="width:22px;height:2px;background:var(--red);"></div><span style="font-size:9.5px;color:var(--muted);font-weight:600;">Meta 833</span></div>
+        <div style="display:flex;align-items:center;gap:5px;"><div style="width:16px;height:2.5px;background:var(--amber);"></div><span style="font-size:9.5px;color:var(--muted);font-weight:600;">Conv. %</span></div>
+      </div>
+    </div>
+    <svg viewBox="0 0 760 175" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+      <line x1="44" y1="147" x2="740" y2="147" stroke="rgba(255,255,255,.05)" stroke-width="1"/>
+      <line x1="44" y1="117" x2="740" y2="117" stroke="rgba(255,255,255,.05)" stroke-width="1"/>
+      <text x="40" y="120" font-size="7.5" fill="rgba(255,255,255,.25)" text-anchor="end" font-family="Montserrat,sans-serif">200</text>
+      <line x1="44" y1="87" x2="740" y2="87" stroke="rgba(255,255,255,.05)" stroke-width="1"/>
+      <text x="40" y="90" font-size="7.5" fill="rgba(255,255,255,.25)" text-anchor="end" font-family="Montserrat,sans-serif">400</text>
+      <line x1="44" y1="57" x2="740" y2="57" stroke="rgba(255,255,255,.05)" stroke-width="1"/>
+      <text x="40" y="60" font-size="7.5" fill="rgba(255,255,255,.25)" text-anchor="end" font-family="Montserrat,sans-serif">600</text>
+      <line x1="44" y1="27" x2="740" y2="27" stroke="rgba(255,255,255,.05)" stroke-width="1"/>
+      <text x="40" y="30" font-size="7.5" fill="rgba(255,255,255,.25)" text-anchor="end" font-family="Montserrat,sans-serif">800</text>
+      <!-- meta 833 line -->
+      <line x1="44" y1="22" x2="740" y2="22" stroke="hsl(346 90% 58%)" stroke-width="1.5" stroke-dasharray="6,3" opacity=".8"/>
+      <text x="736" y="17" font-size="8" fill="hsl(346 90% 58%)" text-anchor="end" font-family="Montserrat,sans-serif" font-weight="800">meta 833</text>
+      <!-- bars: Ene=68, Feb=769, Mar=269, Abr=272, May=208, Jun=435, Jul*=79 -->
+      <!-- Ene: y = 147-(68/833*125)=147-10.2=136.8, h=10.2 -->
+      <rect x="64" y="136.8" width="58" height="10.2" rx="4" fill="hsl(258 40% 35%)"/>
+      <text x="93" y="132" font-size="7.5" fill="rgba(255,255,255,.5)" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="700">68</text>
+      <text x="93" y="162" font-size="9" fill="rgba(255,255,255,.4)" text-anchor="middle" font-family="Montserrat,sans-serif">Ene</text>
+      <!-- Feb: y=31.7, h=115.3 -->
+      <rect x="162" y="31.7" width="58" height="115.3" rx="4" fill="hsl(258 55% 52%)"/>
+      <text x="191" y="46" font-size="7.5" fill="rgba(255,255,255,.9)" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="800">769</text>
+      <text x="191" y="162" font-size="9" fill="rgba(255,255,255,.4)" text-anchor="middle" font-family="Montserrat,sans-serif">Feb</text>
+      <!-- Mar: 269 -->
+      <rect x="260" y="106.7" width="58" height="40.3" rx="4" fill="hsl(258 40% 35%)"/>
+      <text x="289" y="116" font-size="7.5" fill="rgba(255,255,255,.9)" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="800">269</text>
+      <text x="289" y="162" font-size="9" fill="rgba(255,255,255,.4)" text-anchor="middle" font-family="Montserrat,sans-serif">Mar</text>
+      <!-- Abr: 272 -->
+      <rect x="358" y="106.2" width="58" height="40.8" rx="4" fill="hsl(258 40% 35%)"/>
+      <text x="387" y="116" font-size="7.5" fill="rgba(255,255,255,.9)" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="800">272</text>
+      <text x="387" y="162" font-size="9" fill="rgba(255,255,255,.4)" text-anchor="middle" font-family="Montserrat,sans-serif">Abr</text>
+      <!-- May: 208 -->
+      <rect x="456" y="115.8" width="58" height="31.2" rx="4" fill="hsl(258 40% 35%)"/>
+      <text x="485" y="125" font-size="7.5" fill="rgba(255,255,255,.9)" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="800">208</text>
+      <text x="485" y="162" font-size="9" fill="rgba(255,255,255,.4)" text-anchor="middle" font-family="Montserrat,sans-serif">May</text>
+      <!-- Jun: 435 -->
+      <rect x="554" y="81.8" width="58" height="65.2" rx="4" fill="hsl(162 80% 42%)"/>
+      <text x="583" y="95" font-size="7.5" fill="rgba(255,255,255,.95)" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="800">435</text>
+      <text x="583" y="162" font-size="9" fill="rgba(255,255,255,.4)" text-anchor="middle" font-family="Montserrat,sans-serif">Jun</text>
+      <!-- Jul*: 79 -->
+      <rect x="652" y="135.2" width="58" height="11.8" rx="4" fill="rgba(88,0,247,.25)"/>
+      <text x="681" y="131" font-size="7.5" fill="rgba(255,255,255,.5)" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="700">79</text>
+      <text x="681" y="162" font-size="9" fill="rgba(255,255,255,.4)" text-anchor="middle" font-family="Montserrat,sans-serif">Jul*</text>
+      <!-- conversion line -->
+      <path d="M 93 74 L 191 51 L 289 77 L 387 121 L 485 126 L 583 136" stroke="hsl(38 100% 58%)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/>
+      <circle cx="93" cy="74" r="3.5" fill="hsl(38 100% 58%)" stroke="#111" stroke-width="1.5"/>
+      <circle cx="191" cy="51" r="3.5" fill="hsl(38 100% 58%)" stroke="#111" stroke-width="1.5"/>
+      <circle cx="289" cy="77" r="3.5" fill="hsl(38 100% 58%)" stroke="#111" stroke-width="1.5"/>
+      <circle cx="387" cy="121" r="3.5" fill="hsl(38 100% 58%)" stroke="#111" stroke-width="1.5"/>
+      <circle cx="485" cy="126" r="3.5" fill="hsl(38 100% 58%)" stroke="#111" stroke-width="1.5"/>
+      <circle cx="583" cy="136" r="3.5" fill="hsl(38 100% 58%)" stroke="#111" stroke-width="1.5"/>
+      <!-- conv labels -->
+      <text x="93" y="69" font-size="7" fill="hsl(38 100% 62%)" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="700">5.2%</text>
+      <text x="191" y="46" font-size="7" fill="hsl(38 100% 62%)" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="700">8.1%</text>
+      <text x="289" y="72" font-size="7" fill="hsl(38 100% 62%)" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="700">6.8%</text>
+      <text x="387" y="116" font-size="7" fill="hsl(38 100% 62%)" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="700">3.1%</text>
+      <text x="485" y="121" font-size="7" fill="hsl(38 100% 62%)" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="700">2.9%</text>
+      <text x="583" y="131" font-size="7" fill="hsl(38 100% 62%)" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="700">7.0%</text>
+    </svg>
+    <!-- progress bar toward 833 -->
+    <div style="margin-top:12px;background:rgba(255,255,255,.04);border-radius:9px;padding:11px 14px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:7px;">
+        <p style="font-size:10.5px;font-weight:800;color:rgba(255,255,255,.6);">Progreso hacia meta mensual 833</p>
+        <span style="font-size:10.5px;font-weight:900;color:var(--red);">435 / 833 &nbsp;&middot;&nbsp; faltan 398</span>
+      </div>
+      <div style="height:10px;background:rgba(255,255,255,.07);border-radius:5px;overflow:hidden;position:relative;">
+        <div style="width:52.2%;height:100%;background:linear-gradient(90deg,hsl(162 80% 42%),hsl(162 80% 55%));border-radius:5px;"></div>
+        <div style="position:absolute;left:52.2%;top:0;height:100%;width:1.5px;background:#fff;opacity:.4;"></div>
+      </div>
+      <div style="display:flex;justify-content:space-between;margin-top:5px;">
+        <span style="font-size:9px;color:var(--green);font-weight:700;">52.2% completado</span>
+        <span style="font-size:9px;color:var(--muted);font-weight:600;">meta: 833/mes para llegar a 15,000 en EOY 2026</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Por qué se pierden leads -->
+  <div class="card" style="padding:18px 20px;">
+    <p class="label" style="margin-bottom:4px;">Por qué se pierden leads gestionados</p>
+    <p style="font-size:10px;color:var(--muted);font-weight:600;margin-bottom:14px;">Lost = 4,259 casos analizados &middot; CSV real</p>
+    <!-- bars for lost reasons -->
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
+          <span style="font-size:11px;font-weight:700;color:var(--sub);">No se logró contacto</span>
+          <span style="font-size:11px;font-weight:800;color:var(--red);">1,250 &middot; 29%</span>
+        </div>
+        <div style="height:20px;background:rgba(255,255,255,.05);border-radius:4px;overflow:hidden;">
+          <div style="width:100%;height:100%;background:linear-gradient(90deg,hsl(346 90% 40%),hsl(346 90% 55%));border-radius:4px;display:flex;align-items:center;padding:0 8px;">
+            <span style="font-size:9px;font-weight:800;color:rgba(255,255,255,.8);">contacto &lt;24h resuelve esto</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
+          <span style="font-size:11px;font-weight:700;color:var(--sub);">Sin interés</span>
+          <span style="font-size:11px;font-weight:800;color:var(--amber);">861 &middot; 20%</span>
+        </div>
+        <div style="height:20px;background:rgba(255,255,255,.05);border-radius:4px;overflow:hidden;">
+          <div style="width:69%;height:100%;background:hsl(38 80% 38%);border-radius:4px;display:flex;align-items:center;padding:0 8px;">
+            <span style="font-size:9px;font-weight:800;color:rgba(255,255,255,.7);">cadó 25d esperando</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
+          <span style="font-size:11px;font-weight:700;color:var(--sub);">Fuera de cobertura</span>
+          <span style="font-size:11px;font-weight:800;color:var(--amber);">836 &middot; 20%</span>
+        </div>
+        <div style="height:20px;background:rgba(255,255,255,.05);border-radius:4px;overflow:hidden;">
+          <div style="width:67%;height:100%;background:hsl(38 70% 32%);border-radius:4px;display:flex;align-items:center;padding:0 8px;">
+            <span style="font-size:9px;font-weight:800;color:rgba(255,255,255,.7);">fix: 3 campos en formulario</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
+          <span style="font-size:11px;font-weight:700;color:var(--sub);">Rechazó la oferta</span>
+          <span style="font-size:11px;font-weight:800;color:hsl(258 60% 65%);">343 &middot; 8%</span>
+        </div>
+        <div style="height:20px;background:rgba(255,255,255,.05);border-radius:4px;overflow:hidden;">
+          <div style="width:27%;height:100%;background:hsl(258 50% 38%);border-radius:4px;"></div>
+        </div>
+      </div>
+      <div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
+          <span style="font-size:11px;font-weight:700;color:var(--sub);">No conductor / sin historial</span>
+          <span style="font-size:11px;font-weight:800;color:hsl(258 60% 65%);">332 &middot; 8%</span>
+        </div>
+        <div style="height:20px;background:rgba(255,255,255,.05);border-radius:4px;overflow:hidden;">
+          <div style="width:27%;height:100%;background:hsl(258 45% 35%);border-radius:4px;"></div>
+        </div>
+      </div>
+    </div>
+    <div style="background:rgba(255,40,70,.08);border:1px solid rgba(255,40,70,.15);border-radius:9px;padding:10px 12px;margin-top:14px;">
+      <p style="font-size:11px;font-weight:800;color:var(--red);">29% se pierde por no contactar &lt;24h</p>
+      <p style="font-size:10.5px;color:var(--sub);margin-top:3px;line-height:1.4;">Con SLA &lt;24h → +362 oportunidades recuperables por mes</p>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- CANAL + CIUDAD + EJECUTIVOS -->
+<div class="section" style="margin-top:14px;">
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;">
+
+  <!-- Conversión por canal -->
+  <div class="card" style="padding:18px 20px;">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
+      <p class="label">Conversión por canal</p>
+      <span style="font-size:9.5px;color:rgba(255,255,255,.35);background:rgba(255,255,255,.05);padding:3px 9px;border-radius:20px;font-weight:700;">✓ Datos reales CSV</span>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
+          <span style="font-size:11px;font-weight:700;color:var(--sub);">Orgánico / sin canal</span>
+          <span style="font-size:12px;font-weight:800;color:var(--green);">13.99% &middot; 593 ejs.</span>
+        </div>
+        <div style="height:22px;background:rgba(255,255,255,.05);border-radius:5px;overflow:hidden;"><div style="width:100%;height:100%;background:hsl(162 70% 38%);border-radius:5px;display:flex;align-items:center;padding:0 8px;"><span style="font-size:9px;font-weight:800;color:rgba(255,255,255,.8);">benchmark máximo</span></div></div>
+      </div>
+      <div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
+          <span style="font-size:11px;font-weight:700;color:var(--sub);">Canal interno OCN</span>
+          <span style="font-size:12px;font-weight:800;color:hsl(258 70% 65%);">7.01% &middot; 1,449 ejs.</span>
+        </div>
+        <div style="height:22px;background:rgba(255,255,255,.05);border-radius:5px;overflow:hidden;"><div style="width:50%;height:100%;background:hsl(258 60% 48%);border-radius:5px;display:flex;align-items:center;padding:0 8px;"><span style="font-size:9px;font-weight:800;color:rgba(255,255,255,.8);">22x mejor que C8</span></div></div>
+      </div>
+      <div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
+          <span style="font-size:11px;font-weight:700;color:var(--sub);">Referidos</span>
+          <span style="font-size:12px;font-weight:800;color:hsl(162 55% 45%);">6.41% &middot; 321 ejs.</span>
+        </div>
+        <div style="height:22px;background:rgba(255,255,255,.05);border-radius:5px;overflow:hidden;"><div style="width:46%;height:100%;background:hsl(162 50% 35%);border-radius:5px;"></div></div>
+      </div>
+      <div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
+          <span style="font-size:11px;font-weight:700;color:var(--sub);">C8 externo</span>
+          <span style="font-size:12px;font-weight:800;color:var(--red);">0.32% &middot; 39 ejs.</span>
+        </div>
+        <div style="height:22px;background:rgba(255,255,255,.05);border-radius:5px;overflow:hidden;"><div style="width:2.3%;height:100%;background:var(--red);border-radius:5px;"></div></div>
+      </div>
+      <div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
+          <span style="font-size:11px;font-weight:700;color:var(--sub);">DD6 externo</span>
+          <span style="font-size:12px;font-weight:800;color:var(--red);">0.00% &middot; 0 ejs.</span>
+        </div>
+        <div style="height:22px;background:rgba(255,255,255,.05);border-radius:5px;overflow:hidden;"><div style="width:0.5%;height:100%;background:var(--red);border-radius:5px;"></div></div>
+      </div>
+    </div>
+    <div style="background:var(--red-bg);border:1px solid rgba(255,40,70,.15);border-radius:9px;padding:9px 12px;margin-top:12px;">
+      <p style="font-size:10.5px;font-weight:800;color:var(--red);">⚠️ C8: 32% del volumen &middot; 1.9% de las entregas</p>
+      <p style="font-size:10.5px;color:var(--sub);margin-top:2px;">Mover 12,281 leads al canal interno = <strong style="color:var(--green);">+822 autos</strong> sin lead nuevo</p>
+    </div>
+  </div>
+
+  <!-- Ciudad breakdown -->
+  <div class="card" style="padding:18px 20px;">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
+      <p class="label">Rendimiento por ciudad</p>
+      <span style="font-size:9.5px;color:rgba(255,255,255,.35);background:rgba(255,255,255,.05);padding:3px 9px;border-radius:20px;font-weight:700;">⚠️ Ilustrativo</span>
+    </div>
+    <!-- SVG bar chart by city -->
+    <svg viewBox="0 0 280 130" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;margin-bottom:12px;">
+      <!-- grid -->
+      <line x1="48" y1="10" x2="272" y2="10" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+      <line x1="48" y1="40" x2="272" y2="40" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+      <line x1="48" y1="70" x2="272" y2="70" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+      <line x1="48" y1="100" x2="272" y2="100" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+      <text x="44" y="103" font-size="7" fill="rgba(255,255,255,.25)" text-anchor="end" font-family="Montserrat,sans-serif">0</text>
+      <text x="44" y="73" font-size="7" fill="rgba(255,255,255,.25)" text-anchor="end" font-family="Montserrat,sans-serif">50</text>
+      <text x="44" y="43" font-size="7" fill="rgba(255,255,255,.25)" text-anchor="end" font-family="Montserrat,sans-serif">100</text>
+      <text x="44" y="13" font-size="7" fill="rgba(255,255,255,.25)" text-anchor="end" font-family="Montserrat,sans-serif">150</text>
+      <!-- CDMX: 180 ejs -->
+      <rect x="58" y="28" width="36" height="72" rx="3" fill="hsl(162 80% 42%)"/>
+      <text x="76" y="23" font-size="7.5" fill="rgba(255,255,255,.9)" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="800">180</text>
+      <text x="76" y="116" font-size="8" fill="rgba(255,255,255,.4)" text-anchor="middle" font-family="Montserrat,sans-serif">CDMX</text>
+      <!-- MTY: 142 ejs -->
+      <rect x="112" y="43" width="36" height="57" rx="3" fill="hsl(258 60% 52%)"/>
+      <text x="130" y="38" font-size="7.5" fill="rgba(255,255,255,.9)" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="800">142</text>
+      <text x="130" y="116" font-size="8" fill="rgba(255,255,255,.4)" text-anchor="middle" font-family="Montserrat,sans-serif">MTY</text>
+      <!-- GDL: 73 ejs -->
+      <rect x="166" y="70.8" width="36" height="29.2" rx="3" fill="hsl(38 90% 45%)"/>
+      <text x="184" y="65" font-size="7.5" fill="rgba(255,255,255,.9)" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="800">73</text>
+      <text x="184" y="116" font-size="8" fill="rgba(255,255,255,.4)" text-anchor="middle" font-family="Montserrat,sans-serif">GDL</text>
+      <!-- QRO: 40 ejs -->
+      <rect x="220" y="84" width="36" height="16" rx="3" fill="hsl(258 40% 35%)"/>
+      <text x="238" y="79" font-size="7.5" fill="rgba(255,255,255,.9)" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="800">40</text>
+      <text x="238" y="116" font-size="8" fill="rgba(255,255,255,.4)" text-anchor="middle" font-family="Montserrat,sans-serif">QRO</text>
+    </svg>
+    <!-- ciudad table -->
+    <table class="tbl">
+      <thead><tr>
+        <th>Ciudad</th><th style="text-align:right;">Ejs.</th><th style="text-align:right;">Conv.</th><th style="text-align:right;">&lt;24h</th><th style="text-align:right;">Meta</th>
+      </tr></thead>
+      <tbody>
+        <tr><td style="color:var(--sub);">CDMX</td><td style="text-align:right;font-weight:800;color:var(--green);">180</td><td style="text-align:right;font-weight:700;color:var(--green);">8.2%</td><td style="text-align:right;font-weight:700;color:var(--amber);">22%</td><td style="text-align:right;color:var(--muted);">250</td></tr>
+        <tr><td style="color:var(--sub);">MTY</td><td style="text-align:right;font-weight:800;color:hsl(258 70% 65%);">142</td><td style="text-align:right;font-weight:700;color:hsl(258 70% 65%);">7.5%</td><td style="text-align:right;font-weight:700;color:var(--amber);">18%</td><td style="text-align:right;color:var(--muted);">200</td></tr>
+        <tr><td style="color:var(--sub);">GDL</td><td style="text-align:right;font-weight:800;color:var(--amber);">73</td><td style="text-align:right;font-weight:700;color:var(--amber);">5.1%</td><td style="text-align:right;font-weight:700;color:var(--red);">9%</td><td style="text-align:right;color:var(--muted);">150</td></tr>
+        <tr><td style="color:var(--sub);">QRO</td><td style="text-align:right;font-weight:800;color:var(--red);">40</td><td style="text-align:right;font-weight:700;color:var(--red);">3.8%</td><td style="text-align:right;font-weight:700;color:var(--red);">6%</td><td style="text-align:right;color:var(--muted);">100</td></tr>
+        <tr style="background:rgba(255,255,255,.03);border-top:1px solid rgba(255,255,255,.07);">
+          <td style="font-weight:800;color:var(--sub);">Total</td>
+          <td style="text-align:right;font-weight:900;color:#fff;">435</td>
+          <td style="text-align:right;font-weight:800;color:hsl(258 70% 65%);">7.01%</td>
+          <td style="text-align:right;font-weight:800;color:var(--red);">15%</td>
+          <td style="text-align:right;color:var(--muted);">700</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Top ejecutivos -->
+  <div class="card" style="padding:18px 20px;">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
+      <p class="label">Pipeline ejecutivos &middot; jun</p>
+      <span style="font-size:9.5px;color:rgba(255,255,255,.35);background:rgba(255,255,255,.05);padding:3px 9px;border-radius:20px;font-weight:700;">⚠️ Nombres ilustrativos</span>
+    </div>
+    <table class="tbl">
+      <thead><tr>
+        <th>#</th><th>Ejecutivo</th><th style="text-align:center;">Ejs.</th><th style="text-align:center;">Conv.</th><th style="text-align:center;">&lt;24h</th>
+      </tr></thead>
+      <tbody>
+        <tr><td style="color:hsl(38 100% 60%);font-weight:900;">1</td><td style="color:var(--sub);">A. Ramírez &middot; MTY</td><td style="text-align:center;font-weight:900;color:var(--green);">18</td><td style="text-align:center;font-weight:700;color:var(--green);">33%</td><td style="text-align:center;"><span class="badge" style="background:var(--green-bg);color:var(--green);font-size:9px;">96%</span></td></tr>
+        <tr><td style="color:rgba(255,255,255,.35);font-weight:800;">2</td><td style="color:var(--sub);">M. Vega &middot; CDMX</td><td style="text-align:center;font-weight:900;color:var(--green);">16</td><td style="text-align:center;font-weight:700;color:var(--green);">34%</td><td style="text-align:center;"><span class="badge" style="background:var(--green-bg);color:var(--green);font-size:9px;">91%</span></td></tr>
+        <tr><td style="color:rgba(255,255,255,.35);font-weight:800;">3</td><td style="color:var(--sub);">L. Torres &middot; GDL</td><td style="text-align:center;font-weight:900;color:hsl(162 65% 52%);">14</td><td style="text-align:center;font-weight:700;color:hsl(162 65% 52%);">34%</td><td style="text-align:center;"><span class="badge" style="background:var(--green-bg);color:var(--green);font-size:9px;">88%</span></td></tr>
+        <tr><td style="color:rgba(255,255,255,.35);font-weight:800;">4</td><td style="color:var(--sub);">J. Moreno &middot; CDMX</td><td style="text-align:center;font-weight:900;color:var(--amber);">9</td><td style="text-align:center;font-weight:700;color:var(--amber);">26%</td><td style="text-align:center;"><span class="badge" style="background:var(--amber-bg);color:var(--amber);font-size:9px;">72%</span></td></tr>
+        <tr><td style="color:rgba(255,255,255,.35);font-weight:800;">5</td><td style="color:var(--sub);">C. Flores &middot; QRO</td><td style="text-align:center;font-weight:900;color:var(--red);">3</td><td style="text-align:center;font-weight:700;color:var(--red);">11%</td><td style="text-align:center;"><span class="badge" style="background:var(--red-bg);color:var(--red);font-size:9px;">41%</span></td></tr>
+        <tr style="background:rgba(255,255,255,.03);border-top:1px solid rgba(255,255,255,.07);">
+          <td style="color:var(--muted);font-size:10px;">ø</td><td style="font-weight:800;color:rgba(255,255,255,.65);">Promedio equipo</td>
+          <td style="text-align:center;font-weight:900;color:hsl(258 70% 65%);">10</td><td style="text-align:center;font-weight:700;color:hsl(258 70% 65%);">28%</td>
+          <td style="text-align:center;"><span class="badge" style="background:rgba(88,0,247,.15);color:hsl(258 70% 68%);font-size:9px;">79%</span></td>
+        </tr>
+        <tr style="background:rgba(0,200,130,.05);border-top:1px solid rgba(0,200,130,.12);">
+          <td style="color:var(--green);font-size:10px;">▶</td><td style="font-weight:800;color:var(--green);">Meta</td>
+          <td style="text-align:center;font-weight:900;color:var(--green);">14</td><td style="text-align:center;font-weight:700;color:var(--green);">&ge;7%</td>
+          <td style="text-align:center;"><span class="badge" style="background:var(--green-bg);color:var(--green);font-size:9px;">&ge;90%</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="background:rgba(255,255,255,.04);border-radius:9px;padding:10px 12px;margin-top:12px;">
+      <p style="font-size:9.5px;font-weight:800;color:var(--muted);margin-bottom:6px;text-transform:uppercase;letter-spacing:.06em;">Distribución fase 2 (filtro ingresos)</p>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <div style="flex:1;height:12px;background:rgba(255,255,255,.06);border-radius:4px;overflow:hidden;">
+          <div style="width:66%;height:100%;background:linear-gradient(90deg,var(--red),hsl(346 80% 50%));border-radius:4px;"></div>
+        </div>
+        <span style="font-size:11px;font-weight:900;color:var(--red);white-space:nowrap;">66% muere aquí</span>
+      </div>
+      <p style="font-size:9.5px;color:var(--muted);margin-top:4px;">Pre-calificar antes de la llamada libera capacidad real</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- CALIDAD + LEADS ANTIGUEDAD + ALERTAS -->
+<div class="section" style="margin-top:14px;">
+<div style="display:grid;grid-template-columns:42% 28% 30%;gap:14px;">
+
+  <!-- Calidad originación -->
+  <div class="card" style="padding:18px 20px;">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
+      <p class="label">Calidad de originación &middot; métricas clave</p>
+      <span style="font-size:9.5px;color:rgba(255,255,255,.35);background:rgba(255,255,255,.05);padding:3px 9px;border-radius:20px;font-weight:700;">⚠️ Valores propuesta</span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;">
+      <!-- ECM -->
+      <div style="text-align:center;">
+        <svg viewBox="0 0 180 110" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+          <path d="M 22 100 A 68 68 0 1 1 158 100" fill="none" stroke="rgba(255,255,255,.07)" stroke-width="13" stroke-linecap="round"/>
+          <text x="90" y="84" font-size="22" font-weight="900" fill="rgba(255,255,255,.3)" text-anchor="middle" font-family="Montserrat,sans-serif">--</text>
+          <text x="90" y="102" font-size="9" fill="rgba(255,255,255,.5)" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="700">ECM (mét. norte)</text>
+          <text x="90" y="116" font-size="7.5" fill="rgba(255,255,255,.28)" text-anchor="middle" font-family="Montserrat,sans-serif">meta: &gt;85%</text>
+        </svg>
+      </div>
+      <!-- Primer viaje <7d: 91% = arc ~3.49 rad of 3.67 -->
+      <div style="text-align:center;">
+        <svg viewBox="0 0 180 110" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+          <path d="M 22 100 A 68 68 0 1 1 158 100" fill="none" stroke="rgba(255,255,255,.07)" stroke-width="13" stroke-linecap="round"/>
+          <path d="M 22 100 A 68 68 0 1 1 155.3 81" fill="none" stroke="hsl(162 65% 52%)" stroke-width="13" stroke-linecap="round"/>
+          <text x="90" y="84" font-size="22" font-weight="900" fill="hsl(162 65% 52%)" text-anchor="middle" font-family="Montserrat,sans-serif">91%</text>
+          <text x="90" y="102" font-size="9" fill="rgba(255,255,255,.5)" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="700">Primer viaje &lt;7d</text>
+          <text x="90" y="116" font-size="7.5" fill="rgba(255,255,255,.28)" text-anchor="middle" font-family="Montserrat,sans-serif">meta: &gt;95%</text>
+        </svg>
+      </div>
+      <!-- Mora temprana: 7.2% (bad) -->
+      <div style="text-align:center;">
+        <svg viewBox="0 0 180 110" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+          <path d="M 22 100 A 68 68 0 1 1 158 100" fill="none" stroke="rgba(255,255,255,.07)" stroke-width="13" stroke-linecap="round"/>
+          <path d="M 22 100 A 68 68 0 0 1 60 36" fill="none" stroke="hsl(38 100% 55%)" stroke-width="13" stroke-linecap="round"/>
+          <text x="90" y="84" font-size="22" font-weight="900" fill="hsl(38 100% 55%)" text-anchor="middle" font-family="Montserrat,sans-serif">7.2%</text>
+          <text x="90" y="102" font-size="9" fill="rgba(255,255,255,.5)" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="700">Mora temprana</text>
+          <text x="90" y="116" font-size="7.5" fill="rgba(255,255,255,.28)" text-anchor="middle" font-family="Montserrat,sans-serif">meta: &lt;5%</text>
+        </svg>
+      </div>
+      <!-- Retención mes 3: 88% -->
+      <div style="text-align:center;">
+        <svg viewBox="0 0 180 110" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+          <path d="M 22 100 A 68 68 0 1 1 158 100" fill="none" stroke="rgba(255,255,255,.07)" stroke-width="13" stroke-linecap="round"/>
+          <path d="M 22 100 A 68 68 0 1 1 153 75" fill="none" stroke="hsl(258 70% 65%)" stroke-width="13" stroke-linecap="round"/>
+          <text x="90" y="84" font-size="22" font-weight="900" fill="hsl(258 70% 65%)" text-anchor="middle" font-family="Montserrat,sans-serif">88%</text>
+          <text x="90" y="102" font-size="9" fill="rgba(255,255,255,.5)" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="700">Retención mes 3</text>
+          <text x="90" y="116" font-size="7.5" fill="rgba(255,255,255,.28)" text-anchor="middle" font-family="Montserrat,sans-serif">meta: &gt;90%</text>
+        </svg>
+      </div>
+    </div>
+    <!-- churn signals -->
+    <div style="background:rgba(255,255,255,.04);border-radius:10px;padding:11px 13px;">
+      <p style="font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:8px;">Señales churn esta semana</p>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;">
+        <span style="font-size:11.5px;color:var(--sub);">🚨 Sin primer viaje &gt;7 días</span>
+        <span style="font-size:12px;font-weight:900;color:var(--red);">14 conductores</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;">
+        <span style="font-size:11.5px;color:var(--sub);">⚡ Caída de viajes sem a sem</span>
+        <span style="font-size:12px;font-weight:900;color:var(--amber);">23 conductores</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <span style="font-size:11.5px;color:var(--sub);">✓ Sin señales de alerta</span>
+        <span style="font-size:12px;font-weight:900;color:var(--green);">2,044 conductores</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Leads por antigüedad -->
+  <div class="card" style="padding:18px 20px;">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+      <p class="label">Leads sin gestionar</p>
+      <span style="font-size:9.5px;color:var(--muted);font-weight:700;background:rgba(255,255,255,.05);padding:3px 9px;border-radius:20px;">79,469 total</span>
+    </div>
+    <!-- donut -->
+    <div style="max-width:140px;margin:0 auto 14px;">
+      <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+        <path d="M 80 15 A 65 65 0 0 1 125.7 33.8 L 108 51.5 A 40 40 0 0 0 80 40 Z" fill="var(--green)" stroke="#111" stroke-width="2.5"/>
+        <path d="M 125.7 33.8 A 65 65 0 0 1 68.6 144 L 73 119.4 A 40 40 0 0 0 108 51.5 Z" fill="var(--amber)" stroke="#111" stroke-width="2.5"/>
+        <path d="M 68.6 144 A 65 65 0 0 1 80 15 L 80 40 A 40 40 0 0 0 73 119.4 Z" fill="var(--red)" stroke="#111" stroke-width="2.5"/>
+        <text x="80" y="75" font-size="18" font-weight="900" fill="#fff" text-anchor="middle" font-family="Montserrat,sans-serif">79,469</text>
+        <text x="80" y="90" font-size="7.5" fill="rgba(255,255,255,.4)" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="700">sin gestionar</text>
+      </svg>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 10px;background:rgba(0,200,130,.06);border-radius:8px;border:1px solid rgba(0,200,130,.12);">
+        <div style="display:flex;align-items:center;gap:7px;"><div style="width:10px;height:10px;border-radius:2px;background:var(--green);flex-shrink:0;"></div><span style="font-size:11px;color:var(--sub);">&lt;30 días</span></div>
+        <div style="text-align:right;"><p style="font-size:13px;font-weight:900;color:var(--green);">9,854</p><p style="font-size:9px;color:var(--muted);">prioridad 1 &middot; hoy</p></div>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 10px;background:var(--amber-bg);border-radius:8px;border:1px solid rgba(255,160,0,.12);">
+        <div style="display:flex;align-items:center;gap:7px;"><div style="width:10px;height:10px;border-radius:2px;background:var(--amber);flex-shrink:0;"></div><span style="font-size:11px;color:var(--sub);">30&ndash;90 días</span></div>
+        <div style="text-align:right;"><p style="font-size:13px;font-weight:900;color:var(--amber);">32,106</p><p style="font-size:9px;color:var(--muted);">reactivación autom.</p></div>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 10px;background:var(--red-bg);border-radius:8px;border:1px solid rgba(255,40,70,.12);">
+        <div style="display:flex;align-items:center;gap:7px;"><div style="width:10px;height:10px;border-radius:2px;background:var(--red);flex-shrink:0;"></div><span style="font-size:11px;color:var(--sub);">&gt;90 días</span></div>
+        <div style="text-align:right;"><p style="font-size:13px;font-weight:900;color:var(--red);">37,509</p><p style="font-size:9px;color:var(--muted);">recuperación difícil</p></div>
+      </div>
+    </div>
+    <div style="background:rgba(88,0,247,.1);border:1px solid rgba(88,0,247,.2);border-radius:9px;padding:10px 12px;margin-top:10px;">
+      <p style="font-size:11px;font-weight:800;color:hsl(258 70% 68%);">+435 autos: activar el 10% de &lt;30d</p>
+      <p style="font-size:10px;color:var(--muted);margin-top:2px;">a tasa canal interno 5.5% = 541 autos proyectados</p>
+    </div>
+  </div>
+
+  <!-- Alertas -->
+  <div class="card" style="padding:18px 20px;">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
+      <p class="label">Alertas &middot; acción esta semana</p>
+      <span style="font-size:9.5px;color:var(--muted);font-weight:700;background:rgba(255,255,255,.05);padding:3px 9px;border-radius:20px;">Sem. 29 &middot; 21-25 jul</span>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px;">
+      <div style="background:var(--red-bg);border:1px solid rgba(255,40,70,.2);border-left:3px solid var(--red);border-radius:9px;padding:10px 12px;">
+        <p style="font-size:9.5px;font-weight:800;color:var(--red);text-transform:uppercase;letter-spacing:.07em;margin-bottom:3px;">🚨 CRÍTICO</p>
+        <p style="font-size:12px;font-weight:700;color:#fff;">9,854 leads calientes sin contactar</p>
+        <p style="font-size:10.5px;color:var(--sub);margin-top:2px;">Célula de contacto &middot; SLA &lt;24h &middot; día 1</p>
+      </div>
+      <div style="background:var(--red-bg);border:1px solid rgba(255,40,70,.15);border-left:3px solid var(--red);border-radius:9px;padding:10px 12px;">
+        <p style="font-size:9.5px;font-weight:800;color:var(--red);text-transform:uppercase;letter-spacing:.07em;margin-bottom:3px;">🚨 CRÍTICO</p>
+        <p style="font-size:12px;font-weight:700;color:#fff;">C8 activo: 12,281 leads &middot; 0.32% conv.</p>
+        <p style="font-size:10.5px;color:var(--sub);margin-top:2px;">Pausar DD6 &middot; renegociar C8 a pago por entrega</p>
+      </div>
+      <div style="background:var(--amber-bg);border:1px solid rgba(255,160,0,.15);border-left:3px solid var(--amber);border-radius:9px;padding:10px 12px;">
+        <p style="font-size:9.5px;font-weight:800;color:var(--amber);text-transform:uppercase;letter-spacing:.07em;margin-bottom:3px;">⚡ URGENTE</p>
+        <p style="font-size:12px;font-weight:700;color:#fff;">23 conductores con caída de viajes</p>
+        <p style="font-size:10.5px;color:var(--sub);margin-top:2px;">Check-in activo del asesor que originó</p>
+      </div>
+      <div style="background:var(--amber-bg);border:1px solid rgba(255,160,0,.12);border-left:3px solid var(--amber);border-radius:9px;padding:10px 12px;">
+        <p style="font-size:9.5px;font-weight:800;color:var(--amber);text-transform:uppercase;letter-spacing:.07em;margin-bottom:3px;">⚡ URGENTE</p>
+        <p style="font-size:12px;font-weight:700;color:#fff;">14 sin primer viaje &gt;7 días</p>
+        <p style="font-size:10.5px;color:var(--sub);margin-top:2px;">Asesor check-in activo &middot; riesgo churn día 30</p>
+      </div>
+      <div style="background:var(--green-bg);border:1px solid rgba(0,200,130,.15);border-left:3px solid var(--green);border-radius:9px;padding:10px 12px;">
+        <p style="font-size:9.5px;font-weight:800;color:var(--green);text-transform:uppercase;letter-spacing:.07em;margin-bottom:3px;">✓ EN RUTA</p>
+        <p style="font-size:12px;font-weight:700;color:#fff;">Pipeline: 1,853 autos ponderados</p>
+        <p style="font-size:10.5px;color:var(--sub);margin-top:2px;">Acelerar underwriting &middot; firma digital &middot; Sem 1</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- 3 PALANCAS SUMMARY BAR -->
+<div class="section" style="margin-top:14px;">
+<div class="card" style="padding:16px 24px;border:1px solid rgba(0,200,130,.15);">
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:0;align-items:center;">
+    <div style="padding-right:20px;border-right:1px solid rgba(255,255,255,.07);">
+      <p style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--green);margin-bottom:6px;">Palanca 1 &middot; leads calientes</p>
+      <p style="font-size:22px;font-weight:900;color:var(--green);line-height:1;">+435 autos</p>
+      <p style="font-size:10.5px;color:var(--sub);margin-top:4px;">10% pending &lt;30d &middot; SLA &lt;24h</p>
+    </div>
+    <div style="padding:0 20px;border-right:1px solid rgba(255,255,255,.07);">
+      <p style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--green);margin-bottom:6px;">Palanca 2 &middot; migración C8</p>
+      <p style="font-size:22px;font-weight:900;color:var(--green);line-height:1;">+822 autos</p>
+      <p style="font-size:10.5px;color:var(--sub);margin-top:4px;">12,281 leads C8 al canal interno</p>
+    </div>
+    <div style="padding:0 20px;border-right:1px solid rgba(255,255,255,.07);">
+      <p style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--green);margin-bottom:6px;">Palanca 3 &middot; underwriting</p>
+      <p style="font-size:22px;font-weight:900;color:var(--green);line-height:1;">+1,853 autos</p>
+      <p style="font-size:10.5px;color:var(--sub);margin-top:4px;">pipeline activo 4,621 ponderado</p>
+    </div>
+    <div style="padding-left:20px;text-align:center;">
+      <p style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:#fff;margin-bottom:6px;">Total potencial &middot; sin lead nuevo</p>
+      <p style="font-size:36px;font-weight:900;color:var(--green);line-height:1;">+3,110</p>
+      <p style="font-size:10.5px;color:var(--sub);margin-top:4px;">ya están en el sistema</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- FOOTER -->
+<div style="text-align:center;font-size:10px;color:rgba(255,255,255,.22);padding:18px 32px 28px;line-height:1.7;font-weight:600;margin-top:14px;">
+  Datos reales: gth_applications.csv &middot; n=117,401 solicitudes &middot; corte 10-jul-2026 &nbsp;|&nbsp; Valores ⚠️ = ilustrativos (propuesta de integración CRM + BI) &nbsp;|&nbsp;
+  ECM = primer viaje &lt;7d + sin mora día 30 &nbsp;&middot;&nbsp; Ricardo Astorga &middot; Case Study Growth Director &middot; OCN &middot; Julio 2026 &nbsp;&middot;&nbsp;
+  <a href="index.html" style="color:hsl(258 70% 65%);font-weight:700;">&larr; Volver al deck</a>
+</div>
+
 </body>
 </html>
