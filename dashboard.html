@@ -2,418 +2,73 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>OCN · Dashboard Comercial</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-:root{
-  --bg:#f5f3ff;--card:#fff;--border:hsl(258 30% 91%);
-  --text:hsl(258 35% 14%);--sub:hsl(258 14% 38%);--muted:hsl(258 18% 60%);
-  --ocn:#5800F7;--ocn-dim:hsl(258 100% 95%);--ocn-mid:hsl(258 100% 85%);
-  --green:hsl(162 100% 36%);--green-dim:hsl(162 60% 95%);--green-mid:hsl(162 60% 78%);--green-text:hsl(162 100% 26%);
-  --amber:hsl(38 100% 42%);--amber-bg:hsl(38 100% 95%);
-  --red:hsl(346 100% 45%);--red-bg:hsl(346 100% 96%);
-  --teal:#0891b2;
-}
-body{font-family:'Montserrat',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding:0;}
-
-/* ─── HEADER ─────────────────────────────────────────────────── */
-.topbar{background:var(--card);border-bottom:1px solid var(--border);padding:14px 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px hsl(258 40% 14% / .05);}
-.topbar-left{display:flex;align-items:center;gap:16px;}
-.logo{height:32px;}
-.topbar-title{font-size:14px;font-weight:800;color:var(--text);}
-.topbar-sub{font-size:11px;color:var(--muted);font-weight:600;margin-top:1px;}
-.back-link{font-size:12px;font-weight:700;color:var(--ocn);text-decoration:none;border:1px solid var(--ocn-mid);padding:7px 14px;border-radius:8px;background:var(--ocn-dim);}
-.back-link:hover{background:var(--ocn-mid);}
-
-/* ─── FILTROS ─────────────────────────────────────────────────── */
-.filters{background:var(--card);border-bottom:1px solid var(--border);padding:11px 32px;display:flex;align-items:center;gap:12px;}
-.filters-label{font-size:11px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-right:4px;}
-.filter-chip{font-size:12px;font-weight:700;padding:6px 14px;border-radius:20px;border:1.5px solid var(--border);background:var(--card);color:var(--sub);cursor:pointer;display:flex;align-items:center;gap:5px;}
-.filter-chip.active{background:var(--ocn);border-color:var(--ocn);color:#fff;}
-.filter-sep{width:1px;height:20px;background:var(--border);margin:0 4px;}
-.filter-note{font-size:11px;color:var(--muted);font-weight:600;margin-left:auto;}
-.filter-dot{width:6px;height:6px;border-radius:50%;background:currentColor;}
-
-/* ─── KPI ROW ─────────────────────────────────────────────────── */
-.kpi-row{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;padding:20px 32px 0;}
-.kpi-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px 18px;box-shadow:0 1px 6px hsl(258 35% 14% / .04);}
-.kpi-label{font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:7px;}
-.kpi-val{font-size:26px;font-weight:800;line-height:1;}
-.kpi-sub{font-size:11px;color:var(--muted);margin-top:5px;font-weight:600;}
-.kpi-badge{display:inline-flex;align-items:center;gap:3px;font-size:10.5px;font-weight:800;padding:2px 7px;border-radius:20px;margin-top:5px;}
-.badge-g{background:var(--green-dim);color:var(--green-text);}
-.badge-r{background:var(--red-bg);color:var(--red);}
-.badge-a{background:var(--amber-bg);color:var(--amber);}
-.badge-v{background:var(--ocn-dim);color:var(--ocn);}
-.c-ocn{color:var(--ocn);}
-.c-green{color:var(--green-text);}
-.c-red{color:var(--red);}
-.c-amber{color:var(--amber);}
-.c-teal{color:var(--teal);}
-
-/* ─── GRIDS ─────────────────────────────────────────────────── */
-.main-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;padding:18px 32px 28px;}
-.panel{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px 22px;box-shadow:0 1px 8px hsl(258 35% 14% / .04);}
-.panel-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:16px;}
-.panel-title{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);}
-.panel-note{font-size:10.5px;color:var(--muted);font-weight:600;padding:3px 9px;background:hsl(258 40% 97%);border-radius:20px;}
-
-/* ─── BAR CHART ─────────────────────────────────────────────── */
-.bar-group{display:flex;flex-direction:column;gap:9px;}
-.bar-row{display:flex;align-items:center;gap:9px;}
-.bar-lbl{font-size:12px;font-weight:700;color:var(--sub);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.bar-track{flex:1;height:22px;background:hsl(258 40% 96%);border-radius:5px;position:relative;}
-.bar-fill{height:100%;border-radius:5px;display:flex;align-items:center;padding-left:8px;position:relative;}
-.bar-val{font-size:11.5px;font-weight:800;position:absolute;right:-55px;white-space:nowrap;}
-.bar-pct{position:absolute;right:8px;font-size:10.5px;font-weight:800;color:#fff;white-space:nowrap;}
-
-/* ─── EXEC TABLE ─────────────────────────────────────────────── */
-.exec-table{width:100%;border-collapse:collapse;font-size:12px;}
-.exec-table th{font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);padding:0 6px 8px;text-align:left;}
-.exec-table th.r{text-align:right;}
-.exec-table td{padding:7px 6px;border-top:1px solid hsl(258 30% 95%);vertical-align:middle;}
-.exec-table td.r{text-align:right;font-weight:700;}
-.mini-bar{height:10px;border-radius:3px;display:inline-block;vertical-align:middle;}
-.status-dot{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:5px;vertical-align:middle;}
-
-/* ─── DONUT (pure CSS) / METER ─────────────────────────────────── */
-.meters-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
-.meter-box{background:hsl(258 40% 97.5%);border:1px solid var(--border);border-radius:12px;padding:14px 16px;text-align:center;}
-.meter-val{font-size:28px;font-weight:800;line-height:1.1;}
-.meter-lbl{font-size:11px;font-weight:700;color:var(--muted);margin-top:5px;}
-.meter-bar{width:100%;height:8px;background:hsl(258 40% 92%);border-radius:4px;margin-top:10px;overflow:hidden;}
-.meter-fill{height:100%;border-radius:4px;}
-.meter-target{font-size:10px;color:var(--muted);font-weight:600;margin-top:4px;}
-
-/* ─── STOCK PANEL ─────────────────────────────────────────────── */
-.stock-cols{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
-.stock-bucket{border-radius:10px;padding:12px 14px;}
-.bk-g{background:var(--green-dim);border:1px solid var(--green-mid);}
-.bk-a{background:var(--amber-bg);border:1px solid hsl(38 90% 80%);}
-.bk-r{background:var(--red-bg);border:1px solid hsl(346 80% 82%);}
-.bucket-num{font-size:28px;font-weight:800;}
-.bucket-lbl{font-size:11.5px;font-weight:700;margin-top:4px;}
-.bucket-sub{font-size:11px;margin-top:3px;opacity:.75;}
-.weekly-bars{margin-top:16px;}
-.wk-row{display:flex;align-items:center;gap:8px;margin-bottom:7px;}
-.wk-lbl{font-size:11.5px;color:var(--sub);font-weight:700;min-width:44px;}
-.wk-track{flex:1;height:18px;background:hsl(258 40% 96%);border-radius:4px;overflow:hidden;}
-.wk-fill{height:100%;border-radius:4px;}
-.wk-val{font-size:11.5px;font-weight:800;min-width:36px;text-align:right;}
-
-/* ─── FOOTER ─────────────────────────────────────────────────── */
-.dash-footer{text-align:center;font-size:10.5px;color:var(--muted);padding:0 32px 26px;line-height:1.6;font-weight:600;}
+:root{--bg:#07051a;--card:#110d28;--border:rgba(255,255,255,.07);--text:#fff;--sub:rgba(255,255,255,.65);--muted:rgba(255,255,255,.38);--ocn:#5800F7;--green:hsl(162 80% 48%);--amber:hsl(38 100% 55%);--red:hsl(346 90% 58%);}
+body{font-family:"Montserrat",sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+.topbar{background:#0e0b26;border-bottom:1px solid rgba(88,0,247,.2);padding:14px 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 20px rgba(0,0,0,.5);}
+.topbar-logo{display:flex;align-items:center;gap:12px;}
+.live-dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green);animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.back-btn{font-size:12px;font-weight:700;color:rgba(255,255,255,.6);text-decoration:none;border:1px solid rgba(255,255,255,.12);padding:7px 14px;border-radius:8px;background:rgba(255,255,255,.04);transition:all .2s;}
+.back-btn:hover{background:rgba(88,0,247,.2);border-color:rgba(88,0,247,.4);color:#fff;}
+.filters{background:#0a0820;border-bottom:1px solid rgba(255,255,255,.06);padding:10px 32px;display:flex;align-items:center;gap:10px;}
+.fl{font-size:10px;font-weight:800;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.1em;margin-right:2px;}
+.chip{font-size:11.5px;font-weight:700;padding:5px 13px;border-radius:20px;border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.5);cursor:pointer;}
+.chip.on{background:var(--ocn);border-color:var(--ocn);color:#fff;}
+.fsep{width:1px;height:16px;background:rgba(255,255,255,.08);margin:0 4px;}
+.fn{font-size:10.5px;color:rgba(255,255,255,.3);font-weight:600;margin-left:auto;}
 </style>
 </head>
 <body>
-
-<!-- TOPBAR -->
 <div class="topbar">
-  <div class="topbar-left">
-    <img src="ocn-logo.svg" class="logo" alt="OCN"/>
-    <div>
-      <div class="topbar-title">Dashboard Comercial · Growth</div>
-      <div class="topbar-sub">Corte: 10 julio 2026 · n=117,401 solicitudes</div>
-    </div>
-  </div>
-  <a href="index.html" class="back-link">← Volver al deck</a>
+<div class="topbar-logo">
+<div class="live-dot"></div>
+<div><p style="font-size:14px;font-weight:900;color:#fff;letter-spacing:.02em;">OCN &middot; Dashboard Comercial</p><p style="font-size:10.5px;color:rgba(255,255,255,.38);font-weight:600;">Corte: 10 julio 2026 &nbsp;&middot;&nbsp; n=117,401 solicitudes &nbsp;&middot;&nbsp; Case Study Growth Director</p></div>
 </div>
-
-<!-- FILTROS -->
+<a href="index.html" class="back-btn">&larr; Volver al deck</a>
+</div>
 <div class="filters">
-  <span class="filters-label">Vista</span>
-  <span class="filter-chip active"><span class="filter-dot" style="background:#fff;"></span>Global</span>
-  <span class="filter-chip">CDMX</span>
-  <span class="filter-chip">MTY</span>
-  <span class="filter-chip">GDL</span>
-  <div class="filter-sep"></div>
-  <span class="filters-label">Canal</span>
-  <span class="filter-chip active">Todos</span>
-  <span class="filter-chip">Interno OCN</span>
-  <span class="filter-chip">Call center</span>
-  <span class="filter-chip">Referidos</span>
-  <div class="filter-sep"></div>
-  <span class="filters-label">Semana</span>
-  <span class="filter-chip active">Últ. 4 sem.</span>
-  <span class="filter-chip">Jun</span>
-  <span class="filter-chip">May</span>
-  <span class="filter-note">⚠️ Los filtros son ilustrativos — mockup funcional</span>
+<span class="fl">Vista</span><span class="chip on">Global</span><span class="chip">CDMX</span><span class="chip">MTY</span><span class="chip">GDL</span><div class="fsep"></div><span class="fl">Canal</span><span class="chip on">Todos</span><span class="chip">Interno OCN</span><span class="chip">Referidos</span><div class="fsep"></div><span class="fl">Periodo</span><span class="chip on">&Uacute;lt. 4 sem.</span><span class="chip">Jun</span><span class="chip">May</span><span class="fn">&#9888;&#65039; Filtros ilustrativos &middot; mockup funcional</span>
 </div>
-
-<!-- KPIs -->
-<div class="kpi-row">
-  <div class="kpi-card">
-    <div class="kpi-label">Leads este mes</div>
-    <div class="kpi-val c-ocn">14,514</div>
-    <div class="kpi-sub">junio · proy. 21K/jul</div>
-    <div class="kpi-badge badge-a">▲ fuente: CSV</div>
-  </div>
-  <div class="kpi-card">
-    <div class="kpi-label">Entregas este mes</div>
-    <div class="kpi-val c-green">435</div>
-    <div class="kpi-sub">junio · meta: 833/mes</div>
-    <div class="kpi-badge badge-r">52% de meta</div>
-  </div>
-  <div class="kpi-card">
-    <div class="kpi-label">Pipeline activo</div>
-    <div class="kpi-val c-ocn">4,624</div>
-    <div class="kpi-sub">en underwriting</div>
-    <div class="kpi-badge badge-g">+1,355–1,853 proy.</div>
-  </div>
-  <div class="kpi-card">
-    <div class="kpi-label">Sin contactar</div>
-    <div class="kpi-val c-red">79,469</div>
-    <div class="kpi-sub">68% del total</div>
-    <div class="kpi-badge badge-r">9,854 en caliente</div>
-  </div>
-  <div class="kpi-card">
-    <div class="kpi-label">Conv. canal interno</div>
-    <div class="kpi-val c-green">7.01%</div>
-    <div class="kpi-sub">vs 0.32% ext. C8</div>
-    <div class="kpi-badge badge-v">22× vs call ctr.</div>
-  </div>
-  <div class="kpi-card">
-    <div class="kpi-label">Ciclo lead→entrega</div>
-    <div class="kpi-val" style="color:var(--amber);">19 días</div>
-    <div class="kpi-sub">mediana · 34% ≤7 días</div>
-    <div class="kpi-badge badge-g">↓ fuente: CSV</div>
-  </div>
+<div style="display:grid;grid-template-columns:repeat(8,1fr);gap:10px;padding:18px 32px 0;">
+<div style="background:#110d28;border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:14px 16px;"><p style="font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.38);margin-bottom:6px;">Entregas jun</p><p style="font-size:26px;font-weight:900;color:hsl(346 90% 58%);line-height:1;margin-bottom:4px;">435</p><p style="font-size:10.5px;color:rgba(255,255,255,.42);margin-bottom:5px;font-weight:600;">meta: 833/mes</p><span style="display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:800;padding:2px 8px;border-radius:20px;background:rgba(255,50,80,.12);color:hsl(346 90% 60%);">52% de meta</span></div>
+<div style="background:#110d28;border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:14px 16px;"><p style="font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.38);margin-bottom:6px;">ECM &middot; m&eacute;trica norte</p><p style="font-size:26px;font-weight:900;color:rgba(255,255,255,.5);line-height:1;margin-bottom:4px;">-- %</p><p style="font-size:10.5px;color:rgba(255,255,255,.42);margin-bottom:5px;font-weight:600;">primer viaje+sin mora</p><span style="display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:800;padding:2px 8px;border-radius:20px;background:rgba(88,0,247,.15);color:hsl(258 80% 70%);">calibrando</span></div>
+<div style="background:#110d28;border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:14px 16px;"><p style="font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.38);margin-bottom:6px;">Conv. canal interno</p><p style="font-size:26px;font-weight:900;color:hsl(162 80% 48%);line-height:1;margin-bottom:4px;">7.01%</p><p style="font-size:10.5px;color:rgba(255,255,255,.42);margin-bottom:5px;font-weight:600;">vs 0.32% ext. C8</p><span style="display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:800;padding:2px 8px;border-radius:20px;background:rgba(0,200,150,.12);color:hsl(162 80% 52%);">22&times; vs C8</span></div>
+<div style="background:#110d28;border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:14px 16px;"><p style="font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.38);margin-bottom:6px;">Contacto &lt;24h</p><p style="font-size:26px;font-weight:900;color:hsl(346 90% 58%);line-height:1;margin-bottom:4px;">15%</p><p style="font-size:10.5px;color:rgba(255,255,255,.42);margin-bottom:5px;font-weight:600;">meta: &gt;90%</p><span style="display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:800;padding:2px 8px;border-radius:20px;background:rgba(255,50,80,.12);color:hsl(346 90% 60%);">fuga cr&iacute;tica</span></div>
+<div style="background:#110d28;border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:14px 16px;"><p style="font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.38);margin-bottom:6px;">Pipeline activo</p><p style="font-size:26px;font-weight:900;color:hsl(258 75% 68%);line-height:1;margin-bottom:4px;">4,621</p><p style="font-size:10.5px;color:rgba(255,255,255,.42);margin-bottom:5px;font-weight:600;">en underwriting</p><span style="display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:800;padding:2px 8px;border-radius:20px;background:rgba(0,200,150,.12);color:hsl(162 80% 52%);">+1,853 proy.</span></div>
+<div style="background:#110d28;border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:14px 16px;"><p style="font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.38);margin-bottom:6px;">Leads calientes</p><p style="font-size:26px;font-weight:900;color:hsl(38 100% 58%);line-height:1;margin-bottom:4px;">9,854</p><p style="font-size:10.5px;color:rgba(255,255,255,.42);margin-bottom:5px;font-weight:600;">&lt;30 d&iacute;as &middot; prioridad 1</p><span style="display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:800;padding:2px 8px;border-radius:20px;background:rgba(255,165,0,.12);color:hsl(38 100% 58%);">de 79,469 sin gest.</span></div>
+<div style="background:#110d28;border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:14px 16px;"><p style="font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.38);margin-bottom:6px;">Ciclo lead&rarr;entrega</p><p style="font-size:26px;font-weight:900;color:hsl(162 65% 52%);line-height:1;margin-bottom:4px;">19 d&iacute;as</p><p style="font-size:10.5px;color:rgba(255,255,255,.42);margin-bottom:5px;font-weight:600;">mediana &middot; 34% &le;7d</p><span style="display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:800;padding:2px 8px;border-radius:20px;background:rgba(0,200,150,.12);color:hsl(162 80% 52%);">19d sin pausas</span></div>
+<div style="background:#110d28;border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:14px 16px;"><p style="font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.38);margin-bottom:6px;">C8 riesgo</p><p style="font-size:26px;font-weight:900;color:hsl(346 90% 58%);line-height:1;margin-bottom:4px;">0.32%</p><p style="font-size:10.5px;color:rgba(255,255,255,.42);margin-bottom:5px;font-weight:600;">32% del volumen &middot; 39 ejs</p><span style="display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:800;padding:2px 8px;border-radius:20px;background:rgba(255,50,80,.12);color:hsl(346 90% 60%);">pausar canal</span></div>
 </div>
-
-<!-- MAIN GRID -->
-<div class="main-grid">
-
-  <!-- PANEL 1: Pipeline por ejecutivo -->
-  <div class="panel">
-    <div class="panel-header">
-      <div class="panel-title">Pipeline por ejecutivo · entregas mes</div>
-      <span class="panel-note">⚠️ Nombres ilustrativos</span>
-    </div>
-    <table class="exec-table">
-      <tr>
-        <th>Ejecutivo</th>
-        <th>Pipeline</th>
-        <th>Entregas</th>
-        <th>Conv.</th>
-        <th class="r">Contacto &lt;24h</th>
-      </tr>
-      <tr>
-        <td><span class="status-dot" style="background:var(--green-text);"></span>A. Ramírez</td>
-        <td><div class="mini-bar" style="width:90px;background:hsl(258 70% 90%);"></div> <span style="font-size:11px;color:var(--sub);">54</span></td>
-        <td style="font-weight:800;color:var(--green-text);">18</td>
-        <td class="r c-green">33%</td>
-        <td class="r"><span class="kpi-badge badge-g">96%</span></td>
-      </tr>
-      <tr>
-        <td><span class="status-dot" style="background:var(--green-text);"></span>M. Vega</td>
-        <td><div class="mini-bar" style="width:78px;background:hsl(258 70% 90%);"></div> <span style="font-size:11px;color:var(--sub);">47</span></td>
-        <td style="font-weight:800;color:var(--green-text);">16</td>
-        <td class="r c-green">34%</td>
-        <td class="r"><span class="kpi-badge badge-g">91%</span></td>
-      </tr>
-      <tr>
-        <td><span class="status-dot" style="background:var(--green-text);"></span>L. Torres</td>
-        <td><div class="mini-bar" style="width:68px;background:hsl(258 70% 90%);"></div> <span style="font-size:11px;color:var(--sub);">41</span></td>
-        <td style="font-weight:800;color:var(--green-text);">14</td>
-        <td class="r c-green">34%</td>
-        <td class="r"><span class="kpi-badge badge-g">88%</span></td>
-      </tr>
-      <tr>
-        <td><span class="status-dot" style="background:var(--amber);"></span>J. Moreno</td>
-        <td><div class="mini-bar" style="width:58px;background:hsl(258 70% 90%);"></div> <span style="font-size:11px;color:var(--sub);">35</span></td>
-        <td style="font-weight:800;color:var(--amber);">9</td>
-        <td class="r c-amber">26%</td>
-        <td class="r"><span class="kpi-badge badge-a">72%</span></td>
-      </tr>
-      <tr>
-        <td><span class="status-dot" style="background:var(--red);"></span>C. Flores</td>
-        <td><div class="mini-bar" style="width:46px;background:hsl(258 70% 90%);"></div> <span style="font-size:11px;color:var(--sub);">28</span></td>
-        <td style="font-weight:800;color:var(--red);">3</td>
-        <td class="r c-red">11%</td>
-        <td class="r"><span class="kpi-badge badge-r">41%</span></td>
-      </tr>
-      <tr style="background:hsl(258 70% 97.5%);">
-        <td style="font-weight:800;">Promedio equipo</td>
-        <td><div class="mini-bar" style="width:60px;background:hsl(258 55% 82%);"></div> <span style="font-size:11px;color:var(--sub);">~36</span></td>
-        <td style="font-weight:800;color:var(--ocn);">10</td>
-        <td class="r c-ocn" style="font-weight:800;">28%</td>
-        <td class="r"><span class="kpi-badge badge-v">79%</span></td>
-      </tr>
-      <tr style="background:hsl(258 70% 94%);">
-        <td style="font-weight:800;color:var(--green-text);">▶ Meta por ejecutivo</td>
-        <td></td>
-        <td style="font-weight:800;color:var(--green-text);">14</td>
-        <td class="r c-green" style="font-weight:800;">≥7%</td>
-        <td class="r"><span class="kpi-badge badge-g">≥90%</span></td>
-      </tr>
-    </table>
-  </div>
-
-  <!-- PANEL 2: Conversión por canal -->
-  <div class="panel">
-    <div class="panel-header">
-      <div class="panel-title">Conversión por canal · leads gestionados</div>
-      <span class="panel-note">✓ Datos reales CSV</span>
-    </div>
-    <div class="bar-group">
-      <div>
-        <div style="display:flex;justify-content:space-between;margin-bottom:5px;">
-          <span style="font-size:12px;font-weight:700;color:var(--sub);">Sin canal asignado · orgánico</span>
-          <span style="font-size:12px;font-weight:800;color:var(--green-text);">13.99% · 593 entregas</span>
-        </div>
-        <div style="width:100%;height:28px;background:hsl(258 40% 96%);border-radius:6px;overflow:hidden;">
-          <div style="width:100%;height:100%;background:linear-gradient(90deg,#0891b2,#22b8d4);display:flex;align-items:center;padding-left:10px;">
-            <span style="font-size:11.5px;font-weight:800;color:#fff;">4,240 gestionados</span>
-          </div>
-        </div>
-      </div>
-      <div>
-        <div style="display:flex;justify-content:space-between;margin-bottom:5px;">
-          <span style="font-size:12px;font-weight:700;color:var(--sub);">Canal interno OCN</span>
-          <span style="font-size:12px;font-weight:800;color:var(--ocn);">7.01% · 1,449 entregas</span>
-        </div>
-        <div style="width:100%;height:28px;background:hsl(258 40% 96%);border-radius:6px;overflow:hidden;">
-          <div style="width:50%;height:100%;background:linear-gradient(90deg,#5800F7,#7a35ff);display:flex;align-items:center;padding-left:10px;">
-            <span style="font-size:11.5px;font-weight:800;color:#fff;">20,672 gest.</span>
-          </div>
-        </div>
-      </div>
-      <div>
-        <div style="display:flex;justify-content:space-between;margin-bottom:5px;">
-          <span style="font-size:12px;font-weight:700;color:var(--sub);">Referidos</span>
-          <span style="font-size:12px;font-weight:800;color:#0891b2;">6.41% · 321 entregas</span>
-        </div>
-        <div style="width:100%;height:28px;background:hsl(258 40% 96%);border-radius:6px;overflow:hidden;">
-          <div style="width:46%;height:100%;background:linear-gradient(90deg,#0e7490,#0891b2);display:flex;align-items:center;padding-left:10px;">
-            <span style="font-size:11.5px;font-weight:800;color:#fff;">5,010 leads</span>
-          </div>
-        </div>
-      </div>
-      <div>
-        <div style="display:flex;justify-content:space-between;margin-bottom:5px;">
-          <span style="font-size:12px;font-weight:700;color:var(--sub);">Call center externo C8</span>
-          <span style="font-size:12px;font-weight:800;color:var(--red);">0.32% · 39 entregas</span>
-        </div>
-        <div style="width:100%;height:28px;background:hsl(258 40% 96%);border-radius:6px;overflow:hidden;">
-          <div style="width:3%;height:100%;background:linear-gradient(90deg,#e11d48,#f43f5e);min-width:3px;"></div>
-          <span style="font-size:11px;color:var(--red);font-weight:800;display:inline-block;padding-left:8px;margin-top:-26px;position:relative;top:-22px;">12,281 gestionados</span>
-        </div>
-        <div style="font-size:11px;color:var(--red);font-weight:700;margin-top:3px;">⚠️ 32% de toda la gestión — produce el 1.9% de las entregas</div>
-      </div>
-      <div>
-        <div style="display:flex;justify-content:space-between;margin-bottom:5px;">
-          <span style="font-size:12px;font-weight:700;color:var(--sub);">Externo DD6</span>
-          <span style="font-size:12px;font-weight:800;color:var(--red);">0.00% · 0 entregas</span>
-        </div>
-        <div style="width:100%;height:28px;background:var(--red-bg);border:1px solid hsl(346 80% 85%);border-radius:6px;display:flex;align-items:center;padding-left:10px;">
-          <span style="font-size:11px;font-weight:800;color:var(--red);">730 gestionados · canal inactivo — pausar</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- PANEL 3: Stock seminuevos vs ventas semanales -->
-  <div class="panel">
-    <div class="panel-header">
-      <div class="panel-title">Stock seminuevos · antigüedad vs ventas semanales</div>
-      <span class="panel-note">⚠️ Valores ilustrativos</span>
-    </div>
-    <div class="stock-cols" style="grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:16px;">
-      <div class="stock-bucket bk-g">
-        <div class="bucket-num c-green">47</div>
-        <div class="bucket-lbl">Menos de 30 días</div>
-        <div class="bucket-sub c-green">✓ En rotación normal</div>
-      </div>
-      <div class="stock-bucket bk-a">
-        <div class="bucket-num c-amber">23</div>
-        <div class="bucket-lbl">30–45 días</div>
-        <div class="bucket-sub c-amber">⚡ Asignar prioridad</div>
-      </div>
-      <div class="stock-bucket bk-r">
-        <div class="bucket-num c-red">12</div>
-        <div class="bucket-lbl">Más de 45 días</div>
-        <div class="bucket-sub c-red">🚨 Bono de mix activo</div>
-      </div>
-    </div>
-    <div class="panel-title" style="margin-bottom:10px;">Ventas semanales · últimas 6 semanas</div>
-    <div class="weekly-bars">
-      <div class="wk-row"><span class="wk-lbl">Sem 23</span><div class="wk-track"><div class="wk-fill" style="width:58%;background:var(--green);"></div></div><span class="wk-val c-green">87</span></div>
-      <div class="wk-row"><span class="wk-lbl">Sem 24</span><div class="wk-track"><div class="wk-fill" style="width:73%;background:var(--green);"></div></div><span class="wk-val c-green">109</span></div>
-      <div class="wk-row"><span class="wk-lbl">Sem 25</span><div class="wk-track"><div class="wk-fill" style="width:50%;background:var(--amber);"></div></div><span class="wk-val c-amber">74</span></div>
-      <div class="wk-row"><span class="wk-lbl">Sem 26</span><div class="wk-track"><div class="wk-fill" style="width:82%;background:var(--green);"></div></div><span class="wk-val c-green">123</span></div>
-      <div class="wk-row"><span class="wk-lbl">Sem 27</span><div class="wk-track"><div class="wk-fill" style="width:65%;background:var(--green);"></div></div><span class="wk-val c-green">97</span></div>
-      <div class="wk-row">
-        <span class="wk-lbl">Meta/sem</span>
-        <div class="wk-track" style="background:hsl(258 70% 94%);border:1.5px dashed hsl(258 55% 78%);">
-          <div class="wk-fill" style="width:100%;background:transparent;"></div>
-        </div>
-        <span class="wk-val c-ocn">208</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- PANEL 4: Calidad — primer viaje, mora, retención -->
-  <div class="panel">
-    <div class="panel-header">
-      <div class="panel-title">Calidad de originación · métricas clave</div>
-      <span class="panel-note">⚠️ Valores propuesta</span>
-    </div>
-    <div class="meters-grid">
-      <div class="meter-box">
-        <div class="meter-val" style="color:var(--green-text);">91%</div>
-        <div class="meter-lbl">Primer viaje completado</div>
-        <div class="meter-bar"><div class="meter-fill" style="width:91%;background:var(--green);"></div></div>
-        <div class="meter-target">Meta: <strong>&gt;95%</strong></div>
-      </div>
-      <div class="meter-box">
-        <div class="meter-val" style="color:var(--amber);">7.2%</div>
-        <div class="meter-lbl">Mora temprana (0–8 sem.)</div>
-        <div class="meter-bar"><div class="meter-fill" style="width:7.2%;background:var(--amber);"></div></div>
-        <div class="meter-target">Meta: <strong>&lt;5%</strong></div>
-      </div>
-      <div class="meter-box">
-        <div class="meter-val" style="color:var(--green-text);">88%</div>
-        <div class="meter-lbl">Retención mes 3</div>
-        <div class="meter-bar"><div class="meter-fill" style="width:88%;background:var(--green);"></div></div>
-        <div class="meter-target">Meta: <strong>&gt;90%</strong></div>
-      </div>
-      <div class="meter-box">
-        <div class="meter-val" style="color:var(--green-text);">$6,730</div>
-        <div class="meter-lbl">Ingreso semanal mediana</div>
-        <div class="meter-bar"><div class="meter-fill" style="width:82%;background:var(--ocn);"></div></div>
-        <div class="meter-target">Conductores entregados (n=1,491)</div>
-      </div>
-    </div>
-    <div style="margin-top:14px;background:hsl(258 40% 97.5%);border:1px solid var(--border);border-radius:10px;padding:12px 14px;">
-      <div class="panel-title" style="margin-bottom:8px;">Señales de churn temprano · monitoreo semanal</div>
-      <div style="display:flex;flex-direction:column;gap:6px;">
-        <div style="display:flex;justify-content:space-between;font-size:12px;">
-          <span style="color:var(--sub);">🚨 Sin primer viaje en &gt;7 días</span>
-          <span style="font-weight:800;color:var(--red);">14 conductores</span>
-        </div>
-        <div style="display:flex;justify-content:space-between;font-size:12px;">
-          <span style="color:var(--sub);">⚡ Caída de viajes semana a semana</span>
-          <span style="font-weight:800;color:var(--amber);">23 conductores</span>
-        </div>
-        <div style="display:flex;justify-content:space-between;font-size:12px;">
-          <span style="color:var(--sub);">✓ Sin señales de alerta</span>
-          <span style="font-weight:800;color:var(--green-text);">2,044 conductores</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
+<div style="padding:18px 32px 0;">
+<div style="background:#110d28;border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:20px 22px;box-shadow:0 0 0 0.5px rgba(88,0,247,.1);">
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
+<div><p style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.38);">Entregas por mes vs meta 833 &middot; fuente: CSV gth_applications.csv</p><p style="font-size:11px;color:rgba(255,255,255,.35);font-weight:600;margin-top:3px;">Barras = entregas entregadas &middot; L&iacute;nea naranja = % conversi&oacute;n por cohorte (eje dcho) &middot; * jul = proyectado</p></div><div style="display:flex;align-items:center;gap:16px;"><div style="display:flex;align-items:center;gap:5px;"><div style="width:12px;height:12px;border-radius:3px;background:hsl(162 80% 48%);"></div><span style="font-size:10.5px;color:rgba(255,255,255,.45);font-weight:600;">Jun (mejor mes)</span></div><div style="display:flex;align-items:center;gap:5px;"><div style="width:28px;height:2px;background:hsl(346 90% 60%);"></div><span style="font-size:10.5px;color:rgba(255,255,255,.45);font-weight:600;">Meta 833</span></div><div style="display:flex;align-items:center;gap:5px;"><div style="width:20px;height:2.5px;background:hsl(38 100% 60%);"></div><span style="font-size:10.5px;color:rgba(255,255,255,.45);font-weight:600;">Conv. cohorte %</span></div></div></div>
+<svg viewBox="0 0 860 175" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;"><line x1="48" y1="117.0" x2="838" y2="117.0" stroke="rgba(255,255,255,.05)" stroke-width="1"/><text x="43" y="120.0" font-size="8" fill="rgba(255,255,255,.28)" text-anchor="end" font-family="Montserrat,sans-serif">200</text><line x1="48" y1="87.0" x2="838" y2="87.0" stroke="rgba(255,255,255,.05)" stroke-width="1"/><text x="43" y="90.0" font-size="8" fill="rgba(255,255,255,.28)" text-anchor="end" font-family="Montserrat,sans-serif">400</text><line x1="48" y1="57.0" x2="838" y2="57.0" stroke="rgba(255,255,255,.05)" stroke-width="1"/><text x="43" y="60.0" font-size="8" fill="rgba(255,255,255,.28)" text-anchor="end" font-family="Montserrat,sans-serif">600</text><line x1="48" y1="27.0" x2="838" y2="27.0" stroke="rgba(255,255,255,.05)" stroke-width="1"/><text x="43" y="30.0" font-size="8" fill="rgba(255,255,255,.28)" text-anchor="end" font-family="Montserrat,sans-serif">800</text><line x1="48" y1="22.0" x2="838" y2="22.0" stroke="hsl(346 90% 60%)" stroke-width="1.5" stroke-dasharray="6,3" opacity=".8"/><text x="835" y="18.0" font-size="8.5" fill="hsl(346 90% 60%)" text-anchor="end" font-family="Montserrat,sans-serif" font-weight="800">meta 833</text><rect x="71.7" y="136.8" width="65.5" height="10.2" rx="5" fill="hsl(258 45% 40%)"/><text x="104.4" y="132.8" font-size="8" fill="rgba(255,255,255,.6)" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="700">68</text><text x="104.4" y="170" font-size="9.5" fill="rgba(255,255,255,.45)" text-anchor="middle" font-family="Montserrat,sans-serif">Ene</text><rect x="184.6" y="31.7" width="65.5" height="115.3" rx="5" fill="hsl(258 65% 58%)"/><text x="217.3" y="41.7" font-size="8" fill="rgba(255,255,255,.9)" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="800">769</text><text x="217.3" y="170" font-size="9.5" fill="rgba(255,255,255,.45)" text-anchor="middle" font-family="Montserrat,sans-serif">Feb</text><rect x="297.4" y="106.7" width="65.5" height="40.3" rx="5" fill="hsl(258 45% 40%)"/><text x="330.1" y="116.7" font-size="8" fill="rgba(255,255,255,.9)" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="800">269</text><text x="330.1" y="170" font-size="9.5" fill="rgba(255,255,255,.45)" text-anchor="middle" font-family="Montserrat,sans-serif">Mar</text><rect x="410.3" y="106.2" width="65.5" height="40.8" rx="5" fill="hsl(258 45% 40%)"/><text x="443.0" y="116.2" font-size="8" fill="rgba(255,255,255,.9)" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="800">272</text><text x="443.0" y="170" font-size="9.5" fill="rgba(255,255,255,.45)" text-anchor="middle" font-family="Montserrat,sans-serif">Abr</text><rect x="523.1" y="115.8" width="65.5" height="31.2" rx="5" fill="hsl(258 45% 40%)"/><text x="555.9" y="125.8" font-size="8" fill="rgba(255,255,255,.9)" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="800">208</text><text x="555.9" y="170" font-size="9.5" fill="rgba(255,255,255,.45)" text-anchor="middle" font-family="Montserrat,sans-serif">May</text><rect x="636.0" y="81.8" width="65.5" height="65.2" rx="5" fill="hsl(162 80% 48%)"/><text x="668.7" y="91.8" font-size="8" fill="rgba(255,255,255,.9)" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="800">435</text><text x="668.7" y="170" font-size="9.5" fill="rgba(255,255,255,.45)" text-anchor="middle" font-family="Montserrat,sans-serif">Jun</text><rect x="748.8" y="135.2" width="65.5" height="11.8" rx="5" fill="rgba(88,0,247,.3)"/><text x="781.6" y="131.2" font-size="8" fill="rgba(255,255,255,.6)" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="700">79</text><text x="781.6" y="170" font-size="9.5" fill="rgba(255,255,255,.45)" text-anchor="middle" font-family="Montserrat,sans-serif">Jul*</text><path d="M 104.4 69.8 L 217.3 48.5 L 330.1 73.6 L 443.0 120.8 L 555.9 125.1 L 668.7 135.4" stroke="hsl(38 100% 60%)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/><circle cx="104.4" cy="69.8" r="3.5" fill="hsl(38 100% 60%)" stroke="#07051a" stroke-width="1.5"/><circle cx="217.3" cy="48.5" r="3.5" fill="hsl(38 100% 60%)" stroke="#07051a" stroke-width="1.5"/><circle cx="330.1" cy="73.6" r="3.5" fill="hsl(38 100% 60%)" stroke="#07051a" stroke-width="1.5"/><circle cx="443.0" cy="120.8" r="3.5" fill="hsl(38 100% 60%)" stroke="#07051a" stroke-width="1.5"/><circle cx="555.9" cy="125.1" r="3.5" fill="hsl(38 100% 60%)" stroke="#07051a" stroke-width="1.5"/><circle cx="668.7" cy="135.4" r="3.5" fill="hsl(38 100% 60%)" stroke="#07051a" stroke-width="1.5"/></svg></div>
 </div>
-
-<!-- FOOTER -->
-<div class="dash-footer">
-  Datos reales: gth_applications.csv · n=117,401 solicitudes · corte 10-jul-2026 &nbsp;|&nbsp;
-  Valores ilustrativos donde se indica ⚠️ — insumo de integración con CRM, BI y Customer Success &nbsp;|&nbsp;
-  Ricardo Astorga · Case Study Growth Director · OCN · Julio 2026 &nbsp;·&nbsp;
-  <a href="index.html" style="color:var(--ocn);font-weight:700;">← Volver al deck</a>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:16px 32px 0;">
+<div style="background:#110d28;border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:20px 22px;box-shadow:0 0 0 0.5px rgba(88,0,247,.12);"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;"><p style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.38);">Pipeline por ejecutivo &middot; entregas mes</p><span style="font-size:10px;color:rgba(255,255,255,.35);font-weight:600;background:rgba(255,255,255,.05);padding:3px 10px;border-radius:20px;">&#9888;&#65039; Nombres ilustrativos</span></div><table style="width:100%;border-collapse:collapse;"><thead><tr><th style="font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:rgba(255,255,255,.3);padding:0 8px 8px;text-align:left;">#</th><th style="font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:rgba(255,255,255,.3);padding:0 8px 8px;text-align:left;">Ejecutivo</th><th style="font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:rgba(255,255,255,.3);padding:0 8px 8px;">Pipeline</th><th style="font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:rgba(255,255,255,.3);padding:0 8px 8px;text-align:center;">Ejs.</th><th style="font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:rgba(255,255,255,.3);padding:0 8px 8px;text-align:center;">Conv.</th><th style="font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:rgba(255,255,255,.3);padding:0 8px 8px;text-align:center;">&lt;24h</th></tr></thead><tbody><tr style="border-top:1px solid rgba(255,255,255,.05);"><td style="padding:6px 8px;font-size:11px;font-weight:700;color:rgba(255,255,255,.5);">1</td><td style="padding:6px 8px;font-size:11.5px;color:rgba(255,255,255,.75);">A. Ramírez</td><td style="padding:6px 8px;"><div style="height:8px;width:120px;background:rgba(88,0,247,.5);border-radius:3px;display:inline-block;"></div> <span style="font-size:10px;color:rgba(255,255,255,.4);">54</span></td><td style="padding:6px 8px;font-size:12px;font-weight:800;color:hsl(162 80% 48%);">18</td><td style="padding:6px 8px;font-size:11px;font-weight:700;color:hsl(162 80% 48%);">33%</td><td style="padding:6px 8px;"><span style="font-size:10px;font-weight:800;padding:2px 7px;border-radius:20px;background:rgba(255,255,255,.06);color:rgba(255,255,255,.6);">96%</span></td></tr>
+<tr style="border-top:1px solid rgba(255,255,255,.05);"><td style="padding:6px 8px;font-size:11px;font-weight:700;color:rgba(255,255,255,.5);">2</td><td style="padding:6px 8px;font-size:11.5px;color:rgba(255,255,255,.75);">M. Vega</td><td style="padding:6px 8px;"><div style="height:8px;width:104px;background:rgba(88,0,247,.5);border-radius:3px;display:inline-block;"></div> <span style="font-size:10px;color:rgba(255,255,255,.4);">47</span></td><td style="padding:6px 8px;font-size:12px;font-weight:800;color:hsl(162 80% 48%);">16</td><td style="padding:6px 8px;font-size:11px;font-weight:700;color:hsl(162 80% 48%);">34%</td><td style="padding:6px 8px;"><span style="font-size:10px;font-weight:800;padding:2px 7px;border-radius:20px;background:rgba(255,255,255,.06);color:rgba(255,255,255,.6);">91%</span></td></tr>
+<tr style="border-top:1px solid rgba(255,255,255,.05);"><td style="padding:6px 8px;font-size:11px;font-weight:700;color:rgba(255,255,255,.5);">3</td><td style="padding:6px 8px;font-size:11.5px;color:rgba(255,255,255,.75);">L. Torres</td><td style="padding:6px 8px;"><div style="height:8px;width:91px;background:rgba(88,0,247,.5);border-radius:3px;display:inline-block;"></div> <span style="font-size:10px;color:rgba(255,255,255,.4);">41</span></td><td style="padding:6px 8px;font-size:12px;font-weight:800;color:hsl(162 65% 52%);">14</td><td style="padding:6px 8px;font-size:11px;font-weight:700;color:hsl(162 65% 52%);">34%</td><td style="padding:6px 8px;"><span style="font-size:10px;font-weight:800;padding:2px 7px;border-radius:20px;background:rgba(255,255,255,.06);color:rgba(255,255,255,.6);">88%</span></td></tr>
+<tr style="border-top:1px solid rgba(255,255,255,.05);"><td style="padding:6px 8px;font-size:11px;font-weight:700;color:rgba(255,255,255,.5);">4</td><td style="padding:6px 8px;font-size:11.5px;color:rgba(255,255,255,.75);">J. Moreno</td><td style="padding:6px 8px;"><div style="height:8px;width:77px;background:rgba(88,0,247,.5);border-radius:3px;display:inline-block;"></div> <span style="font-size:10px;color:rgba(255,255,255,.4);">35</span></td><td style="padding:6px 8px;font-size:12px;font-weight:800;color:hsl(38 100% 58%);">9</td><td style="padding:6px 8px;font-size:11px;font-weight:700;color:hsl(38 100% 58%);">26%</td><td style="padding:6px 8px;"><span style="font-size:10px;font-weight:800;padding:2px 7px;border-radius:20px;background:rgba(255,255,255,.06);color:rgba(255,255,255,.6);">72%</span></td></tr>
+<tr style="border-top:1px solid rgba(255,255,255,.05);"><td style="padding:6px 8px;font-size:11px;font-weight:700;color:rgba(255,255,255,.5);">5</td><td style="padding:6px 8px;font-size:11.5px;color:rgba(255,255,255,.75);">C. Flores</td><td style="padding:6px 8px;"><div style="height:8px;width:62px;background:rgba(88,0,247,.5);border-radius:3px;display:inline-block;"></div> <span style="font-size:10px;color:rgba(255,255,255,.4);">28</span></td><td style="padding:6px 8px;font-size:12px;font-weight:800;color:hsl(346 90% 60%);">3</td><td style="padding:6px 8px;font-size:11px;font-weight:700;color:hsl(346 90% 60%);">11%</td><td style="padding:6px 8px;"><span style="font-size:10px;font-weight:800;padding:2px 7px;border-radius:20px;background:rgba(255,255,255,.06);color:rgba(255,255,255,.6);">41%</span></td></tr>
+<tr style="background:rgba(88,0,247,.08);border-top:1px solid rgba(88,0,247,.2);"><td style="padding:6px 8px;font-size:10px;font-weight:800;color:rgba(255,255,255,.4);">∅</td><td style="padding:6px 8px;font-size:11px;font-weight:800;color:rgba(255,255,255,.7);">Promedio equipo</td><td style="padding:6px 8px;"><span style="font-size:10.5px;color:rgba(255,255,255,.5);font-weight:700;">~36</span></td><td style="padding:6px 8px;font-size:12px;font-weight:900;color:hsl(258 70% 65%);text-align:center;">10</td><td style="padding:6px 8px;font-size:11px;font-weight:700;color:hsl(258 70% 65%);text-align:center;">28%</td><td style="padding:6px 8px;text-align:center;"><span style="font-size:10px;font-weight:800;padding:2px 7px;border-radius:20px;background:rgba(88,0,247,.2);color:hsl(258 70% 70%);">79%</span></td></tr><tr style="background:rgba(0,200,150,.06);border-top:1px solid rgba(0,200,150,.15);"><td style="padding:6px 8px;"></td><td style="padding:6px 8px;font-size:11px;font-weight:800;color:hsl(162 80% 48%);">▶ Meta</td><td style="padding:6px 8px;"><span style="font-size:10.5px;color:hsl(162 80% 48%);font-weight:700;">≥40</span></td><td style="padding:6px 8px;font-size:12px;font-weight:900;color:hsl(162 80% 48%);text-align:center;">14</td><td style="padding:6px 8px;font-size:11px;font-weight:700;color:hsl(162 80% 48%);text-align:center;">≥7%</td><td style="padding:6px 8px;text-align:center;"><span style="font-size:10px;font-weight:800;padding:2px 7px;border-radius:20px;background:rgba(0,200,150,.12);color:hsl(162 80% 48%);">≥90%</span></td></tr></tbody></table></div>
+<div style="background:#110d28;border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:20px 22px;box-shadow:0 0 0 0.5px rgba(88,0,247,.12);"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;"><p style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.38);">Conversión por canal &middot; leads gestionados</p><span style="font-size:10px;color:rgba(255,255,255,.35);font-weight:600;background:rgba(255,255,255,.05);padding:3px 10px;border-radius:20px;">&#10003; Datos reales CSV</span></div><div style="margin-bottom:12px;"><div style="display:flex;justify-content:space-between;margin-bottom:5px;"><span style="font-size:11.5px;font-weight:700;color:rgba(255,255,255,.65);">Sin canal · orgánico</span><span style="font-size:12px;font-weight:800;color:hsl(162 70% 45%);">13.99% · 593 entregas</span></div><div style="height:26px;background:rgba(255,255,255,.06);border-radius:5px;overflow:hidden;"><div style="width:100%;height:100%;border-radius:5px;background:hsl(162 70% 45%);display:flex;align-items:center;padding:0 8px;min-width:4px;"></div></div></div>
+<div style="margin-bottom:12px;"><div style="display:flex;justify-content:space-between;margin-bottom:5px;"><span style="font-size:11.5px;font-weight:700;color:rgba(255,255,255,.65);">Canal interno OCN</span><span style="font-size:12px;font-weight:800;color:hsl(258 65% 55%);">7.01% · 1,449 entregas</span></div><div style="height:26px;background:rgba(255,255,255,.06);border-radius:5px;overflow:hidden;"><div style="width:50%;height:100%;border-radius:5px;background:hsl(258 65% 55%);display:flex;align-items:center;padding:0 8px;min-width:4px;"></div></div></div>
+<div style="margin-bottom:12px;"><div style="display:flex;justify-content:space-between;margin-bottom:5px;"><span style="font-size:11.5px;font-weight:700;color:rgba(255,255,255,.65);">Referidos</span><span style="font-size:12px;font-weight:800;color:hsl(162 55% 40%);">6.41% · 321 entregas</span></div><div style="height:26px;background:rgba(255,255,255,.06);border-radius:5px;overflow:hidden;"><div style="width:46%;height:100%;border-radius:5px;background:hsl(162 55% 40%);display:flex;align-items:center;padding:0 8px;min-width:4px;"></div></div></div>
+<div style="margin-bottom:12px;"><div style="display:flex;justify-content:space-between;margin-bottom:5px;"><span style="font-size:11.5px;font-weight:700;color:rgba(255,255,255,.65);">Call center externo C8</span><span style="font-size:12px;font-weight:800;color:hsl(346 90% 58%);">0.32% · 39 entregas</span></div><div style="height:26px;background:rgba(255,255,255,.06);border-radius:5px;overflow:hidden;"><div style="width:2%;height:100%;border-radius:5px;background:hsl(346 90% 58%);display:flex;align-items:center;padding:0 8px;min-width:4px;"></div></div></div>
+<div style="background:rgba(255,50,80,.08);border:1px solid rgba(255,50,80,.15);border-radius:9px;padding:10px 14px;margin-top:4px;"><p style="font-size:11px;font-weight:700;color:hsl(346 90% 60%);margin-bottom:3px;">&#9888;&#65039; C8: 32% del volumen · 1.9% de las entregas</p><p style="font-size:11px;color:rgba(255,255,255,.5);line-height:1.4;">Reasignar 12,281 leads al canal interno = <strong style="color:hsl(162 80% 48%);">+822 autos</strong> estimados sin un lead nuevo</p></div><div style="margin-bottom:12px;"><div style="display:flex;justify-content:space-between;margin-bottom:5px;"><span style="font-size:11.5px;font-weight:700;color:rgba(255,255,255,.65);">Externo DD6</span><span style="font-size:12px;font-weight:800;color:hsl(346 90% 58%);">0.00% · 0 entregas</span></div><div style="height:26px;background:rgba(255,255,255,.06);border-radius:5px;overflow:hidden;"><div style="width:0%;height:100%;border-radius:5px;background:hsl(346 90% 58%);display:flex;align-items:center;padding:0 8px;min-width:4px;"></div></div></div>
+<p style="font-size:11px;font-weight:700;color:hsl(346 90% 60%);margin-top:3px;">730 gestionados · 0 entregas · pausar inmediatamente</p></div>
 </div>
-
+<div style="display:grid;grid-template-columns:42% 28% 30%;gap:16px;padding:16px 32px 28px;">
+<div style="background:#110d28;border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:20px 22px;box-shadow:0 0 0 0.5px rgba(88,0,247,.12);"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;"><p style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.38);">Calidad de originación &middot; métricas clave</p><span style="font-size:10px;color:rgba(255,255,255,.35);font-weight:600;background:rgba(255,255,255,.05);padding:3px 10px;border-radius:20px;">&#9888;&#65039; Valores propuesta</span></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;"><div style="text-align:center;"><svg viewBox="0 0 180 115" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;"><path d="M 22 100 A 68 68 0 1 1 158 100" fill="none" stroke="rgba(255,255,255,.07)" stroke-width="13" stroke-linecap="round"/><text x="90" y="88" font-size="24" font-weight="900" fill="hsl(162 80% 48%)" text-anchor="middle" font-family="Montserrat,sans-serif">--</text><text x="90" y="108" font-size="9.5" fill="rgba(255,255,255,.5)" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="700">ECM (métrica norte)</text><text x="90" y="122" font-size="8" fill="rgba(255,255,255,.28)" text-anchor="middle" font-family="Montserrat,sans-serif">meta: >85%</text></svg></div><div style="text-align:center;"><svg viewBox="0 0 180 115" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;"><path d="M 22 100 A 68 68 0 1 1 158 100" fill="none" stroke="rgba(255,255,255,.07)" stroke-width="13" stroke-linecap="round"/><path d="M 22 100 A 68 68 0 1 1 155.3 81.03" fill="none" stroke="hsl(162 65% 52%)" stroke-width="13" stroke-linecap="round"/><text x="90" y="88" font-size="24" font-weight="900" fill="hsl(162 65% 52%)" text-anchor="middle" font-family="Montserrat,sans-serif">91%</text><text x="90" y="108" font-size="9.5" fill="rgba(255,255,255,.5)" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="700">Primer viaje &lt;7d</text><text x="90" y="122" font-size="8" fill="rgba(255,255,255,.28)" text-anchor="middle" font-family="Montserrat,sans-serif">meta: >95%</text></svg></div><div style="text-align:center;"><svg viewBox="0 0 180 115" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;"><path d="M 22 100 A 68 68 0 1 1 158 100" fill="none" stroke="rgba(255,255,255,.07)" stroke-width="13" stroke-linecap="round"/><path d="M 22 100 A 68 68 0 1 1 133.34 47.61" fill="none" stroke="hsl(38 100% 55%)" stroke-width="13" stroke-linecap="round"/><text x="90" y="88" font-size="24" font-weight="900" fill="hsl(38 100% 55%)" text-anchor="middle" font-family="Montserrat,sans-serif">7.2%</text><text x="90" y="108" font-size="9.5" fill="rgba(255,255,255,.5)" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="700">Mora temprana</text><text x="90" y="122" font-size="8" fill="rgba(255,255,255,.28)" text-anchor="middle" font-family="Montserrat,sans-serif">meta: &lt;5%</text></svg></div><div style="text-align:center;"><svg viewBox="0 0 180 115" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;"><path d="M 22 100 A 68 68 0 1 1 158 100" fill="none" stroke="rgba(255,255,255,.07)" stroke-width="13" stroke-linecap="round"/><path d="M 22 100 A 68 68 0 1 1 153.22 74.97" fill="none" stroke="hsl(258 70% 65%)" stroke-width="13" stroke-linecap="round"/><text x="90" y="88" font-size="24" font-weight="900" fill="hsl(258 70% 65%)" text-anchor="middle" font-family="Montserrat,sans-serif">88%</text><text x="90" y="108" font-size="9.5" fill="rgba(255,255,255,.5)" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="700">Retención mes 3</text><text x="90" y="122" font-size="8" fill="rgba(255,255,255,.28)" text-anchor="middle" font-family="Montserrat,sans-serif">meta: >90%</text></svg></div></div><div style="background:rgba(255,255,255,.04);border-radius:10px;padding:12px 14px;"><p style="font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.35);margin-bottom:8px;">Señales de churn temprano</p><div style="display:flex;justify-content:space-between;font-size:11.5px;margin-bottom:5px;"><span style="color:rgba(255,255,255,.55);">&#128680; Sin primer viaje &gt;7 días</span><span style="font-weight:800;color:hsl(346 90% 60%);">14 conductores</span></div><div style="display:flex;justify-content:space-between;font-size:11.5px;margin-bottom:5px;"><span style="color:rgba(255,255,255,.55);">&#9889; Caída de viajes sem a sem</span><span style="font-weight:800;color:hsl(38 100% 58%);">23 conductores</span></div><div style="display:flex;justify-content:space-between;font-size:11.5px;"><span style="color:rgba(255,255,255,.55);">&#10003; Sin señales de alerta</span><span style="font-weight:800;color:hsl(162 80% 48%);">2,044 conductores</span></div></div></div>
+<div style="background:#110d28;border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:20px 22px;box-shadow:0 0 0 0.5px rgba(88,0,247,.12);"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;"><p style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.38);">Leads sin gestionar &middot; antigüedad</p><span style="font-size:10px;color:rgba(255,255,255,.35);font-weight:600;background:rgba(255,255,255,.05);padding:3px 10px;border-radius:20px;">79,469 total</span></div><div style="max-width:160px;margin:0 auto 12px;"><svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;"><path d="M 80.0 15.0 A 65 65 0 0 1 125.67 33.75 L 108.11 51.54 A 40 40 0 0 0 80.0 40.0 Z" fill="hsl(162 80% 48%)" stroke="#07051a" stroke-width="2.5"/><path d="M 125.67 33.75 A 65 65 0 0 1 68.63 144.0 L 73.0 119.38 A 40 40 0 0 0 108.11 51.54 Z" fill="hsl(38 100% 55%)" stroke="#07051a" stroke-width="2.5"/><path d="M 68.63 144.0 A 65 65 0 0 1 80.0 15.0 L 80.0 40.0 A 40 40 0 0 0 73.0 119.38 Z" fill="hsl(346 90% 58%)" stroke="#07051a" stroke-width="2.5"/><text x="80" y="74" font-size="20" font-weight="900" fill="#fff" text-anchor="middle" font-family="Montserrat,sans-serif">79,469</text><text x="80" y="90" font-size="8" fill="rgba(255,255,255,.45)" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="700">sin gestionar</text></svg></div><div style="display:flex;flex-direction:column;gap:7px;"><div style="display:flex;justify-content:space-between;align-items:center;"><div style="display:flex;align-items:center;gap:6px;"><div style="width:10px;height:10px;border-radius:2px;background:hsl(162 80% 48%);flex-shrink:0;"></div><span style="font-size:11px;color:rgba(255,255,255,.6);">&lt;30 días &middot; calientes</span></div><div style="text-align:right;"><p style="font-size:13px;font-weight:800;color:hsl(162 80% 48%);">9,854</p><p style="font-size:9.5px;color:rgba(255,255,255,.35);">prioridad 1 &middot; hoy</p></div></div><div style="display:flex;justify-content:space-between;align-items:center;"><div style="display:flex;align-items:center;gap:6px;"><div style="width:10px;height:10px;border-radius:2px;background:hsl(38 100% 55%);flex-shrink:0;"></div><span style="font-size:11px;color:rgba(255,255,255,.6);">30&ndash;90 días</span></div><div style="text-align:right;"><p style="font-size:13px;font-weight:800;color:hsl(38 100% 58%);">32,105</p><p style="font-size:9.5px;color:rgba(255,255,255,.35);">reactivación autom.</p></div></div><div style="display:flex;justify-content:space-between;align-items:center;"><div style="display:flex;align-items:center;gap:6px;"><div style="width:10px;height:10px;border-radius:2px;background:hsl(346 90% 58%);flex-shrink:0;"></div><span style="font-size:11px;color:rgba(255,255,255,.6);">&gt;90 días</span></div><div style="text-align:right;"><p style="font-size:13px;font-weight:800;color:hsl(346 90% 60%);">37,510</p><p style="font-size:9.5px;color:rgba(255,255,255,.35);">recuperación difícil</p></div></div></div><div style="margin-top:12px;background:rgba(162,0,247,.08);border:1px solid rgba(88,0,247,.15);border-radius:9px;padding:10px 12px;"><p style="font-size:11px;font-weight:700;color:hsl(258 70% 68%);">+435 autos &middot; activar 10% del pending</p><p style="font-size:10.5px;color:rgba(255,255,255,.4);margin-top:2px;">a la tasa del canal interno (5.5%)</p></div></div>
+<div style="background:#110d28;border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:20px 22px;box-shadow:0 0 0 0.5px rgba(88,0,247,.12);"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;"><p style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.38);">Alertas &middot; acción esta semana</p><span style="font-size:10px;color:rgba(255,255,255,.35);font-weight:600;background:rgba(255,255,255,.05);padding:3px 10px;border-radius:20px;">Sem. 28 &middot; 14-18 jul</span></div><div style="display:flex;flex-direction:column;gap:8px;"><div style="background:rgba(255,50,80,.1);border:1px solid rgba(255,50,80,.2);border-left:3px solid hsl(346 90% 58%);border-radius:9px;padding:10px 13px;"><p style="font-size:10px;font-weight:800;color:hsl(346 90% 60%);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px;">&#128680; CRÍTICO</p><p style="font-size:12px;font-weight:700;color:rgba(255,255,255,.8);">9,854 leads calientes sin contactar</p><p style="font-size:11px;color:rgba(255,255,255,.45);margin-top:3px;">Célula de contacto &middot; SLA &lt;24h &middot; día 1</p></div><div style="background:rgba(255,50,80,.08);border:1px solid rgba(255,50,80,.15);border-left:3px solid hsl(346 90% 58%);border-radius:9px;padding:10px 13px;"><p style="font-size:10px;font-weight:800;color:hsl(346 90% 60%);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px;">&#128680; CRÍTICO</p><p style="font-size:12px;font-weight:700;color:rgba(255,255,255,.8);">C8 activo: 12,281 leads · 0.32% conversión</p><p style="font-size:11px;color:rgba(255,255,255,.45);margin-top:3px;">Pausar DD6 · renegociar C8 a pago por entrega</p></div><div style="background:rgba(255,165,0,.08);border:1px solid rgba(255,165,0,.15);border-left:3px solid hsl(38 100% 55%);border-radius:9px;padding:10px 13px;"><p style="font-size:10px;font-weight:800;color:hsl(38 100% 58%);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px;">&#9889; URGENTE</p><p style="font-size:12px;font-weight:700;color:rgba(255,255,255,.8);">23 conductores con caída de viajes</p><p style="font-size:11px;color:rgba(255,255,255,.45);margin-top:3px;">Check-in activo del asesor que originó</p></div><div style="background:rgba(255,165,0,.06);border:1px solid rgba(255,165,0,.12);border-left:3px solid hsl(38 100% 55%);border-radius:9px;padding:10px 13px;"><p style="font-size:10px;font-weight:800;color:hsl(38 100% 58%);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px;">&#9889; URGENTE</p><p style="font-size:12px;font-weight:700;color:rgba(255,255,255,.8);">12 seminuevos &gt;45 días sin plan de salida</p><p style="font-size:11px;color:rgba(255,255,255,.45);margin-top:3px;">Bono de mix activo · cartera prioritaria fleet</p></div><div style="background:rgba(0,200,150,.06);border:1px solid rgba(0,200,150,.15);border-left:3px solid hsl(162 80% 48%);border-radius:9px;padding:10px 13px;"><p style="font-size:10px;font-weight:800;color:hsl(162 80% 48%);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px;">&#10003; EN RUTA</p><p style="font-size:12px;font-weight:700;color:rgba(255,255,255,.8);">Pipeline: 1,853 autos ponderados</p><p style="font-size:11px;color:rgba(255,255,255,.45);margin-top:3px;">Acelerar underwriting · firma digital &middot; Sem 1</p></div></div></div>
+</div>
+<div style="text-align:center;font-size:10.5px;color:rgba(255,255,255,.28);padding:0 32px 26px;line-height:1.7;font-weight:600;">Datos reales: gth_applications.csv &middot; n=117,401 solicitudes &middot; corte 10-jul-2026 &nbsp;|&nbsp; Valores &#9888;&#65039; = ilustrativos &middot; insumo de integración CRM + BI + Customer Success &nbsp;|&nbsp; ECM = métrica norte propuesta (primer viaje &lt;7d + sin mora día 30) &nbsp;&middot;&nbsp; Ricardo Astorga &middot; Case Study Growth Director &middot; OCN &middot; Julio 2026 &nbsp;&middot;&nbsp; <a href="index.html" style="color:hsl(258 70% 70%);font-weight:700;">&larr; Volver al deck</a></div>
 </body>
 </html>
